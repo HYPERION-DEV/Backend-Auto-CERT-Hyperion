@@ -1,0 +1,217 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  USER
+  OPERATOR
+  ADMIN
+}
+
+enum EntityType {
+  PERSONA_NATURAL
+  EMPRESA
+}
+
+enum DocType {
+  DNI
+  CE
+  RUC
+  PASAPORTE
+}
+
+enum RequestStatus {
+  BORRADOR
+  EN_REVISION
+  RECHAZADO
+  APROBADO
+  CANCELADO
+}
+
+enum DocumentCategory {
+  DNI_FRONT_BACK
+  FICHA_RUC
+  VIGENCIA_PODER
+  OTRO
+}
+
+// 📌 NUEVO: Enum para el ciclo de vida de la Validación de Identidad en BioCamer
+enum IdentityStatus {
+  PENDING      // Creado en paso 3, aún no registrado en BioCamer
+  REGISTERED   // Registrado exitosamente en biocamer.com/my/validaciones
+  APPROVED     // Validación biométrica aprobada exitosamente
+  REJECTED     // Validación biométrica rechazada
+}
+
+model User {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  passwordHash String
+  fullName     String
+  docType      DocType  @default(DNI)
+  docNumber    String   @unique
+  phone        String?
+  role         Role     @default(USER)
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  requests             CertificateRequest[]
+  auditLogs            AuditLog[]
+  verificationRequests VerificationRequest[]
+
+  @@map("users")
+}
+
+model CertificateRequest {
+  id         String        @id @default(uuid())
+  code       String        @unique
+  userId     String
+  user       User          @relation(fields: [userId], references: [id])
+  entityType EntityType    @default(PERSONA_NATURAL)
+  planType   String        @default("ONE_SHOT")
+  status     RequestStatus @default(EN_REVISION)
+  progress   String        @default("0/1")
+
+  // 📌 NUEVO: Campos para trazabilidad y sincronización con BioCamer
+  identityStatus   IdentityStatus @default(PENDING)
+  identityVerified Boolean        @default(false)
+  biocamerClientId String?        // ID o código de seguimiento generado en BioCamer
+  biocamerUrl      String?        // URL de la prueba biométrica si BioCamer la genera
+
+  // Datos Titular (Persona Natural o Representante Legal)
+  applicantDocType  DocType @default(DNI)
+  applicantDocNum   String
+  applicantNames    String
+  applicantSurname1 String
+  applicantSurname2 String
+  applicantEmail    String
+  applicantPhone    String
+
+  // Ubigeo y Dirección del Titular (extraídos de DNI / Ficha RUC)
+  department String?
+  province   String?
+  district   String?
+  address    String?
+  postalCode String?
+
+  // Campos Adicionales para Empresa
+  companyRuc  String?
+  companyName String?
+  rucType     String? // Ej: "Persona Jurídica" o "Persona Natural con Negocio"
+
+  documents RequestDocument[]
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @updatedAt
+
+  @@map("certificate_requests")
+}
+
+model RequestDocument {
+  id        String             @id @default(uuid())
+  requestId String
+  request   CertificateRequest @relation(fields: [requestId], references: [id], onDelete: Cascade)
+
+  category      DocumentCategory
+  fileName      String
+  fileUrl       String
+  mimeType      String           @default("application/pdf")
+  fileSizeBytes Int?
+
+  uploadedAt DateTime @default(now())
+
+  verificationResult VerificationResult?
+
+  @@map("request_documents")
+}
+
+model VerificationResult {
+  id          String          @id @default(uuid())
+  documentId  String          @unique
+  document    RequestDocument @relation(fields: [documentId], references: [id], onDelete: Cascade)
+
+  isMatch             Boolean
+  inputDocumentNum    String
+  detectedDocumentNum String?
+
+  extractedNames      String?
+  extractedSurname1   String?
+  extractedSurname2   String?
+  extractedBirthDate  String?
+  extractedExpiryDate String? // Fecha de Caducidad del DNI
+  extractedNationality String?
+
+  // Extracción de Ubigeo y Dirección desde DNI o RUC
+  extractedDepartment String?
+  extractedProvince   String?
+  extractedDistrict   String?
+  extractedAddress    String?
+
+  // Extracciones adicionales para Ficha RUC y Vigencia de Poder
+  extractedRuc         String?
+  extractedCompanyName String?
+  extractedRucStatus   String? // Estado (ACTIVO / INACTIVO)
+  extractedRucCond     String? // Condición (HABIDO / NO HABIDO)
+  extractedIssueDate   String? // Fecha de emisión SUNARP (Vigencia de Poder)
+
+  rejectionReason   String? // Detalle exacto en caso de fallo en el cross-check
+  rawAiJsonResponse Json?
+
+  verifiedAt DateTime @default(now())
+
+  @@map("verification_results")
+}
+
+model VerificationRequest {
+  id     String  @id @default(uuid())
+  userId String?
+  user   User?   @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  entityType EntityType @default(PERSONA_NATURAL)
+
+  // Documento de identidad (DNI/CE/PASAPORTE)
+  docType        DocType @default(DNI)
+  documentNumber String
+
+  // Datos extraídos por el OCR/Gemini
+  extractedFirstName String? // Nombres
+  extractedLastName  String? // Apellidos
+  extractedFullName   String? // Nombre completo
+
+  // Ubigeo y Dirección persistidos
+  department String?
+  province   String?
+  district   String?
+  address    String?
+
+  // Datos de contacto
+  email String?
+  phone String?
+
+  // Datos opcionales para empresas
+  companyRuc  String?
+  companyName String?
+
+  isVerified Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("verification_requests")
+}
+
+model AuditLog {
+  id        String   @id @default(uuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+  action    String
+  ipAddress String?
+  userAgent String?
+  createdAt DateTime @default(now())
+
+  @@map("audit_logs")
+}
