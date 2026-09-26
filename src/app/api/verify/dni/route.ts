@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { writeFile, mkdir } from 'fs/promises';
-import path from 'path';
 import { GoogleGenAI, Type, Schema } from '@google/genai';
 import { PrismaClient, EntityType, DocType, DocumentCategory } from '@prisma/client';
 import { CertificateValidator } from '@/validators/certificate.validator';
+import { uploadToSupabase } from '@/lib/supabase';
+import { LocationService } from '@/lib/ubigeo-service';
 
 const prisma = new PrismaClient();
 const apiKey = process.env.GEMINI_API_KEY || '';
@@ -26,19 +26,6 @@ const dniResponseSchema: Schema = {
   },
   required: ['documentoDetectado', 'cuiDni', 'nombres', 'primerApellido', 'segundoApellido'],
 };
-
-async function saveFileToDisk(file: File): Promise<{ fileUrl: string; buffer: Buffer }> {
-  const bytes = await file.arrayBuffer();
-  const buffer = Buffer.from(bytes);
-  const uploadDir = path.join(process.cwd(), 'public', 'uploads');
-  await mkdir(uploadDir, { recursive: true });
-
-  const filename = `${Date.now()}-${file.name.replace(/\s+/g, '_')}`;
-  const filePath = path.join(uploadDir, filename);
-  await writeFile(filePath, buffer);
-
-  return { fileUrl: `/uploads/${filename}`, buffer };
-}
 
 async function processDniWithAi(ai: GoogleGenAI, base64Pdf: string) {
   const models = ['gemini-3.6-flash', 'gemini-3.5-flash'];
@@ -77,29 +64,17 @@ export async function POST(request: NextRequest) {
     const formData = await request.formData();
     
     const fileDni = formData.get('file') as File;
-    const fileRuc = formData.get('fileRuc') as File | null;
-    const fileVigencia = formData.get('fileVigencia') as File | null;
-
     const inputDni = ((formData.get('documentNumber') as string) || '').trim();
     const applicantEmail = ((formData.get('email') as string) || '').trim();
     const applicantPhone = ((formData.get('phone') as string) || '').trim();
-    const rawEntityType = ((formData.get('entityType') as string) || 'PERSONA_NATURAL').trim();
     const planType = ((formData.get('planType') as string) || 'ONE_SHOT').trim();
-    const companyRuc = ((formData.get('companyRuc') as string) || '').trim();
-    const companyName = ((formData.get('companyName') as string) || '').trim();
-
-    const isEmpresa = rawEntityType === 'EMPRESA' || rawEntityType === 'company';
 
     if (!fileDni || !inputDni || !applicantEmail || !applicantPhone) {
-      return NextResponse.json({ error: 'Faltan datos obligatorios del representante o titular.' }, { status: 400 });
+      return NextResponse.json({ error: 'Faltan datos obligatorios del titular.' }, { status: 400 });
     }
 
-    if (isEmpresa && (!fileRuc || !fileVigencia || !companyRuc || !companyName)) {
-      return NextResponse.json({ error: 'Para registro de Empresa, Ficha RUC, Vigencia, RUC y Razón Social son requeridos.' }, { status: 400 });
-    }
-
-    // 1. Guardar DNI y Procesar OCR
-    const dniSaved = await saveFileToDisk(fileDni);
+    // 1. Subida directa a Supabase Storage y extracción OCR
+    const dniSaved = await uploadToSupabase(fileDni, `verifications/dni/${inputDni}`);
     const ai = new GoogleGenAI({ apiKey });
     const aiResponse = await processDniWithAi(ai, dniSaved.buffer.toString('base64'));
 
@@ -119,12 +94,19 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'No existe usuario base registrado.' }, { status: 500 });
     }
 
-    // 3. Mapear Documentos
+    // 3. Resolver Ubicación y Código Postal de la base de datos de Ubigeos
+    const rawDept = extractedData.departamento || 'ICA';
+    const rawProv = extractedData.provincia || 'ICA';
+    const rawDist = extractedData.distrito || 'PARCONA';
+    const location = await LocationService.resolveLocationAndZip(rawDept, rawProv, rawDist);
+
+    // 4. Mapear Documentos con la URL y path de Supabase
     const documentsToCreate: any[] = [
       {
         category: DocumentCategory.DNI_FRONT_BACK,
         fileName: fileDni.name,
         fileUrl: dniSaved.fileUrl,
+        storagePath: dniSaved.storagePath,
         mimeType: fileDni.type || 'application/pdf',
         fileSizeBytes: dniSaved.buffer.length,
         verificationResult: {
@@ -137,41 +119,23 @@ export async function POST(request: NextRequest) {
             extractedSurname2: extractedData.segundoApellido,
             extractedBirthDate: extractedData.fechaNacimiento,
             extractedNationality: extractedData.nacionalidad,
+            extractedDepartment: location.department,
+            extractedProvince: location.province,
+            extractedDistrict: location.district,
+            extractedAddress: extractedData.direccion,
             rawAiJsonResponse: extractedData,
           },
         },
       },
     ];
 
-    if (isEmpresa && fileRuc && fileVigencia) {
-      const rucSaved = await saveFileToDisk(fileRuc);
-      const vigenciaSaved = await saveFileToDisk(fileVigencia);
-
-      documentsToCreate.push({
-        category: DocumentCategory.FICHA_RUC,
-        fileName: fileRuc.name,
-        fileUrl: rucSaved.fileUrl,
-        mimeType: fileRuc.type || 'application/pdf',
-        fileSizeBytes: rucSaved.buffer.length,
-      });
-
-      documentsToCreate.push({
-        category: DocumentCategory.VIGENCIA_PODER,
-        fileName: fileVigencia.name,
-        fileUrl: vigenciaSaved.fileUrl,
-        mimeType: fileVigencia.type || 'application/pdf',
-        fileSizeBytes: vigenciaSaved.buffer.length,
-      });
-    }
-
-    // 4. Crear Certificado guardando la ubicación extraída
     const certCode = `CERT-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
 
     const certRequest = await prisma.certificateRequest.create({
       data: {
         code: certCode,
         userId: defaultUser.id,
-        entityType: isEmpresa ? EntityType.EMPRESA : EntityType.PERSONA_NATURAL,
+        entityType: EntityType.PERSONA_NATURAL,
         planType,
         status: validation.status,
         progress: validation.progress,
@@ -183,14 +147,11 @@ export async function POST(request: NextRequest) {
         applicantEmail,
         applicantPhone,
         
-        // 📍 Asignación explícita de campos de ubicación
-        department: extractedData.departamento || null,
-        province: extractedData.provincia || null,
-        district: extractedData.distrito || null,
+        department: location.department,
+        province: location.province,
+        district: location.district,
         address: extractedData.direccion || null,
-
-        companyRuc: isEmpresa ? companyRuc : null,
-        companyName: isEmpresa ? companyName : null,
+        postalCode: location.postalCode, // Pasa el Ubigeo numérico de 6 dígitos
         documents: {
           create: documentsToCreate,
         },

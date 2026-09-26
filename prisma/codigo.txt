@@ -1,0 +1,2671 @@
+ Codigo / Capitales / Distritos / Provincia / Departamento
+01000	Chachapoyas, Huancas	Chachapoyas, Huancas	Chachapoyas	Amazonas
+ 01001	Chachapoyas	Chachapoyas	Chachapoyas	Amazonas
+ 01100	Valera (San Pablo)	Valera	Bongara	Amazonas
+ 01110	Churuja	Churuja	Bongara	Amazonas
+ 01120	San Carlos	San Carlos	Bongara	Amazonas
+ 01130	Pedro Ruiz Gallo	Jazan	Bongara	Amazonas
+ 01131	Pedro Ruiz Gallo	Jazan	Bongara	Amazonas
+ 01140	Cuispes	Cuispes	Bongara	Amazonas
+ 01150	Florida (Pomacochas)	Florida	Bongara	Amazonas
+ 01151	Florida (Pomacochas)	Florida	Bongara	Amazonas
+ 01160	Yambrasbamba	Yambrasbamba	Bongara	Amazonas
+ 01161	Yambrasbamba	Yambrasbamba	Bongara	Amazonas
+ 01200	Granada	Granada	Chachapoyas	Amazonas
+ 01210	Quinjalca	Quinjalca	Chachapoyas	Amazonas
+ 01220	Chiliquin	Chiliquin	Chachapoyas	Amazonas
+ 01230	Asuncion	Asuncion	Chachapoyas	Amazonas
+ 01240	Recta	Recta	Bongara	Amazonas
+ 01250	Jumbilla	Jumbilla	Bongara	Amazonas
+ 01260	Chisquilla	Chisquilla	Bongara	Amazonas
+ 01270	Corosha	Corosha	Bongara	Amazonas
+ 01280	Olleros	Olleros	Chachapoyas	Amazonas
+ 01300	San Juan de Sonche	Sonche	Chachapoyas	Amazonas
+ 01305	Soloco	Soloco	Chachapoyas	Amazonas
+ 01310	Daguas	San Francisco de Daguas	Chachapoyas	Amazonas
+ 01315	Cheto	Cheto	Chachapoyas	Amazonas
+ 01320	Molinopampa	Molinopampa	Chachapoyas	Amazonas
+ 01325	Vista Alegre	Vista Alegre	Rodriguez de Mendoza	Amazonas
+ 01330	Mariscal Benavides	Mariscal Benavides	Rodriguez de Mendoza	Amazonas
+ 01335	Mendoza	San Nicolas	Rodriguez de Mendoza	Amazonas
+ 01340	Omia	Omia	Rodriguez de Mendoza	Amazonas
+ 01341	Omia	Omia	Rodriguez de Mendoza	Amazonas
+ 01345	Longar	Longar	Rodriguez de Mendoza	Amazonas
+ 01350	Cochamal	Cochamal	Rodriguez de Mendoza	Amazonas
+ 01355	Huambo	Huambo	Rodriguez de Mendoza	Amazonas
+ 01360	Santa Rosa de Huayabamba	Santa Rosa	Rodriguez de Mendoza	Amazonas
+ 01365	Totora	Totora	Rodriguez de Mendoza	Amazonas
+ 01370	Limabamba	Limabamba	Rodriguez de Mendoza	Amazonas
+ 01375	Milpuc	Milpuc	Rodriguez de Mendoza	Amazonas
+ 01380	Chirimoto	Chirimoto	Rodriguez de Mendoza	Amazonas
+ 01400	Levanto	Levanto	Chachapoyas	Amazonas
+ 01405	Maino	San Isidro de Maino	Chachapoyas	Amazonas
+ 01410	Magdalena	Magdalena	Chachapoyas	Amazonas
+ 01415	Tingo	Tingo	Luya	Amazonas
+ 01420	Colcamar	Colcamar	Luya	Amazonas
+ 01425	Longuita	Longuita	Luya	Amazonas
+ 01430	Maria	Maria	Luya	Amazonas
+ 01435	San Juan de Lopecancha	San Juan de Lopecancha	Luya	Amazonas
+ 01440	La Jalca	La Jalca	Chachapoyas	Amazonas
+ 01441	La Jalca	La Jalca	Chachapoyas	Amazonas
+ 01445	Santo Tomas	Santo Tomas	Luya	Amazonas
+ 01450	San Francisco del Yeso	San Francisco del Yeso	Luya	Amazonas
+ 01455	Duraznopampa	Mariscal Castilla	Chachapoyas	Amazonas
+ 01460	Montevideo	Montevideo	Chachapoyas	Amazonas
+ 01465	Leimebamba	Leimebamba	Chachapoyas	Amazonas
+ 01470	Chuquibamba	Chuquibamba	Chachapoyas	Amazonas
+ 01475	Balsas	Balsas	Chachapoyas	Amazonas
+ 01480	Cocabamba	Cocabamba	Luya	Amazonas
+ 01485	Yomblon	Pisuquia	Luya	Amazonas
+ 01486	Yomblon	Pisuquia	Luya	Amazonas
+ 01500	Lonya Chico	Lonya Chico	Luya	Amazonas
+ 01505	Inguilpata	Inguilpata	Luya	Amazonas
+ 01510	Luya	Luya	Luya	Amazonas
+ 01515	Lamud	Lamud	Luya	Amazonas
+ 01520	Olto	San Cristobal	Luya	Amazonas
+ 01525	Paclas	San Jeronimo	Luya	Amazonas
+ 01530	Cohechan	Conila	Luya	Amazonas
+ 01535	Collonce	Ocumal	Luya	Amazonas
+ 01540	Providencia	Providencia	Luya	Amazonas
+ 01545	Ocalli	Ocalli	Luya	Amazonas
+ 01550	Camporredondo	Camporredondo	Luya	Amazonas
+ 01551	Camporredondo	Camporredondo	Luya	Amazonas
+ 01555	Lonya Grande	Lonya Grande	Utcubamba	Amazonas
+ 01556	Lonya Grande	Lonya Grande	Utcubamba	Amazonas
+ 01560	Yamon	Yamon	Utcubamba	Amazonas
+ 01565	Cumba	Cumba	Utcubamba	Amazonas
+ 01566	Cumba	Cumba	Utcubamba	Amazonas
+ 01570	Trita	Trita	Luya	Amazonas
+ 01575	Luya Viejo	Luya Viejo	Luya	Amazonas
+ 01580	Santa Catalina	Santa Catalina	Luya	Amazonas
+ 01600	Shipasbamba	Shipasbamba	Bongara	Amazonas
+ 01610	Jamalca	Jamalca	Utcubamba	Amazonas
+ 01611	Jamalca	Jamalca	Utcubamba	Amazonas
+ 01620	Bagua Grande	Bagua Grande	Utcubamba	Amazonas
+ 01621	Bagua Grande	Bagua Grande	Utcubamba	Amazonas
+ 01630	El Milagro	El Milagro	Utcubamba	Amazonas
+ 01631	El Milagro	El Milagro	Utcubamba	Amazonas
+ 01700	Cajaruro	Cajaruro	Utcubamba	Amazonas
+ 01701	Cajaruro	Cajaruro	Utcubamba	Amazonas
+ 01710	Copallin	Copallin	Bagua	Amazonas
+ 01711	Copallin	Copallin	Bagua	Amazonas
+ 01720	Bagua	Bagua	Bagua	Amazonas
+ 01721	Bagua	Bagua	Bagua	Amazonas
+ 01730	El Parco	El Parco	Bagua	Amazonas
+ 01740	La Peca	La Peca	Bagua	Amazonas
+ 01741	La Peca	La Peca	Bagua	Amazonas
+ 01800	Aramango	Aramango	Bagua	Amazonas
+ 01801	Aramango	Aramango	Bagua	Amazonas
+ 01810	Chiriaco	Imaza	Bagua	Amazonas
+ 01811	Chiriaco	Imaza	Bagua	Amazonas
+ 01820	Huampami	El Cenepa	Condorcanqui	Amazonas
+ 01821	Huampami	El Cenepa	Condorcanqui	Amazonas
+ 01830	Santa Maria de Nieva	Nieva	Condorcanqui	Amazonas
+ 01831	Santa Maria de Nieva	Nieva	Condorcanqui	Amazonas
+ 01840	Puerto Galilea	Rio Santiago	Condorcanqui	Amazonas
+ 01841	Puerto Galilea	Rio Santiago	Condorcanqui	Amazonas
+ 02000	Huaraz, Centenario	Huaraz, Independencia	Huaraz	Ancash
+ 02001	Huaraz	Huaraz	Huaraz	Ancash
+ 02002	Huaraz, Centenario	Huaraz, Independencia	Huaraz	Ancash
+ 02100	Jangas	Jangas	Huaraz	Ancash
+ 02103	Yungar	Yungar	Carhuaz	Ancash
+ 02105	Anta	Anta	Carhuaz	Ancash
+ 02109	Marcara	Marcara	Carhuaz	Ancash
+ 02110	Marcara	Marcara	Carhuaz	Ancash
+ 02113	Pariahuanca	Pariahuanca	Carhuaz	Ancash
+ 02115	Aco	San Miguel de Aco	Carhuaz	Ancash
+ 02119	Tarica	Tarica	Huaraz	Ancash
+ 02120	Tarica	Tarica	Huaraz	Ancash
+ 02123	Acopampa	Acopampa	Carhuaz	Ancash
+ 02125	Carhuaz	Carhuaz	Carhuaz	Ancash
+ 02127	Carhuaz	Carhuaz	Carhuaz	Ancash
+ 02130	Amashca	Amashca	Carhuaz	Ancash
+ 02133	Shilla	Shilla	Carhuaz	Ancash
+ 02135	Tinco	Tinco	Carhuaz	Ancash
+ 02139	Carhuac	Ataquero	Carhuaz	Ancash
+ 02140	Shupluy	Shupluy	Yungay	Ancash
+ 02145	Cascapara	Cascapara	Yungay	Ancash
+ 02148	Mancos	Mancos	Yungay	Ancash
+ 02150	Mancos	Mancos	Yungay	Ancash
+ 02152	Ranrahirca	Ranrahirca	Yungay	Ancash
+ 02155	Matacoto	Matacoto	Yungay	Ancash
+ 02158	Yungay	Yungay	Yungay	Ancash
+ 02160	Yungay	Yungay	Yungay	Ancash
+ 02162	Yanama	Yanama	Yungay	Ancash
+ 02163	Yanama	Yanama	Yungay	Ancash
+ 02165	Caraz	Caraz	Huaylas	Ancash
+ 02167	Caraz	Caraz	Huaylas	Ancash
+ 02170	San Juan	Pueblo Libre	Huaylas	Ancash
+ 02171	San Juan	Pueblo Libre	Huaylas	Ancash
+ 02174	Huaripampa	Santa Cruz	Huaylas	Ancash
+ 02175	Huata	Huata	Huaylas	Ancash
+ 02180	Pamparomas	Pamparomas	Huaylas	Ancash
+ 02181	Pamparomas	Pamparomas	Huaylas	Ancash
+ 02184	Sucre	Mato	Huaylas	Ancash
+ 02185	Huaylas	Huaylas	Huaylas	Ancash
+ 02190	Santo Toribio	Santo Toribio	Huaylas	Ancash
+ 02193	Huallanca	Huallanca	Huaylas	Ancash
+ 02195	Yuracmarca	Yuracmarca	Huaylas	Ancash
+ 02200	La Pampa	La Pampa	Corongo	Ancash
+ 02203	Yupan	Yupan	Corongo	Ancash
+ 02205	Bambas	Bambas	Corongo	Ancash
+ 02209	Yanac	Yanac	Corongo	Ancash
+ 02210	Cusca	Cusca	Corongo	Ancash
+ 02215	Aco	Aco	Corongo	Ancash
+ 02218	Corongo	Corongo	Corongo	Ancash
+ 02220	Sihuas	Sihuas	Sihuas	Ancash
+ 02222	Sihuas	Sihuas	Sihuas	Ancash
+ 02225	Cashapampa	Cashapampa	Sihuas	Ancash
+ 02228	Ragash	Ragash	Sihuas	Ancash
+ 02230	Huayllabamba	Huayllabamba	Sihuas	Ancash
+ 02234	Quiches	Quiches	Sihuas	Ancash
+ 02235	Acobamba	Acobamba	Sihuas	Ancash
+ 02240	Chingalpo	Chingalpo	Sihuas	Ancash
+ 02243	Umbe	Sicsibamba	Sihuas	Ancash
+ 02245	Ullulluco	Alfonso Ugarte	Sihuas	Ancash
+ 02249	Chullin	San Juan	Sihuas	Ancash
+ 02250	Parobamba	Parobamba	Pomabamba	Ancash
+ 02251	Chullin	San Juan	Sihuas	Ancash
+ 02254	Parobamba	Parobamba	Pomabamba	Ancash
+ 02258	Quinuabamba	Quinuabamba	Pomabamba	Ancash
+ 02260	Pomabamba	Pomabamba	Pomabamba	Ancash
+ 02262	Pomabamba	Pomabamba	Pomabamba	Ancash
+ 02264	Casca	Casca	Mariscal Luzuriaga	Ancash
+ 02265	Piscobamba	Piscobamba	Mariscal Luzuriaga	Ancash
+ 02270	Sanachgan	Fidel Olivas Escudero	Mariscal Luzuriaga	Ancash
+ 02273	Musga	Musga	Mariscal Luzuriaga	Ancash
+ 02275	Llama	Llama	Mariscal Luzuriaga	Ancash
+ 02279	Pampachacra	Eleazar Guzman Barron	Mariscal Luzuriaga	Ancash
+ 02280	Yauya	Yauya	Carlos Fermin Fitzcarrald	Ancash
+ 02283	Yauya	Yauya	Carlos Fermin Fitzcarrald	Ancash
+ 02285	San Nicolas	San Nicolas	Carlos Fermin Fitzcarrald	Ancash
+ 02289	Llumpa	Llumpa	Mariscal Luzuriaga	Ancash
+ 02290	Lucma	Lucma	Mariscal Luzuriaga	Ancash
+ 02291	Llumpa	Llumpa	Mariscal Luzuriaga	Ancash
+ 02295	Huayllan	Huayllan	Pomabamba	Ancash
+ 02300	Huantar	Huantar	Huari	Ancash
+ 02303	Huari	Huari	Huari	Ancash
+ 02304	Huari	Huari	Huari	Ancash
+ 02305	Cajay	Cajay	Huari	Ancash
+ 02310	San Luis	San Luis	Carlos Fermin Fitzcarrald	Ancash
+ 02311	San Luis	San Luis	Carlos Fermin Fitzcarrald	Ancash
+ 02314	Acochaca	Acochaca	Asuncion	Ancash
+ 02315	Chacas	Chacas	Asuncion	Ancash
+ 02318	Chacas	Chacas	Asuncion	Ancash
+ 02320	Huachis	Huachis	Huari	Ancash
+ 02324	Masin	Masin	Huari	Ancash
+ 02325	Rahuapampa	Rahuapampa	Huari	Ancash
+ 02330	Ponto	Ponto	Huari	Ancash
+ 02333	Chana	San Pedro de Chama	Huari	Ancash
+ 02335	San Juan de Rontoy	San Juan de Rontoy	Antonio Raymondi	Ancash
+ 02340	Aczo	Aczo	Antonio Raymondi	Ancash
+ 02342	Chingas	Chingas	Antonio Raymondi	Ancash
+ 02345	Llamellin	Llamellin	Antonio Raymondi	Ancash
+ 02348	Chaccho	Chaccho	Antonio Raymondi	Ancash
+ 02350	Mirgas	Mirgas	Antonio Raymondi	Ancash
+ 02352	Mirgas	Mirgas	Antonio Raymondi	Ancash
+ 02355	Huacachi	Huacachi	Huari	Ancash
+ 02358	Anra	Anra	Huari	Ancash
+ 02370	Uco	Uco	Huari	Ancash
+ 02375	Paucas	Paucas	Huari	Ancash
+ 02380	Huacchis	Huacchis	Huari	Ancash
+ 02385	Rapayan	Rapayan	Huari	Ancash
+ 02390	San Marcos	San Marcos	Huari	Ancash
+ 02391	San Marcos	San Marcos	Huari	Ancash
+ 02395	Chavin de Huantar	Chavin de Huantar	Huari	Ancash
+ 02396	Chavin de Huantar	Chavin de Huantar	Huari	Ancash
+ 02400	Olleros	Olleros	Huaraz	Ancash
+ 02403	Recuay	Recuay	Recuay	Ancash
+ 02405	Recuay	Recuay	Recuay	Ancash
+ 02407	Ticapampa	Ticapampa	Recuay	Ancash
+ 02410	Catac	Catac	Recuay	Ancash
+ 02413	Chiquian	Chiquian	Bolognesi	Ancash
+ 02415	Huasta	Huasta	Bolognesi	Ancash
+ 02420	Aquia	Aquia	Bolognesi	Ancash
+ 02422	Huallanca	Huallanca	Bolognesi	Ancash
+ 02425	Huallanca	Huallanca	Bolognesi	Ancash
+ 02426	Pacllon	Pacllon	Bolognesi	Ancash
+ 02430	Ticllos	Ticllos	Bolognesi	Ancash
+ 02432	Corpanqui	San Miguel de Corpanqui	Bolognesi	Ancash
+ 02435	Llaclla	Abelardo Pardo Lezameta	Bolognesi	Ancash
+ 02440	Gorgorillo	La Primavera	Bolognesi	Ancash
+ 02441	Mangas	Mangas	Bolognesi	Ancash
+ 02445	Canis	Canis	Bolognesi	Ancash
+ 02447	Cajamarquilla	Cajamarquilla	Ocros	Ancash
+ 02450	Rajan	San Cristobal de Rajan	Ocros	Ancash
+ 02455	Llipa	Llipa	Ocros	Ancash
+ 02460	Ocros	Ocros	Ocros	Ancash
+ 02465	Santiago de Chilcas	Santiago de Chilcas	Ocros	Ancash
+ 02470	Acas	Acas	Ocros	Ancash
+ 02475	Huanchay	Cochas	Ocros	Ancash
+ 02480	Aco	Carhuapampa	Ocros	Ancash
+ 02483	Pampas Chico	Pampas Chico	Recuay	Ancash
+ 02485	Cajacay	Cajacay	Bolognesi	Ancash
+ 02489	Raquia	Antonio Raymondi	Bolognesi	Ancash
+ 02490	Marca	Marca	Recuay	Ancash
+ 02495	Huayllapampa	Huayllapampa	Recuay	Ancash
+ 02500	Chasquitambo	Colquioc	Bolognesi	Ancash
+ 02510	Huayllacayan	Huayllacayan	Bolognesi	Ancash
+ 02520	Copa	San Pedro	Ocros	Ancash
+ 02530	Congas	Congas	Ocros	Ancash
+ 02600	Pira	Pira	Huaraz	Ancash
+ 02603	Cajamarquilla	La Libertad	Huaraz	Ancash
+ 02605	Pampas	Pampas	Huaraz	Ancash
+ 02607	Huanchay	Huanchay	Huaraz	Ancash
+ 02610	Aija	Aija	Aija	Ancash
+ 02613	La Merced	La Merced	Aija	Ancash
+ 02616	Succha	Succha	Aija	Ancash
+ 02618	Huayan	Huayan	Huarmey	Ancash
+ 02621	Coris	Coris	Aija	Ancash
+ 02625	Huacllan	Huacllan	Aija	Ancash
+ 02627	Malvas	Malvas	Huarmey	Ancash
+ 02630	Cochapeti	Cochapeti	Huarmey	Ancash
+ 02633	Cotaparaco	Cotaparaco	Recuay	Ancash
+ 02635	Tapacocha	Tapacocha	Recuay	Ancash
+ 02640	Pararin	Pararin	Recuay	Ancash
+ 02645	Llacllin	Llacllin	Recuay	Ancash
+ 02650	Huarmey	Huarmey	Huarmey	Ancash
+ 02651	Huarmey	Huarmey	Huarmey	Ancash
+ 02655	Caleta Culebras	Culebras	Huarmey	Ancash
+ 02660	Casma	Casma	Casma	Ancash
+ 02661	Casma	Casma	Casma	Ancash
+ 02665	Puerto Casma	Comandante Noel	Casma	Ancash
+ 02670	Buena Vista Alta	Buena Vista Alta	Casma	Ancash
+ 02675	Quillo	Quillo	Yungay	Ancash
+ 02676	Quillo	Quillo	Yungay	Ancash
+ 02680	Yautan	Yautan	Casma	Ancash
+ 02681	Yautan	Yautan	Casma	Ancash
+ 02685	Pariacoto	Pariacoto	Huaraz	Ancash
+ 02690	Cochabamba	Cochabamba	Huaraz	Ancash
+ 02695	Colcabamba	Colcabamba	Huaraz	Ancash
+ 02700	Samanco	Samanco	Santa	Ancash
+ 02710	Buenos Aires	Nuevo Chimbote	Santa	Ancash
+ 02711	Buenos Aires	Nuevo Chimbote	Santa	Ancash
+ 02712	Buenos Aires	Nuevo Chimbote	Santa	Ancash
+ 02720	Nepeña	Nepeña	Santa	Ancash
+ 02721	Nepeña	Nepeña	Santa	Ancash
+ 02730	Moro	Moro	Santa	Ancash
+ 02731	Moro	Moro	Santa	Ancash
+ 02740	Jimbe	Caceres del Peru	Santa	Ancash
+ 02741	Jimbe	Caceres del Peru	Santa	Ancash
+ 02800	Chimbote	Chimbote	Santa	Ancash
+ 02801	Chimbote	Chimbote	Santa	Ancash
+ 02802	Chimbote	Chimbote	Santa	Ancash
+ 02803	Chimbote	Chimbote	Santa	Ancash
+ 02804	Chimbote	Chimbote	Santa	Ancash
+ 02810	Coishco	Coishco	Santa	Ancash
+ 02811	Coishco	Coishco	Santa	Ancash
+ 02815	Santa	Santa	Santa	Ancash
+ 02816	Santa	Santa	Santa	Ancash
+ 02820	Macate	Macate	Santa	Ancash
+ 02825	Santa Rosa	Santa Rosa	Pallasca	Ancash
+ 02830	Bolognesi	Bolognesi	Pallasca	Ancash
+ 02835	Pallasca	Pallasca	Pallasca	Ancash
+ 02840	Llapo	Llapo	Pallasca	Ancash
+ 02845	Tauca	Tauca	Pallasca	Ancash
+ 02850	Cabana	Cabana	Pallasca	Ancash
+ 02855	Huandoval	Huandoval	Pallasca	Ancash
+ 02860	Huacaschuque	Huacaschuque	Pallasca	Ancash
+ 02865	Pampas	Pampas	Pallasca	Ancash
+ 02866	Pampas	Pampas	Pallasca	Ancash
+ 02870	Lacabamba	Lacabamba	Pallasca	Ancash
+ 02875	Conchucos	Conchucos	Pallasca	Ancash
+ 02876	Conchucos	Conchucos	Pallasca	Ancash
+ 03000	Abancay, Tamburco	Abancay, Tamburco	Abancay	Apurimac
+ 03001	Abancay, Tamburco	Abancay, Tamburco	Abancay	Apurimac
+ 03100	Curahuasi	Curahuasi	Abancay	Apurimac
+ 03101	Curahuasi	Curahuasi	Abancay	Apurimac
+ 03110	Cachora	San Pedro de Cachora	Abancay	Apurimac
+ 03120	Huanipaca	Huanipaca	Abancay	Apurimac
+ 03200	Palpacachi	Gamarra	Grau	Apurimac
+ 03210	Huayllati	Huayllati	Grau	Apurimac
+ 03220	Coyllurqui	Coyllurqui	Cotabambas	Apurimac
+ 03221	Coyllurqui	Coyllurqui	Cotabambas	Apurimac
+ 03230	Cotabambas	Cotabambas	Cotabambas	Apurimac
+ 03240	Tambobamba	Tambobamba	Cotabambas	Apurimac
+ 03241	Tambobamba	Tambobamba	Cotabambas	Apurimac
+ 03250	Mara	Mara	Cotabambas	Apurimac
+ 03251	Mara	Mara	Cotabambas	Apurimac
+ 03260	Challhuahuacho	Challhuahuacho	Cotabambas	Apurimac
+ 03261	Challhuahuacho	Challhuahuacho	Cotabambas	Apurimac
+ 03270	Haquira	Haquira	Cotabambas	Apurimac
+ 03271	Haquira	Haquira	Cotabambas	Apurimac
+ 03280	Progreso	Progreso	Grau	Apurimac
+ 03290	Curasco	Curasco	Grau	Apurimac
+ 03300	Lambrama	Lambrama	Abancay	Apurimac
+ 03301	Lambrama	Lambrama	Abancay	Apurimac
+ 03305	Circa	Circa	Abancay	Apurimac
+ 03310	Chuquibambilla	Chuquibambilla	Grau	Apurimac
+ 03311	Chuquibambilla	Chuquibambilla	Grau	Apurimac
+ 03315	Curpahuasi	Curpahuasi	Grau	Apurimac
+ 03320	Vilcabamba	Vilcabamba	Grau	Apurimac
+ 03325	Ayrihuanca	Micaela Bastidas	Grau	Apurimac
+ 03330	San Antonio	San Antonio	Grau	Apurimac
+ 03335	Mamara	Mamara	Grau	Apurimac
+ 03340	Oropesa	Oropesa	Antabamba	Apurimac
+ 03345	Santa Rosa	Santa Rosa	Grau	Apurimac
+ 03350	Pataypampa	Pataypampa	Grau	Apurimac
+ 03355	Turpay	Turpay	Grau	Apurimac
+ 03360	San Juan de Virundo	Virundo	Grau	Apurimac
+ 03400	Pichirhua	Pichirhua	Abancay	Apurimac
+ 03405	Chacoche	Chacoche	Abancay	Apurimac
+ 03410	Tintay	Tintay	Aymaraes	Apurimac
+ 03415	Lucre	Lucre	Aymaraes	Apurimac
+ 03420	San Juan de Chacña	San Juan de Chacña	Aymaraes	Apurimac
+ 03425	Chapimarca	Chapimarca	Aymaraes	Apurimac
+ 03430	Pichihua	Justo Apu Sahuaraura	Aymaraes	Apurimac
+ 03435	Tapairihua	Tapairihua	Aymaraes	Apurimac
+ 03440	Yanaca	Yanaca	Aymaraes	Apurimac
+ 03445	Pocohuanca	Pocohuanca	Aymaraes	Apurimac
+ 03450	Ayahuay	El Oro	Antabamba	Apurimac
+ 03455	Pachaconas	Pachaconas	Antabamba	Apurimac
+ 03460	Sabaino	Sabaino	Antabamba	Apurimac
+ 03465	Antabamba	Antabamba	Antabamba	Apurimac
+ 03470	Huaquirca	Huaquirca	Antabamba	Apurimac
+ 03475	Mollebamba	Juan Espinoza Medrano	Antabamba	Apurimac
+ 03500	Colcabamba	Colcabamba	Aymaraes	Apurimac
+ 03510	Toraya	Toraya	Aymaraes	Apurimac
+ 03520	Capaya	Capaya	Aymaraes	Apurimac
+ 03530	Huayllo	Huayllo	Aymaraes	Apurimac
+ 03540	Soraya	Soraya	Aymaraes	Apurimac
+ 03550	Sañayca	Sañayca	Aymaraes	Apurimac
+ 03560	Chalhuanca	Chalhuanca	Aymaraes	Apurimac
+ 03570	Caraybamba	Caraybamba	Aymaraes	Apurimac
+ 03580	Cotaruse	Cotaruse	Aymaraes	Apurimac
+ 03600	Pampachiri	Pampachiri	Andahuaylas	Apurimac
+ 03610	Pomacocha	Pomacocha	Andahuaylas	Apurimac
+ 03620	Umamarca	Tumay Huaraca	Andahuaylas	Apurimac
+ 03630	Huayana	Huayana	Andahuaylas	Apurimac
+ 03640	Chaccrampa	San Miguel de Chaccrampa	Andahuaylas	Apurimac
+ 03650	Chiara	Chiara	Andahuaylas	Apurimac
+ 03660	San Antonio de Cachi	San Antonio de Cachi	Andahuaylas	Apurimac
+ 03670	Huancaray	Huancaray	Andahuaylas	Apurimac
+ 03680	Turpo	Turpo	Andahuaylas	Apurimac
+ 03700	Andahuaylas, San Jeronimo, Talavera	Andahuaylas, San Jeronimo, Talavera	Andahuaylas	Apurimac
+ 03701	Andahuaylas, San Jeronimo, Talavera	Andahuaylas, San Jeronimo, Talavera	Andahuaylas	Apurimac
+ 03730	Pacucha	Pacucha	Andahuaylas	Apurimac
+ 03731	Pacucha	Pacucha	Andahuaylas	Apurimac
+ 03740	Andarapa	Andarapa	Andahuaylas	Apurimac
+ 03741	Andarapa	Andarapa	Andahuaylas	Apurimac
+ 03750	Kaquiabamba	Kaquiabamba	Andahuaylas	Apurimac
+ 03760	Kishuara	Kishuara	Andahuaylas	Apurimac
+ 03761	Kishuara	Kishuara	Andahuaylas	Apurimac
+ 03770	Pacobamba	Pacobamba	Andahuaylas	Apurimac
+ 03780	Huancarama	Huancarama	Andahuaylas	Apurimac
+ 03781	Huancarama	Huancarama	Andahuaylas	Apurimac
+ 03800	Santa Maria de Chicmo	Santa Maria de Chicmo	Andahuaylas	Apurimac
+ 03801	Santa Maria de Chicmo	Santa Maria de Chicmo	Andahuaylas	Apurimac
+ 03810	Uranmarca	Uranmarca	Chincheros	Apurimac
+ 03820	Cocharcas	Cocharcas	Chincheros	Apurimac
+ 03830	Ranracancha	Ranracancha	Chincheros	Apurimac
+ 03840	Uripa	Anco Huallo	Chincheros	Apurimac
+ 03841	Uripa	Anco Huallo	Chincheros	Apurimac
+ 03850	Chincheros	Chincheros	Chincheros	Apurimac
+ 03851	Chincheros	Chincheros	Chincheros	Apurimac
+ 03860	Ocobamba	Ocobamba	Chincheros	Apurimac
+ 03861	Ocobamba	Ocobamba	Chincheros	Apurimac
+ 03870	Ongoy	Ongoy	Chincheros	Apurimac
+ 03871	Ongoy	Ongoy	Chincheros	Apurimac
+ 03880	Huaccana	Huaccana	Chincheros	Apurimac
+ 03881	Huaccana	Huaccana	Chincheros	Apurimac
+ 04000	Cayma, La Libertad, Characato, Sabandia, Socabaya, Tiabaya, Yura (Baños de Yura)	Cayma, Cerro Colorado, Characato, Sabandia, Socabaya, Tiabaya, Yura	Arequipa	Arequipa
+ 04001	Selva Alegre, Arequipa, Miraflores	Alto Selva Alegre, Arequipa, Miraflores	Arequipa	Arequipa
+ 04002	Arequipa, Ciudad Satelite, Mariano Melgar, Paucarpata	Arequipa, Jose Luis Bustamante y Rivero, Mariano Melgar, Paucarpata	Arequipa	Arequipa
+ 04003	Selva Alegre	Alto Selva Alegre	Arequipa	Arequipa
+ 04004	Selva Alegre, Miraflores	Alto Selva Alegre, Miraflores	Arequipa	Arequipa
+ 04006	Mariano Melgar	Mariano Melgar	Arequipa	Arequipa
+ 04007	Paucarpata	Paucarpata	Arequipa	Arequipa
+ 04008	Ciudad Satelite, Paucarpata	Jose Luis Bustamante y Rivero, Paucarpata	Arequipa	Arequipa
+ 04009	Ciudad Satelite, Paucarpata, Socabaya	Jose Luis Bustamante y Rivero, Paucarpata, Socabaya	Arequipa	Arequipa
+ 04011	Arequipa, Jacobo Hunter, Ciudad Satelite, Socabaya	Arequipa, Jacobo Hunter, Jose Luis Bustamante y Rivero, Socabaya	Arequipa	Arequipa
+ 04012	Characato, Jacobo Hunter, Ciudad Satelite, Sabandia, Socabaya	Characato, Jacobo Hunter, Jose Luis Bustamante y Rivero, Sabandia, Socabaya	Arequipa	Arequipa
+ 04013	Arequipa, Cayma, La Libertad, Sachaca, Socabaya, Tiabaya, Yanahuara	Arequipa, Cayma, Cerro Colorado, Sachaca, Socabaya, Tiabaya, Yanahuara	Arequipa	Arequipa
+ 04014	Cayma, La Libertad, Yanahuara	Cayma, Cerro Colorado, Yanahuara	Arequipa	Arequipa
+ 04016	La Libertad, Yura (Baños de Yura)	Cerro Colorado, Yura	Arequipa	Arequipa
+ 04017	Arequipa, Cayma, La Libertad, Yanahuara	Arequipa, Cayma, Cerro Colorado, Yanahuara	Arequipa	Arequipa
+ 04018	Cayma	Cayma	Arequipa	Arequipa
+ 04076	Yura (Baños de Yura)	Yura	Arequipa	Arequipa
+ 04100	Vitor	Vitor	Arequipa	Arequipa
+ 04102	Santa Rita de Siguas	Santa Rita de Siguas	Arequipa	Arequipa
+ 04105	Tambillo	San Juan de Siguas	Arequipa	Arequipa
+ 04108	Santa Isabel de Siguas	Santa Isabel de Siguas	Arequipa	Arequipa
+ 04110	El Pedregal	Majes	Caylloma	Arequipa
+ 04112	El Pedregal	Majes	Caylloma	Arequipa
+ 04115	Lluta	Lluta	Caylloma	Arequipa
+ 04118	Huanca	Huanca	Caylloma	Arequipa
+ 04120	Huambo	Huambo	Caylloma	Arequipa
+ 04124	Cabanaconde	Cabanaconde	Caylloma	Arequipa
+ 04125	Tapay	Tapay	Caylloma	Arequipa
+ 04130	Maca	Maca	Caylloma	Arequipa
+ 04135	Achoma	Achoma	Caylloma	Arequipa
+ 04140	Yanque	Yanque	Caylloma	Arequipa
+ 04145	Chivay	Chivay	Caylloma	Arequipa
+ 04146	Chivay	Chivay	Caylloma	Arequipa
+ 04150	Coporaque	Coporaque	Caylloma	Arequipa
+ 04155	Ichupampa	Ichupampa	Caylloma	Arequipa
+ 04160	Lari	Lari	Caylloma	Arequipa
+ 04165	Madrigal	Madrigal	Caylloma	Arequipa
+ 04170	Tuti	Tuti	Caylloma	Arequipa
+ 04175	Sibayo	Sibayo	Caylloma	Arequipa
+ 04180	Callalli	Callalli	Caylloma	Arequipa
+ 04185	Tisco	Tisco	Caylloma	Arequipa
+ 04190	Caylloma	Caylloma	Caylloma	Arequipa
+ 04195	Cayarani	Cayarani	Condesuyos	Arequipa
+ 04200	Chiguata	Chiguata	Arequipa	Arequipa
+ 04210	Tarucani	San Juan de Tarucani	Arequipa	Arequipa
+ 04220	Imata	San Antonio de Chuca	Caylloma	Arequipa
+ 04300	Mollebaya	Mollebaya	Arequipa	Arequipa
+ 04310	Pocsi	Pocsi	Arequipa	Arequipa
+ 04320	Polobaya Grande	Polobaya	Arequipa	Arequipa
+ 04330	Yarabamba	Yarabamba	Arequipa	Arequipa
+ 04340	Quequeña	Quequeña	Arequipa	Arequipa
+ 04400	Uchumayo	Uchumayo	Arequipa	Arequipa
+ 04401	Uchumayo	Uchumayo	Arequipa	Arequipa
+ 04405	La Joya	La Joya	Arequipa	Arequipa
+ 04406	La Joya	La Joya	Arequipa	Arequipa
+ 04410	Islay (Matarani)	Islay	Islay	Arequipa
+ 04415	Mollendo	Mollendo	Islay	Arequipa
+ 04416	Mollendo	Mollendo	Islay	Arequipa
+ 04420	Mejia	Mejia	Islay	Arequipa
+ 04425	La Curva	Dean Valdivia	Islay	Arequipa
+ 04426	La Curva	Dean Valdivia	Islay	Arequipa
+ 04430	Cocachacra	Cocachacra	Islay	Arequipa
+ 04431	Cocachacra	Cocachacra	Islay	Arequipa
+ 04435	Punta de Bombon	Punta de Bombon	Islay	Arequipa
+ 04436	Punta de Bombon	Punta de Bombon	Islay	Arequipa
+ 04440	Quilca	Quilca	Camana	Arequipa
+ 04445	La Pampa	Samuel Pastor	Camana	Arequipa
+ 04446	La Pampa	Samuel Pastor	Camana	Arequipa
+ 04450	Camana	Camana	Camana	Arequipa
+ 04451	Camana	Camana	Camana	Arequipa
+ 04455	San Gregorio	Nicolas de Pierola	Camana	Arequipa
+ 04456	San Gregorio	Nicolas de Pierola	Camana	Arequipa
+ 04460	El Cardo	Jose Maria Quimper	Camana	Arequipa
+ 04465	San Jose	Mariscal Caceres	Camana	Arequipa
+ 04466	San Jose	Mariscal Caceres	Camana	Arequipa
+ 04470	Ocoña	Ocoña	Camana	Arequipa
+ 04475	Atico	Atico	Caraveli	Arequipa
+ 04500	Chala	Chala	Caraveli	Arequipa
+ 04501	Chala	Chala	Caraveli	Arequipa
+ 04510	Tocota	Huanuhuanu	Caraveli	Arequipa
+ 04520	Atiquipa	Atiquipa	Caraveli	Arequipa
+ 04530	Yauca	Yauca	Caraveli	Arequipa
+ 04540	Jaqui	Jaqui	Caraveli	Arequipa
+ 04550	Acari	Acari	Caraveli	Arequipa
+ 04560	Bella Union	Bella Union	Caraveli	Arequipa
+ 04570	Lomas	Lomas	Caraveli	Arequipa
+ 04580	Achanizo	Chaparra	Caraveli	Arequipa
+ 04590	Quicacha	Quicacha	Caraveli	Arequipa
+ 04600	Corire	Uraca	Castilla	Arequipa
+ 04601	Corire	Uraca	Castilla	Arequipa
+ 04605	Aplao	Aplao	Castilla	Arequipa
+ 04606	Aplao	Aplao	Castilla	Arequipa
+ 04610	Huancarqui	Huancarqui	Castilla	Arequipa
+ 04615	Tipan	Tipan	Castilla	Arequipa
+ 04620	Pampacolca	Pampacolca	Castilla	Arequipa
+ 04625	Viraco	Viraco	Castilla	Arequipa
+ 04630	Machahuay	Machaguay	Castilla	Arequipa
+ 04635	Uñon	Uñon	Castilla	Arequipa
+ 04640	Andagua	Andagua	Castilla	Arequipa
+ 04645	Ayo	Ayo	Castilla	Arequipa
+ 04650	Chilcaymarca	Chilcaymarca	Castilla	Arequipa
+ 04655	Orcopampa	Orcopampa	Castilla	Arequipa
+ 04656	Orcopampa	Orcopampa	Castilla	Arequipa
+ 04660	Chachas	Chachas	Castilla	Arequipa
+ 04665	Choco	Choco	Castilla	Arequipa
+ 04700	Iray	Iray	Condesuyos	Arequipa
+ 04710	Chuquibamba	Chuquibamba	Condesuyos	Arequipa
+ 04720	Andaray	Andaray	Condesuyos	Arequipa
+ 04730	Yanaquihua	Yanaquihua	Condesuyos	Arequipa
+ 04740	Caraveli	Caraveli	Caraveli	Arequipa
+ 04750	Cahuacho	Cahuacho	Caraveli	Arequipa
+ 04760	Urasqui	Mariano Nicolas Valcarcel	Camana	Arequipa
+ 04770	Iquipi	Rio Grande	Condesuyos	Arequipa
+ 04800	Salamanca	Salamanca	Condesuyos	Arequipa
+ 04805	Chichas	Chichas	Condesuyos	Arequipa
+ 04810	Cotahuasi	Cotahuasi	La Union	Arequipa
+ 04815	Mungui	Pampamarca	La Union	Arequipa
+ 04820	Taurisma	Huaynacotas	La Union	Arequipa
+ 04825	Tomepampa	Tomepampa	La Union	Arequipa
+ 04830	Alca	Alca	La Union	Arequipa
+ 04835	Puyca	Puyca	La Union	Arequipa
+ 04840	Toro	Toro	La Union	Arequipa
+ 04845	Velinga	Quechualla	La Union	Arequipa
+ 04850	Charcana	Charcana	La Union	Arequipa
+ 04855	Sayla	Sayla	La Union	Arequipa
+ 04860	Tauria	Tauria	La Union	Arequipa
+ 05000	Ayacucho, Carmen, Las Nazarenas, San Juan Bautista	Ayacucho, Carmen Alto, Jesus Nazareno, San Juan Bautista	Huamanga	Ayacucho
+ 05001	Ayacucho, Las Nazarenas, San Juan Bautista	Ayacucho, Jesus Nazareno, San Juan Bautista	Huamanga	Ayacucho
+ 05002	Ayacucho, Carmen, San Juan Bautista	Ayacucho, Carmen Alto, San Juan Bautista	Huamanga	Ayacucho
+ 05003	Ayacucho	Ayacucho	Huamanga	Ayacucho
+ 05100	Pacaycasa	Pacaycasa	Huamanga	Ayacucho
+ 05110	Macachacra	Iguain	Huanta	Ayacucho
+ 05120	Huanta	Huanta	Huanta	Ayacucho
+ 05121	Huanta	Huanta	Huanta	Ayacucho
+ 05130	Luricocha	Luricocha	Huanta	Ayacucho
+ 05131	Luricocha	Luricocha	Huanta	Ayacucho
+ 05140	San Jose de Secce	Santillana	Huanta	Ayacucho
+ 05141	San Jose de Secce	Santillana	Huanta	Ayacucho
+ 05150	Viracochan	Ayahuanco	Huanta	Ayacucho
+ 05151	Viracochan	Ayahuanco	Huanta	Ayacucho
+ 05160	Quinua	Quinua	Huamanga	Ayacucho
+ 05161	Quinua	Quinua	Huamanga	Ayacucho
+ 05170	Huamanguilla	Huamanguilla	Huanta	Ayacucho
+ 05171	Huamanguilla	Huamanguilla	Huanta	Ayacucho
+ 05180	Acos Vinchos	Acos Vinchos	Huamanga	Ayacucho
+ 05181	Acos Vinchos	Acos Vinchos	Huamanga	Ayacucho
+ 05200	Tambo	Tambo	La Mar	Ayacucho
+ 05201	Tambo	Tambo	La Mar	Ayacucho
+ 05210	San Francisco	Ayna	La Mar	Ayacucho
+ 05211	San Francisco	Ayna	La Mar	Ayacucho
+ 05220	Sivia	Silvia	Huanta	Ayacucho
+ 05221	Sivia	Silvia	Huanta	Ayacucho
+ 05230	Llochegua	Llochegua	Huanta	Ayacucho
+ 05231	Llochegua	Llochegua	Huanta	Ayacucho
+ 05240	Santa Rosa	Santa Rosa	La Mar	Ayacucho
+ 05241	Santa Rosa	Santa Rosa	La Mar	Ayacucho
+ 05250	San Miguel	San Miguel	La Mar	Ayacucho
+ 05251	San Miguel	San Miguel	La Mar	Ayacucho
+ 05260	Chiquintirca	Anco	La Mar	Ayacucho
+ 05261	Chiquintirca	Anco	La Mar	Ayacucho
+ 05270	Chungui	Chungui	La Mar	Ayacucho
+ 05271	Chungui	Chungui	La Mar	Ayacucho
+ 05280	Chilcas	Chilcas	La Mar	Ayacucho
+ 05290	Pampas	Luis Carranza	La Mar	Ayacucho
+ 05300	Tambillo	Tambillo	Huamanga	Ayacucho
+ 05301	Tambillo	Tambillo	Huamanga	Ayacucho
+ 05305	Acocro	Acocro	Huamanga	Ayacucho
+ 05306	Acocro	Acocro	Huamanga	Ayacucho
+ 05310	Ocros	Ocros	Huamanga	Ayacucho
+ 05311	Ocros	Ocros	Huamanga	Ayacucho
+ 05315	Chiara	Chiara	Huamanga	Ayacucho
+ 05316	Chiara	Chiara	Huamanga	Ayacucho
+ 05320	Vischongo	Vischongo	Vilcas Huaman	Ayacucho
+ 05325	Vilcas Huaman	Vilcas Huaman	Vilcas Huaman	Ayacucho
+ 05326	Vilcas Huaman	Vilcas Huaman	Vilcas Huaman	Ayacucho
+ 05330	Concepcion	Concepcion	Vilcas Huaman	Ayacucho
+ 05335	Saurama	Saurama	Vilcas Huaman	Ayacucho
+ 05340	Carhuanca	Carhuanca	Vilcas Huaman	Ayacucho
+ 05345	Belen	Belen	Sucre	Ayacucho
+ 05350	Chalcos	Chalcos	Sucre	Ayacucho
+ 05355	Chilcayoc	Chilcayoc	Sucre	Ayacucho
+ 05360	San Salvador de Quije	San Salvador de Quije	Sucre	Ayacucho
+ 05365	Paico	Paico	Sucre	Ayacucho
+ 05370	Santiago de Paucaray	Santiago de Paucaray	Sucre	Ayacucho
+ 05375	Soras	Soras	Sucre	Ayacucho
+ 05380	San Pedro de Larcay	San Pedro de Larcay	Sucre	Ayacucho
+ 05385	Huambalpa	Huambalpa	Vilcas Huaman	Ayacucho
+ 05390	Accomarca	Accomarca	Vilcas Huaman	Ayacucho
+ 05395	Nuevo Paccha Huallhua	Independencia	Vilcas Huaman	Ayacucho
+ 05400	Cangallo	Cangallo	Cangallo	Ayacucho
+ 05401	Cangallo	Cangallo	Cangallo	Ayacucho
+ 05405	Alcamenca	Alcamenca	Victor Fajardo	Ayacucho
+ 05410	Huancaraylla	Huancaraylla	Victor Fajardo	Ayacucho
+ 05415	Huancapi	Huancapi	Victor Fajardo	Ayacucho
+ 05420	Cayara	Cayara	Victor Fajardo	Ayacucho
+ 05425	Colca	Colca	Victor Fajardo	Ayacucho
+ 05430	San Pedro de Huaya	Huaya	Victor Fajardo	Ayacucho
+ 05435	Canaria	Canaria	Victor Fajardo	Ayacucho
+ 05440	Apongo	Apongo	Victor Fajardo	Ayacucho
+ 05445	Asquipata	Asquipata	Victor Fajardo	Ayacucho
+ 05450	Querobamba	Querobamba	Sucre	Ayacucho
+ 05455	Morcolla	Morcolla	Sucre	Ayacucho
+ 05460	Huacaña	Huacaña	Sucre	Ayacucho
+ 05465	Santa Ana de Huaycahuacho	Santa Ana de Huaycahuacho	Lucanas	Ayacucho
+ 05470	Aucara	Aucara	Lucanas	Ayacucho
+ 05475	Cabana	Cabana	Lucanas	Ayacucho
+ 05480	Andamarca	Carmen Salcedo	Lucanas	Ayacucho
+ 05485	Chipao	Chipao	Lucanas	Ayacucho
+ 05500	Puquio	Puquio	Lucanas	Ayacucho
+ 05501	Puquio	Puquio	Lucanas	Ayacucho
+ 05510	San Pedro	San Pedro	Lucanas	Ayacucho
+ 05520	San Juan	San Juan	Lucanas	Ayacucho
+ 05530	Lucanas	Lucanas	Lucanas	Ayacucho
+ 05540	Tambo Quemado	Leoncio Prado	Lucanas	Ayacucho
+ 05550	San Cristobal	San Cristobal	Lucanas	Ayacucho
+ 05560	Saisa	Saisa	Lucanas	Ayacucho
+ 05570	Santa Lucia	Santa Lucia	Lucanas	Ayacucho
+ 05600	Chaviña	Chaviña	Lucanas	Ayacucho
+ 05605	Sancos	Sancos	Lucanas	Ayacucho
+ 05606	Sancos	Sancos	Lucanas	Ayacucho
+ 05610	Coracora	Coracora	Parinacochas	Ayacucho
+ 05611	Coracora	Coracora	Parinacochas	Ayacucho
+ 05615	Chumpi	Chumpi	Parinacochas	Ayacucho
+ 05620	Pullo	Pullo	Parinacochas	Ayacucho
+ 05625	Incuyo	Puyusca	Parinacochas	Ayacucho
+ 05630	Quilcata	Sara Sara	Paucar del Sara Sara	Ayacucho
+ 05635	Pararca	Pararca	Paucar del Sara Sara	Ayacucho
+ 05640	Pausa	Pausa	Paucar del Sara Sara	Ayacucho
+ 05645	Lampa	Lampa	Paucar del Sara Sara	Ayacucho
+ 05650	Marcabamba	Marcabamba	Paucar del Sara Sara	Ayacucho
+ 05655	Colta	Colpa	Paucar del Sara Sara	Ayacucho
+ 05660	Oyolo	Oyolo	Paucar del Sara Sara	Ayacucho
+ 05665	San Jose de Ushua	San Jose de Ushua	Paucar del Sara Sara	Ayacucho
+ 05670	Corculla	Corculla	Paucar del Sara Sara	Ayacucho
+ 05675	San Javier de Alpabamba	San Javier de Alpabamba	Paucar del Sara Sara	Ayacucho
+ 05680	San Francisco de Ravacayco	San Francisco de Ravacayco	Parinacochas	Ayacucho
+ 05685	Pacapausa	Pacapausa	Parinacochas	Ayacucho
+ 05690	Upahuacho	Upahuacho	Parinacochas	Ayacucho
+ 05695	Aniso	Coronel Castañeda	Parinacochas	Ayacucho
+ 05700	Carapo	Carapo	Hunca Sancos	Ayacucho
+ 05710	Huanca Sancos	Sancos	Hunca Sancos	Ayacucho
+ 05720	Santiago de Lucanamarca	Santiago de Lucanamarca	Hunca Sancos	Ayacucho
+ 05730	Sacsamarca	Sacsamarca	Hunca Sancos	Ayacucho
+ 05740	Laramate	Laramate	Lucanas	Ayacucho
+ 05750	Llauta	Llauta	Lucanas	Ayacucho
+ 05760	Huac- Huas	Huac Huas	Lucanas	Ayacucho
+ 05770	Ocaña	Ocoña	Lucanas	Ayacucho
+ 05780	San Pedro de Palco	San Pedro de Palco	Lucanas	Ayacucho
+ 05790	Otoca	Otaca	Lucanas	Ayacucho
+ 05800	San Pedro de Cachi	Santiago de Pischa	Huamanga	Ayacucho
+ 05805	Ticllas	San Jose de Ticllas	Huamanga	Ayacucho
+ 05810	Socos	Socos	Huamanga	Ayacucho
+ 05811	Socos	Socos	Huamanga	Ayacucho
+ 05815	Vinchos	Vinchos	Huamanga	Ayacucho
+ 05816	Vinchos	Vinchos	Huamanga	Ayacucho
+ 05820	Paras	Paras	Cangallo	Ayacucho
+ 05821	Paras	Paras	Cangallo	Ayacucho
+ 05825	Vilcanchos	Vilcanchos	Victor Fajardo	Ayacucho
+ 05830	Totos	Totos	Cangallo	Ayacucho
+ 05835	Chuschi	Chuschi	Cangallo	Ayacucho
+ 05836	Chuschi	Chuschi	Cangallo	Ayacucho
+ 05840	Pomabamba	Maria Parado de Bellido	Cangallo	Ayacucho
+ 05845	Pampa Cangallo	Los Morochucos	Cangallo	Ayacucho
+ 05846	Pampa Cangallo	Los Morochucos	Cangallo	Ayacucho
+ 05850	Sarhua	Sarhua	Victor Fajardo	Ayacucho
+ 05855	Huamanquiquia	Huamanquiquia	Victor Fajardo	Ayacucho
+ 06000	Cajamarca, Los Baños del Inca	Cajamarca, Los Baños del Inca	Cajamarca	Cajamarca
+ 06001	Cajamarca, Los Baños del Inca	Cajamarca, Los Baños del Inca	Cajamarca	Cajamarca
+ 06002	Cajamarca	Cajamarca	Cajamarca	Cajamarca
+ 06003	Cajamarca	Cajamarca	Cajamarca	Cajamarca
+ 06004	Los Baños del Inca	Los Baños del Inca	Cajamarca	Cajamarca
+ 06100	Hualgayoc	Hualgayoc	Hualgayoc	Cajamarca
+ 06101	Hualgayoc	Hualgayoc	Hualgayoc	Cajamarca
+ 06115	Bambamarca	Bambamarca	Hualgayoc	Cajamarca
+ 06116	Bambamarca	Bambamarca	Hualgayoc	Cajamarca
+ 06120	Chota	Chota	Chota	Cajamarca
+ 06121	Chota	Chota	Chota	Cajamarca
+ 06125	Conchan	Conchan	Chota	Cajamarca
+ 06126	Conchan	Conchan	Chota	Cajamarca
+ 06130	Chiguirip	Chiguirip	Chota	Cajamarca
+ 06135	Tacabamba	Tacabamba	Chota	Cajamarca
+ 06136	Tacabamba	Tacabamba	Chota	Cajamarca
+ 06140	Anguia	Anguia	Chota	Cajamarca
+ 06145	Chalamarca	Chalamarca	Chota	Cajamarca
+ 06146	Chalamarca	Chalamarca	Chota	Cajamarca
+ 06150	Paccha	Paccha	Chota	Cajamarca
+ 06151	Paccha	Paccha	Chota	Cajamarca
+ 06155	Chadin	Chadin	Chota	Cajamarca
+ 06160	Choropampa	Choropampa	Chota	Cajamarca
+ 06165	Chimban	Chimban	Chota	Cajamarca
+ 06170	Pion	Pion	Chota	Cajamarca
+ 06175	La Ramada	La Ramada	Cutervo	Cajamarca
+ 06180	San Luis de Lucma	San Luis de Lucma	Cutervo	Cajamarca
+ 06200	Encañada	Encañada	Cajamarca	Cajamarca
+ 06201	Encañada	Encañada	Cajamarca	Cajamarca
+ 06205	Sucre	Sucre	Celendin	Cajamarca
+ 06206	Sucre	Sucre	Celendin	Cajamarca
+ 06210	Oxamarca	Oxamarca	Celendin	Cajamarca
+ 06211	Oxamarca	Oxamarca	Celendin	Cajamarca
+ 06215	Huacapampa	Jose Galvez	Celendin	Cajamarca
+ 06220	Lucmapampa	Jorge Chavez	Celendin	Cajamarca
+ 06225	Celendin	Celendin	Celendin	Cajamarca
+ 06226	Celendin	Celendin	Celendin	Cajamarca
+ 06230	Utco	Utco	Celendin	Cajamarca
+ 06235	Sorochuco	Sorochuco	Celendin	Cajamarca
+ 06236	Sorochuco	Sorochuco	Celendin	Cajamarca
+ 06240	Huasmin	Huasmin	Celendin	Cajamarca
+ 06241	Huasmin	Huasmin	Celendin	Cajamarca
+ 06245	La Libertad de Pallan	La Libertad de Pallan	Celendin	Cajamarca
+ 06246	La Libertad de Pallan	La Libertad de Pallan	Celendin	Cajamarca
+ 06250	Chalan	Miguel Iglesias	Celendin	Cajamarca
+ 06255	Chumuch	Chumuch	Celendin	Cajamarca
+ 06260	Chimuch (Cortegana)	Cortegana	Celendin	Cajamarca
+ 06261	Chimuch (Cortegana)	Cortegana	Celendin	Cajamarca
+ 06300	Llacanora	Llacanora	Cajamarca	Cajamarca
+ 06305	Namora	Namora	Cajamarca	Cajamarca
+ 06306	Namora	Namora	Cajamarca	Cajamarca
+ 06310	Matara	Matara	Cajamarca	Cajamarca
+ 06315	Paucamarca	Gregorio Pita	San Marcos	Cajamarca
+ 06316	Paucamarca	Gregorio Pita	San Marcos	Cajamarca
+ 06320	San Marcos	Pedro Galvez	San Marcos	Cajamarca
+ 06321	San Marcos	Pedro Galvez	San Marcos	Cajamarca
+ 06325	Ichocan	Ichocan	San Marcos	Cajamarca
+ 06330	Chancay	Chancay	San Marcos	Cajamarca
+ 06335	La Grama	Eduardo Villanueva	San Marcos	Cajamarca
+ 06340	Cachachi	Cachachi	Cajabamba	Cajamarca
+ 06341	Cachachi	Cachachi	Cajabamba	Cajamarca
+ 06345	Cauday	Condebamba	Cajabamba	Cajamarca
+ 06346	Cauday	Condebamba	Cajabamba	Cajamarca
+ 06350	Cajabamba	Cajabamba	Cajabamba	Cajamarca
+ 06351	Cajabamba	Cajabamba	Cajabamba	Cajamarca
+ 06355	Lluchubamba	Sitacocha	Cajabamba	Cajamarca
+ 06356	Lluchubamba	Sitacocha	Cajabamba	Cajamarca
+ 06360	Shirac	Jose Manuel Quiroz	San Marcos	Cajamarca
+ 06365	Venecia	Jose Sabogal	San Marcos	Cajamarca
+ 06366	Venecia	Jose Sabogal	San Marcos	Cajamarca
+ 06370	Jesus	Jesus	Cajamarca	Cajamarca
+ 06371	Jesus	Jesus	Cajamarca	Cajamarca
+ 06400	San Juan	San Juan	Cajamarca	Cajamarca
+ 06403	Asuncion	Asuncion	Cajamarca	Cajamarca
+ 06405	Asuncion	Asuncion	Cajamarca	Cajamarca
+ 06407	Cospan	Cospan	Cajamarca	Cajamarca
+ 06410	Cospan	Cospan	Cajamarca	Cajamarca
+ 06411	Magdalena	Magdalena	Cajamarca	Cajamarca
+ 06412	Magdalena	Magdalena	Cajamarca	Cajamarca
+ 06415	Chetilla	Chetilla	Cajamarca	Cajamarca
+ 06420	Chilete	Chilete	Contumaza	Cajamarca
+ 06421	Contumaza	Contumaza	Contumaza	Cajamarca
+ 06422	Contumaza	Contumaza	Contumaza	Cajamarca
+ 06425	Santa Cruz de Toled	Santa Cruz de Toled	Contumaza	Cajamarca
+ 06430	Catan	Tantarica	Contumaza	Cajamarca
+ 06431	Guzmango	Guzmango	Contumaza	Cajamarca
+ 06435	San Benito	San Benito	Contumaza	Cajamarca
+ 06437	Tembladera	Yonan	Contumaza	Cajamarca
+ 06440	Tembladera	Yonan	Contumaza	Cajamarca
+ 06441	Trinidad	Cupisnique	Contumaza	Cajamarca
+ 06445	San Bernardino	San Bernardino	San Pablo	Cajamarca
+ 06450	San Luis Grande	San Luis	San Pablo	Cajamarca
+ 06451	San Pablo	San Pablo	San Pablo	Cajamarca
+ 06452	San Pablo	San Pablo	San Pablo	Cajamarca
+ 06455	San Miguel de Pallaques	San Miguel	San Miguel	Cajamarca
+ 06456	San Miguel de Pallaques	San Miguel	San Miguel	Cajamarca
+ 06460	Calquis	Calquis	San Miguel	Cajamarca
+ 06465	El Prado	El Prado	San Miguel	Cajamarca
+ 06470	Agua Blanca	Union Agua Blanca	San Miguel	Cajamarca
+ 06475	San Gregorio	San Gregorio	San Miguel	Cajamarca
+ 06480	Llapa	Llapa	San Miguel	Cajamarca
+ 06481	Llapa	Llapa	San Miguel	Cajamarca
+ 06485	San Silvestre de Cochan	San Silvestre de Cochan	San Miguel	Cajamarca
+ 06490	Tumbaden	Tumbaden	San Pablo	Cajamarca
+ 06495	Catilluc	Catilluc	San Miguel	Cajamarca
+ 06500	La Florida	La Florida	San Miguel	Cajamarca
+ 06510	Niepos	Niepos	San Miguel	Cajamarca
+ 06520	Bolivar	Bolivar	San Miguel	Cajamarca
+ 06530	Nanchoc	Nanchoc	San Miguel	Cajamarca
+ 06600	Lajas	Lajas	Chota	Cajamarca
+ 06601	Lajas	Lajas	Chota	Cajamarca
+ 06605	Uticyacu	Uticyacu	Santa Cruz	Cajamarca
+ 06610	Chancaybaños	Chancaybaños	Santa Cruz	Cajamarca
+ 06611	La Esperanza	La Esperanza	Santa Cruz	Cajamarca
+ 06615	Andabamba	Andabamba	Santa Cruz	Cajamarca
+ 06620	Yauyucan	Yauyucan	Santa Cruz	Cajamarca
+ 06621	Ninabamba	Ninabamba	Santa Cruz	Cajamarca
+ 06625	Chugur	Chugur	Hualgayoc	Cajamarca
+ 06630	Tongod	Tongod	San Miguel	Cajamarca
+ 06633	Santa Cruz de Succhabamba	Santa Cruz	Santa Cruz	Cajamarca
+ 06635	Santa Cruz de Succhabamba	Santa Cruz	Santa Cruz	Cajamarca
+ 06640	Saucepampa	Saucepampa	Santa Cruz	Cajamarca
+ 06641	Pulan	Pulan	Santa Cruz	Cajamarca
+ 06644	Catache	Catache	Santa Cruz	Cajamarca
+ 06645	Catache	Catache	Santa Cruz	Cajamarca
+ 06650	Cochabamba	Cochabamba	Chota	Cajamarca
+ 06651	Cochabamba	Cochabamba	Chota	Cajamarca
+ 06653	Huambos	Huambos	Chota	Cajamarca
+ 06655	Huambos	Huambos	Chota	Cajamarca
+ 06660	Sexi	Sexi	Santa Cruz	Cajamarca
+ 06665	Llama	Llama	Chota	Cajamarca
+ 06666	Llama	Llama	Chota	Cajamarca
+ 06670	Licupis	San Juan de Licupis	Chota	Cajamarca
+ 06675	Miracosta	Miracosta	Chota	Cajamarca
+ 06680	Tocmoche	Tocmoche	Chota	Cajamarca
+ 06683	Querocoto	Querocoto	Chota	Cajamarca
+ 06685	Querocoto	Querocoto	Chota	Cajamarca
+ 06690	Querocotillo	Querocotillo	Cutervo	Cajamarca
+ 06691	Querocotillo	Querocotillo	Cutervo	Cajamarca
+ 06700	Cutervo	Cutervo	Cutervo	Cajamarca
+ 06701	Cutervo	Cutervo	Cutervo	Cajamarca
+ 06705	Santo Domingo de la Capilla	Santo Domingo de la Capilla	Cutervo	Cajamarca
+ 06706	Santo Domingo de la Capilla	Santo Domingo de la Capilla	Cutervo	Cajamarca
+ 06710	Callayuc	Callayuc	Cutervo	Cajamarca
+ 06711	Callayuc	Callayuc	Cutervo	Cajamarca
+ 06715	Santa Cruz	Santa Cruz	Cutervo	Cajamarca
+ 06720	Colasay	Colasay	Jaen	Cajamarca
+ 06721	Colasay	Colasay	Jaen	Cajamarca
+ 06725	Pucara	Pucara	Jaen	Cajamarca
+ 06726	Pucara	Pucara	Jaen	Cajamarca
+ 06730	Pomahuaca	Pomahuaca	Jaen	Cajamarca
+ 06731	Pomahuaca	Pomahuaca	Jaen	Cajamarca
+ 06735	San Felipe	San Felipe	Jaen	Cajamarca
+ 06736	San Felipe	San Felipe	Jaen	Cajamarca
+ 06740	Sallique	Sallique	Jaen	Cajamarca
+ 06741	Sallique	Sallique	Jaen	Cajamarca
+ 06745	Chontali	Chontali	Jaen	Cajamarca
+ 06746	Chontali	Chontali	Jaen	Cajamarca
+ 06750	Socota	Socota	Cutervo	Cajamarca
+ 06751	Socota	Socota	Cutervo	Cajamarca
+ 06755	San Andres de Cutervo	San Andres de Cutervo	Cutervo	Cajamarca
+ 06756	San Andres de Cutervo	San Andres de Cutervo	Cutervo	Cajamarca
+ 06760	Santo Tomas	Santo Tomas	Cutervo	Cajamarca
+ 06761	Santo Tomas	Santo Tomas	Cutervo	Cajamarca
+ 06765	Pimpingos	Pimpingos	Cutervo	Cajamarca
+ 06766	Pimpingos	Pimpingos	Cutervo	Cajamarca
+ 06770	San Juan de Cutervo	San Juan de Cutervo	Cutervo	Cajamarca
+ 06775	Cujillo	Cujillo	Cutervo	Cajamarca
+ 06780	La Sacilia	Toribio Casanova	Cutervo	Cajamarca
+ 06785	Choros	Choros	Cutervo	Cajamarca
+ 06800	Jaen	Jaen	Jaen	Cajamarca
+ 06801	Jaen	Jaen	Jaen	Cajamarca
+ 06805	Las Pirias	Las Pirias	Jaen	Cajamarca
+ 06810	Huabal	Huabal	Jaen	Cajamarca
+ 06811	Huabal	Huabal	Jaen	Cajamarca
+ 06815	Bellavista	Bellavista	Jaen	Cajamarca
+ 06816	Bellavista	Bellavista	Jaen	Cajamarca
+ 06820	Santa Rosa	Santa Rosa	Jaen	Cajamarca
+ 06821	Santa Rosa	Santa Rosa	Jaen	Cajamarca
+ 06825	La Coipa	La Coipa	San Ignacio	Cajamarca
+ 06826	La Coipa	La Coipa	San Ignacio	Cajamarca
+ 06830	San Jose del Alto	San Jose del Alto	Jaen	Cajamarca
+ 06831	San Jose del Alto	San Jose del Alto	Jaen	Cajamarca
+ 06835	Tabaconas	Tabaconas	San Ignacio	Cajamarca
+ 06836	Tabaconas	Tabaconas	San Ignacio	Cajamarca
+ 06840	Chirinos	Chirinos	San Ignacio	Cajamarca
+ 06841	Chirinos	Chirinos	San Ignacio	Cajamarca
+ 06845	San Ignacio	San Ignacio	San Ignacio	Cajamarca
+ 06846	San Ignacio	San Ignacio	San Ignacio	Cajamarca
+ 06850	Namballe	Namballe	San Ignacio	Cajamarca
+ 06851	Namballe	Namballe	San Ignacio	Cajamarca
+ 06855	San Jose de Lourdes	San Jose de Lourdes	San Ignacio	Cajamarca
+ 06856	San Jose de Lourdes	San Jose de Lourdes	San Ignacio	Cajamarca
+ 06860	Huarango	Huarango	San Ignacio	Cajamarca
+ 06861	Huarango	Huarango	San Ignacio	Cajamarca
+ 07001	Bellavista, Callao	Bellavista, Callao	Callao	Callao
+ 07006	Bellavista, Callao, Carmen de la Legua Reynoso	Bellavista, Callao, Carmen de la Legua Reynoso	Callao	Callao
+ 07011	Bellavista, La Perla	Bellavista, La Perla	Callao	Callao
+ 07016	Bellavista, La Perla	Bellavista, La Perla	Callao	Callao
+ 07021	Bellavista, Callao, La Punta	Bellavista, Callao, La Punta	Callao	Callao
+ 07026	Callao	Callao	Callao	Callao
+ 07031	Callao	Callao	Callao	Callao
+ 07036	Callao	Callao	Callao	Callao
+ 07041	Callao	Callao	Callao	Callao
+ 07046	Callao, Ventanilla	Callao, Ventanilla	Callao	Callao
+ 07051	Ventanilla	Ventanilla	Callao	Callao
+ 07056	Ventanilla	Ventanilla	Callao	Callao
+ 07061	Ventanilla	Ventanilla	Callao	Callao
+ 07066	Ventanilla	Ventanilla	Callao	Callao
+ 07071	Ventanilla	Ventanilla	Callao	Callao
+ 07076	Ventanilla	Ventanilla	Callao	Callao
+ 08000	Ccorcca, Cusco, San Jeronimo, San Sebastian, Santiago	Ccorca, Cusco, San Jeronimo, San Sebastian, Santiago	Cuzco	Cuzco
+ 08001	Cusco, Santiago	Cusco, Santiago	Cuzco	Cuzco
+ 08002	Cusco, Wanchaq	Cusco, Wanchaq	Cuzco	Cuzco
+ 08003	Cusco, Wanchaq	Cusco, Wanchaq	Cuzco	Cuzco
+ 08004	San Sebastian, Wanchaq	San Sebastian, Wanchaq	Cuzco	Cuzco
+ 08006	San Jeronimo, San Sebastian, Santiago, Wanchaq	San Jeronimo, San Sebastian, Santiago, Wanchaq	Cuzco	Cuzco
+ 08007	Santiago, Wanchaq	Santiago, Wanchaq	Cuzco	Cuzco
+ 08051	Ccorcca	Ccorca	Cuzco	Cuzco
+ 08100	Taray	Taray	Calca	Cuzco
+ 08105	Pisac	Pisac	Calca	Cuzco
+ 08106	Pisac	Pisac	Calca	Cuzco
+ 08110	Coya	Coya	Calca	Cuzco
+ 08115	Lamay	Lamay	Calca	Cuzco
+ 08116	Lamay	Lamay	Calca	Cuzco
+ 08120	Calca	Calca	Calca	Cuzco
+ 08121	Calca	Calca	Calca	Cuzco
+ 08125	Lares	Lares	Calca	Cuzco
+ 08126	Lares	Lares	Calca	Cuzco
+ 08130	Colquepata	Colquepata	Paucartambo	Cuzco
+ 08131	Colquepata	Colquepata	Paucartambo	Cuzco
+ 08135	Paucartambo	Paucartambo	Paucartambo	Cuzco
+ 08136	Paucartambo	Paucartambo	Paucartambo	Cuzco
+ 08140	Challabamba	Challabamba	Paucartambo	Cuzco
+ 08141	Challabamba	Challabamba	Paucartambo	Cuzco
+ 08145	Pillcopata	Kosñipata	Paucartambo	Cuzco
+ 08150	San Salvador	San Salvador	Calca	Cuzco
+ 08151	San Salvador	San Salvador	Calca	Cuzco
+ 08155	Caicay	Caicay	Paucartambo	Cuzco
+ 08160	Huancarani	Huancarani	Paucartambo	Cuzco
+ 08161	Huancarani	Huancarani	Paucartambo	Cuzco
+ 08165	Ccatca	Ccatca	Quispicanchi	Cuzco
+ 08166	Ccatca	Ccatca	Quispicanchi	Cuzco
+ 08170	Ocongate	Ocongate	Quispicanchi	Cuzco
+ 08171	Ocongate	Ocongate	Quispicanchi	Cuzco
+ 08175	Ccarhuayo	Ccarhuayo	Quispicanchi	Cuzco
+ 08180	Marcapata	Marcapata	Quispicanchi	Cuzco
+ 08185	Quincemil	Camanti	Quispicanchi	Cuzco
+ 08200	Saylla	Saylla	Cuzco	Cuzco
+ 08204	Oropesa	Oropesa	Quispicanchi	Cuzco
+ 08205	Oropesa	Oropesa	Quispicanchi	Cuzco
+ 08207	Lucre	Lucre	Quispicanchi	Cuzco
+ 08210	Andahuaylillas	Andahuaylillas	Quispicanchi	Cuzco
+ 08215	Huaro	Huaro	Quispicanchi	Cuzco
+ 08219	Urcos	Urcos	Quispicanchi	Cuzco
+ 08220	Urcos	Urcos	Quispicanchi	Cuzco
+ 08222	Quiquijana	Quiquijana	Quispicanchi	Cuzco
+ 08223	Quiquijana	Quiquijana	Quispicanchi	Cuzco
+ 08225	Cusipata	Cusipata	Quispicanchi	Cuzco
+ 08230	Checacupe	Checacupe	Canchis	Cuzco
+ 08234	Pitumarca	Pitumarca	Canchis	Cuzco
+ 08235	Pitumarca	Pitumarca	Canchis	Cuzco
+ 08238	Combapata	Combapata	Canchis	Cuzco
+ 08240	Combapata	Combapata	Canchis	Cuzco
+ 08242	Tinta	Tinta	Canchis	Cuzco
+ 08243	Tinta	Tinta	Canchis	Cuzco
+ 08245	San Pedro	San Pedro	Canchis	Cuzco
+ 08250	San Pablo	San Pablo	Canchis	Cuzco
+ 08254	Sicuani	Sicuani	Canchis	Cuzco
+ 08255	Sicuani	Sicuani	Canchis	Cuzco
+ 08257	Marangani	Marangani	Canchis	Cuzco
+ 08258	Marangani	Marangani	Canchis	Cuzco
+ 08260	Pampamarca	Pampamarca	Canas	Cuzco
+ 08264	Yanaoca	Yanaoca	Canas	Cuzco
+ 08265	Yanaoca	Yanaoca	Canas	Cuzco
+ 08267	El Descanso	Kunturkannki	Canas	Cuzco
+ 08268	El Descanso	Kunturkannki	Canas	Cuzco
+ 08270	Langui	Langui	Canas	Cuzco
+ 08274	Layo	Layo	Canas	Cuzco
+ 08275	Layo	Layo	Canas	Cuzco
+ 08277	Checca	Checca	Canas	Cuzco
+ 08278	Checca	Checca	Canas	Cuzco
+ 08280	Quehue	Quehue	Canas	Cuzco
+ 08285	Tungasuca	Tupac Amaru	Canas	Cuzco
+ 08290	Mosoc Llacta	Mosoc Llacta	Acomayo	Cuzco
+ 08295	Acopia	Acopia	Acomayo	Cuzco
+ 08300	Yauri ( Espinar)	Espinar	Espinar	Cuzco
+ 08301	Yauri ( Espinar)	Espinar	Espinar	Cuzco
+ 08310	Pichigua	Pichigua	Espinar	Cuzco
+ 08320	Hector Tejada	Pallpata	Espinar	Cuzco
+ 08321	Hector Tejada	Pallpata	Espinar	Cuzco
+ 08330	Accocunca	Alto Pichigua	Espinar	Cuzco
+ 08340	Ocoruro	Ocoruro	Espinar	Cuzco
+ 08350	Condoroma	Condoroma	Espinar	Cuzco
+ 08360	Virginiyoc	Suyckutambo	Espinar	Cuzco
+ 08370	Coporaque	Coporaque	Espinar	Cuzco
+ 08371	Coporaque	Coporaque	Espinar	Cuzco
+ 08400	Quiñota	Quiñota	Chumbivilcas	Cuzco
+ 08410	Llusco	Llusco	Chumbivilcas	Cuzco
+ 08411	Llusco	Llusco	Chumbivilcas	Cuzco
+ 08420	Santo Tomas	Santo Tomas	Chumbivilcas	Cuzco
+ 08421	Santo Tomas	Santo Tomas	Chumbivilcas	Cuzco
+ 08430	Velille	Velille	Chumbivilcas	Cuzco
+ 08431	Velille	Velille	Chumbivilcas	Cuzco
+ 08440	Colquemarca	Colquemarca	Chumbivilcas	Cuzco
+ 08441	Colquemarca	Colquemarca	Chumbivilcas	Cuzco
+ 08450	Capacmarca	Capacmarca	Chumbivilcas	Cuzco
+ 08460	Chamaca	Chamaca	Chumbivilcas	Cuzco
+ 08461	Chamaca	Chamaca	Chumbivilcas	Cuzco
+ 08470	Livitaca	Livitaca	Chumbivilcas	Cuzco
+ 08471	Livitaca	Livitaca	Chumbivilcas	Cuzco
+ 08500	Huanoquite	Huanoquite	Paruro	Cuzco
+ 08501	Huanoquite	Huanoquite	Paruro	Cuzco
+ 08505	Ccapi	Ccapi	Paruro	Cuzco
+ 08510	Yaurisque	Yaurisque	Paruro	Cuzco
+ 08515	Paccaritambo	Paccaritambo	Paruro	Cuzco
+ 08520	Paruro	Paruro	Paruro	Cuzco
+ 08525	Rondocan	Rondocan	Acomayo	Cuzco
+ 08530	Colcha	Colcha	Paruro	Cuzco
+ 08535	Accha	Accha	Paruro	Cuzco
+ 08540	Pillpinto	Pillpinto	Paruro	Cuzco
+ 08545	Acos	Acos	Acomayo	Cuzco
+ 08550	Acomayo	Acomayo	Acomayo	Cuzco
+ 08551	Acomayo	Acomayo	Acomayo	Cuzco
+ 08555	Sangarara	Sangarara	Acomayo	Cuzco
+ 08560	Pomacanchi	Pomacanchi	Acomayo	Cuzco
+ 08561	Pomacanchi	Pomacanchi	Acomayo	Cuzco
+ 08565	Omacha	Omacha	Paruro	Cuzco
+ 08566	Omacha	Omacha	Paruro	Cuzco
+ 08600	Poroy	Poroy	Cuzco	Cuzco
+ 08605	Cachimayo	Cachimayo	Anta	Cuzco
+ 08610	Pucyura	Pucyura	Anta	Cuzco
+ 08615	Anta	Anta	Anta	Cuzco
+ 08616	Anta	Anta	Anta	Cuzco
+ 08620	Chinchaypujio	Chinchaypujio	Anta	Cuzco
+ 08625	Huarocondo	Huarocondo	Anta	Cuzco
+ 08626	Huarocondo	Huarocondo	Anta	Cuzco
+ 08630	Zurite	Zurite	Anta	Cuzco
+ 08635	Ancahuasi	Ancahuasi	Anta	Cuzco
+ 08636	Ancahuasi	Ancahuasi	Anta	Cuzco
+ 08640	Limatambo	Limatambo	Anta	Cuzco
+ 08641	Limatambo	Limatambo	Anta	Cuzco
+ 08645	Mollepata	Mollepata	Anta	Cuzco
+ 08650	Chinchero	Chinchero	Urubamba	Cuzco
+ 08651	Chinchero	Chinchero	Urubamba	Cuzco
+ 08655	Maras	Maras	Urubamba	Cuzco
+ 08656	Maras	Maras	Urubamba	Cuzco
+ 08660	Urubamba	Urubamba	Urubamba	Cuzco
+ 08661	Urubamba	Urubamba	Urubamba	Cuzco
+ 08665	Yucay	Yucay	Urubamba	Cuzco
+ 08670	Huayllabamba	Huayllabamba	Urubamba	Cuzco
+ 08675	Ollantaytambo	Ollantaytambo	Urubamba	Cuzco
+ 08676	Ollantaytambo	Ollantaytambo	Urubamba	Cuzco
+ 08680	Machupicchu	Machupicchu	Urubamba	Cuzco
+ 08681	Machupicchu	Machupicchu	Urubamba	Cuzco
+ 08700	Huyro	Huayopata	La Convencion	Cuzco
+ 08701	Huyro	Huayopata	La Convencion	Cuzco
+ 08710	Santa Teresa	Santa Teresa	La Convencion	Cuzco
+ 08711	Santa Teresa	Santa Teresa	La Convencion	Cuzco
+ 08720	Lucma	Vilcabamba	La Convencion	Cuzco
+ 08721	Lucma	Vilcabamba	La Convencion	Cuzco
+ 08730	Maranura	Maranura	La Convencion	Cuzco
+ 08731	Maranura	Maranura	La Convencion	Cuzco
+ 08740	Quillabamba	Santa Ana	La Convencion	Cuzco
+ 08741	Quillabamba	Santa Ana	La Convencion	Cuzco
+ 08750	Echarate	Echarate	La Convencion	Cuzco
+ 08751	Echarate	Echarate	La Convencion	Cuzco
+ 08760	Quellouno	Quellouno	La Convencion	Cuzco
+ 08761	Quellouno	Quellouno	La Convencion	Cuzco
+ 08770	Quebrada Honda	Yanatile	Calca	Cuzco
+ 08771	Quebrada Honda	Yanatile	Calca	Cuzco
+ 08780	Kquelccaybamba	Ocobamba	La Convencion	Cuzco
+ 08781	Kquelccaybamba	Ocobamba	La Convencion	Cuzco
+ 08800	Kimbiri	Kimbiri	La Convencion	Cuzco
+ 08801	Kimbiri	Kimbiri	La Convencion	Cuzco
+ 08850	Pichari	Pichari	La Convencion	Cuzco
+ 08851	Pichari	Pichari	La Convencion	Cuzco
+ 09000	Ascencion, Huancavelica	Ascension, Huancavelica	Huancavelica	Huancavelica
+ 09001	Ascencion, Huancavelica	Ascension, Huancavelica	Huancavelica	Huancavelica
+ 09100	Acoria	Acoria	Huancavelica	Huancavelica
+ 09101	Acoria	Acoria	Huancavelica	Huancavelica
+ 09105	Palca	Palca	Huancavelica	Huancavelica
+ 09110	Huando	Huando	Huancavelica	Huancavelica
+ 09111	Huando	Huando	Huancavelica	Huancavelica
+ 09115	Izcuchaca	Izcuchaca	Huancavelica	Huancavelica
+ 09120	Mariscal Caceres	Mariscal Caceres	Huancavelica	Huancavelica
+ 09125	Acostambo	Acostambo	Tayacaja	Huancavelica
+ 09130	Ñahuimpuquio	Ñahuimpuquio	Tayacaja	Huancavelica
+ 09135	Pazos	Pazos	Tayacaja	Huancavelica
+ 09136	Pazos	Pazos	Tayacaja	Huancavelica
+ 09140	Huaribamba	Huaribamba	Tayacaja	Huancavelica
+ 09141	Huaribamba	Huaribamba	Tayacaja	Huancavelica
+ 09145	Acraquia	Acraquia	Tayacaja	Huancavelica
+ 09146	Acraquia	Acraquia	Tayacaja	Huancavelica
+ 09150	Ahuaycha	Ahuaycha	Tayacaja	Huancavelica
+ 09151	Ahuaycha	Ahuaycha	Tayacaja	Huancavelica
+ 09155	Pampas	Pampas	Tayacaja	Huancavelica
+ 09156	Pampas	Pampas	Tayacaja	Huancavelica
+ 09160	Mariscal Caceres	Daniel Hernandez	Tayacaja	Huancavelica
+ 09161	Mariscal Caceres	Daniel Hernandez	Tayacaja	Huancavelica
+ 09200	Salcabamba	Salcabamba	Tayacaja	Huancavelica
+ 09201	Salcabamba	Salcabamba	Tayacaja	Huancavelica
+ 09210	Quishuar	Quishuar	Tayacaja	Huancavelica
+ 09220	Salcahuasi	Salcahuasi	Tayacaja	Huancavelica
+ 09230	San Marcos de Rocchac	San Marcos de Rocchac	Tayacaja	Huancavelica
+ 09240	Surcubamba	Surcubamba	Tayacaja	Huancavelica
+ 09241	Surcubamba	Surcubamba	Tayacaja	Huancavelica
+ 09250	Huachocolpa	Huachocolpa	Tayacaja	Huancavelica
+ 09260	Tintay	Tintay Puncu	Tayacaja	Huancavelica
+ 09261	Tintay	Tintay Puncu	Tayacaja	Huancavelica
+ 09300	Yauli	Yauli	Huancavelica	Huancavelica
+ 09301	Yauli	Yauli	Huancavelica	Huancavelica
+ 09305	Paucara	Paucara	Acobamba	Huancavelica
+ 09306	Paucara	Paucara	Acobamba	Huancavelica
+ 09310	Andabamba	Andabamba	Acobamba	Huancavelica
+ 09315	La Esmeralda	Anco	Churcampa	Huancavelica
+ 09316	La Esmeralda	Anco	Churcampa	Huancavelica
+ 09320	Colcabamba	Colcabamba	Tayacaja	Huancavelica
+ 09321	Colcabamba	Colcabamba	Tayacaja	Huancavelica
+ 09325	Chinchihuasi	Chinchihuasi	Churcampa	Huancavelica
+ 09330	Paucarbamba	Paucarbamba	Churcampa	Huancavelica
+ 09331	Paucarbamba	Paucarbamba	Churcampa	Huancavelica
+ 09335	Pachamarca	Pachamarca	Churcampa	Huancavelica
+ 09340	San Pedro de Coris	San Pedro de Coris	Churcampa	Huancavelica
+ 09345	Churcampa	Churcampa	Churcampa	Huancavelica
+ 09346	Churcampa	Churcampa	Churcampa	Huancavelica
+ 09350	Locroja	Locroja	Churcampa	Huancavelica
+ 09355	La Merced	La Merced	Churcampa	Huancavelica
+ 09360	Mayocc	San Miguel de Mayocc	Churcampa	Huancavelica
+ 09365	Paucarbambilla	El Carmen	Churcampa	Huancavelica
+ 09370	Rosario	Rosario	Acobamba	Huancavelica
+ 09371	Rosario	Rosario	Acobamba	Huancavelica
+ 09375	Anta	Anta	Acobamba	Huancavelica
+ 09376	Anta	Anta	Acobamba	Huancavelica
+ 09380	Acobamba	Acobamba	Acobamba	Huancavelica
+ 09381	Acobamba	Acobamba	Acobamba	Huancavelica
+ 09385	Pomacocha	Pomacocha	Acobamba	Huancavelica
+ 09390	Caja	Caja	Acobamba	Huancavelica
+ 09395	Marcas	Marcas	Acobamba	Huancavelica
+ 09400	Ccochaccasa	Ccochaccasa	Angaraes	Huancavelica
+ 09405	Lircay	Lircay	Angaraes	Huancavelica
+ 09406	Lircay	Lircay	Angaraes	Huancavelica
+ 09415	Anchonga	Anchonga	Angaraes	Huancavelica
+ 09416	Anchonga	Anchonga	Angaraes	Huancavelica
+ 09420	Huayllay Grande	Huayllay Grande	Angaraes	Huancavelica
+ 09425	Callanmarca	Callanmarca	Angaraes	Huancavelica
+ 09430	Huanca Huanca	Huanca Huanca	Angaraes	Huancavelica
+ 09435	Congalla	Congalla	Angaraes	Huancavelica
+ 09440	Secclla	Secclla	Angaraes	Huancavelica
+ 09445	Julcamarca	Julcamarca	Angaraes	Huancavelica
+ 09450	Chincho	Chincho	Angaraes	Huancavelica
+ 09455	Antaparco	San Antonio de Antaparco	Angaraes	Huancavelica
+ 09460	Santo Tomas de Pata	Santo Tomas de Pata	Angaraes	Huancavelica
+ 09500	Santa Ana	Santa Ana	Castrovirreyna	Huancavelica
+ 09510	Huachocolpa	Huachocolpa	Huancavelica	Huancavelica
+ 09520	Pilpichaca	Pilpichaca	Huaytara	Huancavelica
+ 09600	Huaytara	Huaytara	Huaytara	Huancavelica
+ 09605	Ayavi	Ayavi	Huaytara	Huancavelica
+ 09610	Tambo	Tambo	Huaytara	Huancavelica
+ 09615	Santo Domingo de Capillas	Santo Domingo de Capillas	Huaytara	Huancavelica
+ 09620	San Francisco de Sangallaico	San Francisco de Sangayaico	Huaytara	Huancavelica
+ 09625	Santiago de Chocorvos	Santiago de Chocorvos	Huaytara	Huancavelica
+ 09630	San Juan de Huirpacancha	San isidro	Huaytara	Huancavelica
+ 09635	Cordova	Cordova	Huaytara	Huancavelica
+ 09640	Laramarca	Laramarca	Huaytara	Huancavelica
+ 09645	Querco	Querco	Huaytara	Huancavelica
+ 09650	Ocoyo	Ocoyo	Huaytara	Huancavelica
+ 09655	Santiago de Quirahuara	Santiago de Quirahuara	Huaytara	Huancavelica
+ 09660	Huayacundo Arma	Huayacundo Arma	Huaytara	Huancavelica
+ 09665	Quito Arma	Quito Arma	Huaytara	Huancavelica
+ 09670	Cusicancha	San Antonio de Cusicancha	Huaytara	Huancavelica
+ 09700	Arma	Arma	Castrovirreyna	Huancavelica
+ 09705	Huachos	Huachos	Castrovirreyna	Huancavelica
+ 09710	Capillas	Capillas	Castrovirreyna	Huancavelica
+ 09715	Mollepampa	Mollepampa	Castrovirreyna	Huancavelica
+ 09720	Cocas	Cocas	Castrovirreyna	Huancavelica
+ 09725	Castrovirreyna	Castrovirreyna	Castrovirreyna	Huancavelica
+ 09730	Ticrapo	Ticrapo	Castrovirreyna	Huancavelica
+ 09735	Aurahua	Aurahua	Castrovirreyna	Huancavelica
+ 09740	Chupamarca	Chupamarca	Castrovirreyna	Huancavelica
+ 09745	Tantara	Tantara	Castrovirreyna	Huancavelica
+ 09750	Huamatambo	Huamatambo	Castrovirreyna	Huancavelica
+ 09755	San Juan	San Juan	Castrovirreyna	Huancavelica
+ 09800	Acobambilla	Acobambilla	Huancavelica	Huancavelica
+ 09810	Manta	Manta	Huancavelica	Huancavelica
+ 09820	Vilca	Vilca	Huancavelica	Huancavelica
+ 09830	Moya	Moya	Huancavelica	Huancavelica
+ 09840	Huayllahuara	Huayllahuara	Huancavelica	Huancavelica
+ 09850	Pilchaca	Pilchaca	Huancavelica	Huancavelica
+ 09860	Cuenca	Cuenca	Huancavelica	Huancavelica
+ 09870	Conayca	Conayca	Huancavelica	Huancavelica
+ 09880	Laria	Laria	Huancavelica	Huancavelica
+ 09890	Occoro	Nuevo Occoro	Huancavelica	Huancavelica
+ 10000	Paucarbamba, Huanuco, Cayhuayna, Cayran	Amarilis, Huanuco, Pillco Marca, San Francisco de Cayran	Huanuco	Huanuco
+ 10001	Huanuco	Huanuco	Huanuco	Huanuco
+ 10002	Paucarbamba	Amarilis	Huanuco	Huanuco
+ 10003	Paucarbamba, Huanuco, Cayhuayna	Amarilis, Huanuco, Pillco Marca	Huanuco	Huanuco
+ 10031	Cayran	San Francisco de Cayran	Huanuco	Huanuco
+ 10100	Santa Maria del Valle	Santa Maria del Valle	Huanuco	Huanuco
+ 10101	Santa Maria del Valle	Santa Maria del Valle	Huanuco	Huanuco
+ 10110	Acomayo	Chinchao	Huanuco	Huanuco
+ 10111	Acomayo	Chinchao	Huanuco	Huanuco
+ 10120	Las Palmas	Mariano Damaso Beraun	Leoncio Prado	Huanuco
+ 10121	Las Palmas	Mariano Damaso Beraun	Leoncio Prado	Huanuco
+ 10130	Tingo Maria	Rupa Rupa	Leoncio Prado	Huanuco
+ 10131	Tingo Maria	Rupa Rupa	Leoncio Prado	Huanuco
+ 10140	Naranjillo	Luyando	Leoncio Prado	Huanuco
+ 10141	Naranjillo	Luyando	Leoncio Prado	Huanuco
+ 10150	Daniel Alomias Robles (Pumahuasi)	Daniel Alomias Robles	Leoncio Prado	Huanuco
+ 10151	Daniel Alomias Robles (Pumahuasi)	Daniel Alomias Robles	Leoncio Prado	Huanuco
+ 10160	Hermilio Valdizan	Hermilio Valdizan	Leoncio Prado	Huanuco
+ 10170	Aucayacu	Jose Crespo y Castillo	Leoncio Prado	Huanuco
+ 10171	Aucayacu	Jose Crespo y Castillo	Leoncio Prado	Huanuco
+ 10180	Churubamba	Churubamba	Huanuco	Huanuco
+ 10181	Churubamba	Churubamba	Huanuco	Huanuco
+ 10200	Umari (Tambillo)	Umari	Pachitea	Huanuco
+ 10201	Umari (Tambillo)	Umari	Pachitea	Huanuco
+ 10210	Molinos	Molino	Pachitea	Huanuco
+ 10211	Molinos	Molino	Pachitea	Huanuco
+ 10220	Panao	Panao	Pachitea	Huanuco
+ 10221	Panao	Panao	Pachitea	Huanuco
+ 10230	Chaglla	Chaglla	Pachitea	Huanuco
+ 10231	Chaglla	Chaglla	Pachitea	Huanuco
+ 10240	Codo del Pozuzo	Codo del Pozuzo	Puerto Inca	Huanuco
+ 10241	Codo del Pozuzo	Codo del Pozuzo	Puerto Inca	Huanuco
+ 10250	Yuyapichis	Yuyapichis	Puerto Inca	Huanuco
+ 10251	Yuyapichis	Yuyapichis	Puerto Inca	Huanuco
+ 10260	Puerto Inca	Puerto Inca	Puerto Inca	Huanuco
+ 10261	Puerto Inca	Puerto Inca	Puerto Inca	Huanuco
+ 10300	Tournavista	Tournavista	Puerto Inca	Huanuco
+ 10301	Tournavista	Tournavista	Puerto Inca	Huanuco
+ 10350	Honoria	Honoria	Puerto Inca	Huanuco
+ 10351	Honoria	Honoria	Puerto Inca	Huanuco
+ 10400	Conchamarca	Conchamarca	Ambo	Huanuco
+ 10401	Conchamarca	Conchamarca	Ambo	Huanuco
+ 10410	Tomay Kichwa	Tomay Kichwa	Ambo	Huanuco
+ 10420	Ambo	Ambo	Ambo	Huanuco
+ 10421	Ambo	Ambo	Ambo	Huanuco
+ 10430	San Rafael	San Rafael	Ambo	Huanuco
+ 10431	San Rafael	San Rafael	Ambo	Huanuco
+ 10440	Huacar	Huacar	Ambo	Huanuco
+ 10441	Huacar	Huacar	Ambo	Huanuco
+ 10450	Mosca	San Francisco	Ambo	Huanuco
+ 10460	Cayna	Cayna	Ambo	Huanuco
+ 10470	Colpas	Colpas	Ambo	Huanuco
+ 10500	Yarumayo	Yurumayo	Huanuco	Huanuco
+ 10510	Chaulan	San Pedro de Chaulan	Huanuco	Huanuco
+ 10511	Chaulan	San Pedro de Chaulan	Huanuco	Huanuco
+ 10520	Margos	Margos	Huanuco	Huanuco
+ 10521	Margos	Margos	Huanuco	Huanuco
+ 10530	Jesus	Jesus	Lauricocha	Huanuco
+ 10531	Jesus	Jesus	Lauricocha	Huanuco
+ 10540	Cauri	San Miguel de Cauri	Lauricocha	Huanuco
+ 10541	Cauri	San Miguel de Cauri	Lauricocha	Huanuco
+ 10550	Jivia	Jivia	Lauricocha	Huanuco
+ 10560	Huarin	San Francisco de Asis	Lauricocha	Huanuco
+ 10570	Choras	Choras	Yarowilca	Huanuco
+ 10580	Chacabamba	Chacabamba	Yarowilca	Huanuco
+ 10590	Cahuac	Cahuac	Yarowilca	Huanuco
+ 10600	Pachas	Pachas	Dos de Mayo	Huanuco
+ 10601	Pachas	Pachas	Dos de Mayo	Huanuco
+ 10605	Shunqui	Shunqui	Dos de Mayo	Huanuco
+ 10610	Ripan	Ripan	Dos de Mayo	Huanuco
+ 10611	Ripan	Ripan	Dos de Mayo	Huanuco
+ 10615	Sillapata	Sillapata	Dos de Mayo	Huanuco
+ 10620	La Union	La Union	Dos de Mayo	Huanuco
+ 10621	La Union	La Union	Dos de Mayo	Huanuco
+ 10626	Rondos	Rondos	Lauricocha	Huanuco
+ 10630	Rondos	Rondos	Lauricocha	Huanuco
+ 10631	Baños	Baños	Lauricocha	Huanuco
+ 10640	Baños	Baños	Lauricocha	Huanuco
+ 10641	Llata	Llata	Huamalies	Huanuco
+ 10650	Queropalca	Queropalca	Lauricocha	Huanuco
+ 10660	Llata	Llata	Huamalies	Huanuco
+ 10670	Puños	Puños	Huamalies	Huanuco
+ 10680	Miraflores	Miraflores	Huamalies	Huanuco
+ 10685	Punchao	Punchao	Huamalies	Huanuco
+ 10690	Singa	Singa	Huamalies	Huanuco
+ 10700	Huancapallac	Quisqui	Huanuco	Huanuco
+ 10701	Huancapallac	Quisqui	Huanuco	Huanuco
+ 10705	San Cristobal de Jacas Chico	Jacas Chico	Yarowilca	Huanuco
+ 10710	Chavinillo	Chavinillo	Yarowilca	Huanuco
+ 10711	Chavinillo	Chavinillo	Yarowilca	Huanuco
+ 10720	Obas	Obas	Yarowilca	Huanuco
+ 10721	Obas	Obas	Yarowilca	Huanuco
+ 10730	Chupan	Aparicio Pomares	Yarowilca	Huanuco
+ 10731	Chupan	Aparicio Pomares	Yarowilca	Huanuco
+ 10740	Chuquis	Chuquis	Dos de Mayo	Huanuco
+ 10741	Chuquis	Chuquis	Dos de Mayo	Huanuco
+ 10745	Yanas	Yanas	Dos de Mayo	Huanuco
+ 10750	Pampamarca	Pampamarca	Yarowilca	Huanuco
+ 10755	Quivilla	Quivilla	Dos de Mayo	Huanuco
+ 10760	Marias	Marias	Dos de Mayo	Huanuco
+ 10761	Marias	Marias	Dos de Mayo	Huanuco
+ 10770	Jacas Grande	Jacas Grande	Huamalies	Huanuco
+ 10771	Jacas Grande	Jacas Grande	Huamalies	Huanuco
+ 10775	Chavin de Pariarca	Chavin de Pariarca	Huamalies	Huanuco
+ 10780	Tantamayo	Tantamayo	Huamalies	Huanuco
+ 10800	Monzon	Monzon	Huamalies	Huanuco
+ 10801	Monzon	Monzon	Huamalies	Huanuco
+ 10810	Jircan	Jircan	Huamalies	Huanuco
+ 10820	Arancay	Arancay	Huamalies	Huanuco
+ 10830	Cochabamba	Cochabamba	Huacaybamba	Huanuco
+ 10840	Huacaybamba	Huacaybamba	Huacaybamba	Huanuco
+ 10841	Huacaybamba	Huacaybamba	Huacaybamba	Huanuco
+ 10850	Pinra	Pinra	Huacaybamba	Huanuco
+ 10851	Pinra	Pinra	Huacaybamba	Huanuco
+ 10860	Canchabamba	Canchabamba	Huacaybamba	Huanuco
+ 10870	San Buenaventura	San Buenaventura	Marañon	Huanuco
+ 10880	Huacrachuco	Huacrachuco	Marañon	Huanuco
+ 10881	Huacrachuco	Huacrachuco	Marañon	Huanuco
+ 10890	San Pedro de Chonta	Cholon	Marañon	Huanuco
+ 10891	San Pedro de Chonta	Cholon	Marañon	Huanuco
+ 11000	Ica, La Tinguiña, Los Aquijes, Parcona, San Juan Bautista, Subtanjalla	Ica, La Tinguiña, Los Aquijes, Parcona, San Juan Bautista, Subtanjalla	Ica	Ica
+ 11001	Parcona, Ica	Parcona, Ica	Ica	Ica
+ 11002	Ica, La Tinguiña, San Juan Bautista	Ica, La Tinguiña, San Juan Bautista	Ica	Ica
+ 11003	La Tinguiña, Parcona	La Tinguiña, Parcona	Ica	Ica
+ 11004	Subtanjalla, Ica	Subtanjalla, Ica	Ica	Ica
+ 11061	Los Aquijes	Los Aquijes	Ica	Ica
+ 11100	San Jose de los Molinos	San Jose de los Molinos	Ica	Ica
+ 11101	San Jose de los Molinos	San Jose de los Molinos	Ica	Ica
+ 11200	Pueblo Nuevo	Pueblo Nuevo	Ica	Ica
+ 11210	Tate de la Capilla	Tate	Ica	Ica
+ 11220	Pampa de Tate	Pachacutec	Ica	Ica
+ 11221	Pampa de Tate	Pachacutec	Ica	Ica
+ 11230	Santiago	Santiago	Ica	Ica
+ 11231	Santiago	Santiago	Ica	Ica
+ 11240	Ocucaje	Ocucaje	Ica	Ica
+ 11260	Pampahuasi	Yauca del Rosario	Ica	Ica
+ 11300	Santa Cruz	Santa Cruz	Palpa	Ica
+ 11310	Tibillo	Tibillo	Palpa	Ica
+ 11320	Rio Grande	Rio Grande	Palpa	Ica
+ 11330	Palpa	Palpa	Palpa	Ica
+ 11331	Palpa	Palpa	Palpa	Ica
+ 11340	Changuillo	Changuillo	Nazca	Ica
+ 11350	El Ingenio	El Ingenio	Nazca	Ica
+ 11360	Llipata	Llipata	Palpa	Ica
+ 11400	Nazca, Vista Alegre	Nazca, Vista Alegre	Nazca	Ica
+ 11401	Vista Alegre, Nazca	Vista Alegre, Nazca	Nazca	Ica
+ 11420	San Juan	Marcona	Nazca	Ica
+ 11421	San Juan	Marcona	Nazca	Ica
+ 11500	Guadalupe	Salas	Ica	Ica
+ 11501	Guadalupe	Salas	Ica	Ica
+ 11550	Paracas	Paracas	Pisco	Ica
+ 11600	San Andres, Pisco	San Andres, Pisco	Pisco	Ica
+ 11601	Pisco, San Andres	Pisco, San Andres	Pisco	Ica
+ 11620	Tupac Amaru	Tupac Amaru Inca	Pisco	Ica
+ 11621	Tupac Amaru	Tupac Amaru Inca	Pisco	Ica
+ 11630	San Clemente	San Clemente	Pisco	Ica
+ 11631	San Clemente	San Clemente	Pisco	Ica
+ 11640	Independencia	Independencia	Pisco	Ica
+ 11641	Independencia	Independencia	Pisco	Ica
+ 11650	Humay	Humay	Pisco	Ica
+ 11651	Humay	Humay	Pisco	Ica
+ 11660	Huancano	Huancano	Pisco	Ica
+ 11700	San Pedro, Sunampe	Grocio Prado, Sunampe	Chincha	Ica
+ 11701	Chincha Alta, Pueblo Nuevo	Chincha Alta, Pueblo Nuevo	Chincha	Ica
+ 11702	Sunampe, Chincha Alta	Sunampe, Chincha Alta	Chincha	Ica
+ 11703	Pueblo Nuevo, San Pedro, Chincha Alta	Pueblo Nuevo, Grocio Prado, Chincha Alta	Chincha	Ica
+ 11740	El Carmen	El Carmen	Chincha	Ica
+ 11741	El Carmen	El Carmen	Chincha	Ica
+ 11750	Chincha Baja	Chincha Baja	Chincha	Ica
+ 11751	Chincha Baja	Chincha Baja	Chincha	Ica
+ 11760	Tambo de Mora	Tambo de Mora	Chincha	Ica
+ 11770	Alto Laran	Alto Laran	Chincha	Ica
+ 11771	Alto Laran	Alto Laran	Chincha	Ica
+ 11780	Chavin	Chavin	Chincha	Ica
+ 11800	San Pedro de Huacarpana	San Pedro de Huacarpana	Chincha	Ica
+ 11850	San Juan de Yanac	San Juan de Yanac	Chincha	Ica
+ 12000	Huancayo, Huancan, Chilca, El Tambo	Huancayo, Huancan, Chilca, El Tambo	Huancayo	Junin
+ 12001	Huancayo, Chilca	Huancayo, Chilca	Huancayo	Junin
+ 12002	Huancayo, Chilca	Huancayo, Chilca	Huancayo	Junin
+ 12003	Chilca, Huancayo	Chilca, Huancayo	Huancayo	Junin
+ 12004	El Tambo, Huancayo	El Tambo, Huancayo	Huancayo	Junin
+ 12006	El Tambo, Pilcomayo	El Tambo, Pilcomayo	Huancayo	Junin
+ 12007	El Tambo	El Tambo	Huancayo	Junin
+ 12051	Huancan, Chilca	Huancan, Chilca	Huancayo	Junin
+ 12100	San Agustin	San Agustin	Huancayo	Junin
+ 12101	San Agustin	San Agustin	Huancayo	Junin
+ 12105	Hualhuas	Hualhuas	Huancayo	Junin
+ 12110	Saño	Saño	Huancayo	Junin
+ 12115	San Jeronimo de Tunan	San Jeronimo de Tunan	Huancayo	Junin
+ 12116	San Jeronimo de Tunan	San Jeronimo de Tunan	Huancayo	Junin
+ 12120	Quilcas	Quilcas	Huancayo	Junin
+ 12125	Concepcion	Concepcion	Concepcion	Junin
+ 12126	Concepcion	Concepcion	Concepcion	Junin
+ 12130	Santo Domingo del Prado	Nueve de Julio	Concepcion	Junin
+ 12135	Matahuasi	Matahuasi	Concepcion	Junin
+ 12136	Matahuasi	Matahuasi	Concepcion	Junin
+ 12140	Apata	Apata	Jauja	Junin
+ 12145	San Lorenzo	San Lorenzo	Jauja	Junin
+ 12150	Pucucho	El Mantaro	Jauja	Junin
+ 12155	Huamali	Huamali	Jauja	Junin
+ 12160	Ataura	Ataura	Jauja	Junin
+ 12165	Masma	Masma	Jauja	Junin
+ 12170	Masma Chicche	Masma Chicche	Jauja	Junin
+ 12175	Julcan	Julcan	Jauja	Junin
+ 12180	Molinos	Molinos	Jauja	Junin
+ 12200	Santa Rosa	Santa Rosa de Ocopa	Concepcion	Junin
+ 12205	Quichuay	Quichuay	Huancayo	Junin
+ 12210	Ingenio	Ingenio	Huancayo	Junin
+ 12215	San Antonio de Ocopa	Heroinas Toledo	Concepcion	Junin
+ 12220	Comas	Comas	Concepcion	Junin
+ 12221	Comas	Comas	Concepcion	Junin
+ 12225	Cochas	Cochas	Concepcion	Junin
+ 12230	Mucllo	Mariscal Castilla	Concepcion	Junin
+ 12235	Andamarca	Andamarca	Concepcion	Junin
+ 12236	Andamarca	Andamarca	Concepcion	Junin
+ 12240	Santo Domingo de Acobamba	San Domingo de Acobamba	Huancayo	Junin
+ 12241	Santo Domingo de Acobamba	San Domingo de Acobamba	Huancayo	Junin
+ 12245	Lampa	Pariahuanca	Huancayo	Junin
+ 12246	Lampa	Pariahuanca	Huancayo	Junin
+ 12250	Mariposa	Pampa Hermosa	Satipo	Junin
+ 12251	Mariposa	Pampa Hermosa	Satipo	Junin
+ 12255	Coviriali	Coviriali	Satipo	Junin
+ 12256	Coviriali	Coviriali	Satipo	Junin
+ 12260	Satipo	Satipo	Satipo	Junin
+ 12261	Satipo	Satipo	Satipo	Junin
+ 12300	Mazamari	Mazamari	Satipo	Junin
+ 12301	Mazamari	Mazamari	Satipo	Junin
+ 12310	Llaylla	Llaylla	Satipo	Junin
+ 12311	Llaylla	Llaylla	Satipo	Junin
+ 12320	San Martin de Pangoa	Pangoa	Satipo	Junin
+ 12321	San Martin de Pangoa	Pangoa	Satipo	Junin
+ 12330	Puerto Ocopa	Rio Tambo	Satipo	Junin
+ 12331	Puerto Ocopa	Rio Tambo	Satipo	Junin
+ 12400	Sapallanga	Sapallanca	Huancayo	Junin
+ 12401	Sapallanga	Sapallanca	Huancayo	Junin
+ 12404	Pucara	Pucara	Huancayo	Junin
+ 12405	Pucara	Pucara	Huancayo	Junin
+ 12408	Huayucachi	Huayucachi	Huancayo	Junin
+ 12410	Huayucachi	Huayucachi	Huancayo	Junin
+ 12415	Viques	Viques	Huancayo	Junin
+ 12419	Huacrapuquio	Huacrapuquio	Huancayo	Junin
+ 12420	Cullhuas	Cullhuas	Huancayo	Junin
+ 12425	Huamancaca Chico	Huamancaca Chico	Chupaca	Junin
+ 12428	Tres de Diciembre	Tres de Diciembre	Chupaca	Junin
+ 12430	Chongos Bajo	Chongos Bajo	Chupaca	Junin
+ 12435	Chupuro	Chupuro	Huancayo	Junin
+ 12436	Colca	Colca	Huancayo	Junin
+ 12440	Chacapampa	Chacapampa	Huancayo	Junin
+ 12442	Carhuacallanga	Carhuacallanga	Huancayo	Junin
+ 12445	Huasicancha	Huasicancha	Huancayo	Junin
+ 12450	Chongos Alto	Chongos Alto	Huancayo	Junin
+ 12451	Chicche	Chicche	Huancayo	Junin
+ 12455	Chupaca	Chupaca	Chupaca	Junin
+ 12456	Chupaca	Chupaca	Chupaca	Junin
+ 12460	Iscos	San Juan de Yscos	Chupaca	Junin
+ 12465	Ahuac	Ahuac	Chupaca	Junin
+ 12466	Ahuac	Ahuac	Chupaca	Junin
+ 12470	Yanacancha	Yanacancha	Chupaca	Junin
+ 12475	Jarpa	San Juan de Jarpa	Chupaca	Junin
+ 12480	Huachac	Huachac	Chupaca	Junin
+ 12485	San Miguel	Manzanares	Concepcion	Junin
+ 12490	Chambara	Chambara	Concepcion	Junin
+ 12495	San Jose de Quero	San Jose de Quero	Concepcion	Junin
+ 12496	San Jose de Quero	San Jose de Quero	Concepcion	Junin
+ 12500	Sicaya	Sicaya	Huancayo	Junin
+ 12501	Sicaya	Sicaya	Huancayo	Junin
+ 12504	Orcotuna	Orcotuna	Concepcion	Junin
+ 12505	Mito	Mito	Concepcion	Junin
+ 12510	Aco	Aco	Concepcion	Junin
+ 12513	Sincos	Sincos	Jauja	Junin
+ 12515	Huancani	Leonor Ordoñez	Jauja	Junin
+ 12520	Muqui	Muqui	Jauja	Junin
+ 12525	Muquiyauyo	Muquiyauyo	Jauja	Junin
+ 12530	Huaripampa	Huaripampa	Jauja	Junin
+ 12535	Paccha	Paccha	Yauli	Junin
+ 12540	Parco	Parco	Jauja	Junin
+ 12545	Llocllapampa	Llocllapampa	Jauja	Junin
+ 12550	El Rosario	Curicaca	Jauja	Junin
+ 12555	Canchayllo	Canchayllo	Jauja	Junin
+ 12560	Chacapalpa	Chacapalpa	Yauli	Junin
+ 12565	Huay Huay	Huay Huay	Yauli	Junin
+ 12570	Suitucancha	Suitucancha	Yauli	Junin
+ 12575	La Oroya, Santa Rosa de Sacco	La Oroya, Santa Rosa de Sacco	Yauli	Junin
+ 12576	La Oroya, Santa Rosa de Sacco	La Oroya, Santa Rosa de Sacco	Yauli	Junin
+ 12585	Paccha	Paccha	Jauja	Junin
+ 12590	Yauli	Yauli	Yauli	Junin
+ 12591	Yauli	Yauli	Yauli	Junin
+ 12595	Morococha	Morococha	Yauli	Junin
+ 12596	Morococha	Morococha	Yauli	Junin
+ 12600	Sausa, Yauyos	Sausa, Yauyos	Jauja	Junin
+ 12601	Jauja, Sausa, Yauyos	Jauja, Sausa, Yauyos	Jauja	Junin
+ 12615	Huertas	Huertas	Jauja	Junin
+ 12620	Acolla	Acolla	Jauja	Junin
+ 12621	Acolla	Acolla	Jauja	Junin
+ 12625	Marco	Marco	Jauja	Junin
+ 12630	Janjaillo	Janjaillo	Jauja	Junin
+ 12635	Pomacancha	Pomacancha	Jauja	Junin
+ 12640	Concho	Tunan Marca	Jauja	Junin
+ 12645	Huaricolca	Huaricolca	Tarma	Junin
+ 12650	Tarma	Tarma	Tarma	Junin
+ 12651	Tarma	Tarma	Tarma	Junin
+ 12655	Leticia	La Union	Tarma	Junin
+ 12700	Acobamba	Acobamba	Tarma	Junin
+ 12701	Acobamba	Acobamba	Tarma	Junin
+ 12710	Palcamayo	Palcamayo	Tarma	Junin
+ 12711	Palcamayo	Palcamayo	Tarma	Junin
+ 12720	San Pedro de Cajas	San Pedro de Cajas	Tarma	Junin
+ 12721	San Pedro de Cajas	San Pedro de Cajas	Tarma	Junin
+ 12730	Junin	Junin	Junin	Junin
+ 12731	Junin	Junin	Junin	Junin
+ 12740	Carhuamayo	Carhuamayo	Junin	Junin
+ 12741	Carhuamayo	Carhuamayo	Junin	Junin
+ 12750	Ulcumayo	Ulcumayo	Junin	Junin
+ 12751	Ulcumayo	Ulcumayo	Junin	Junin
+ 12760	Ondores	Ondores	Junin	Junin
+ 12770	Santa Barbara de Carhuacayan	Santa Barbara de Carhuacayan	Yauli	Junin
+ 12780	Marcapomacocha	Marcapomacocha	Yauli	Junin
+ 12800	Pancan	Pancan	Jauja	Junin
+ 12805	San Pedro de Chunan	San Pedro de Chunan	Jauja	Junin
+ 12810	Paca	Paca	Jauja	Junin
+ 12815	Yauli	Yauli	Jauja	Junin
+ 12820	Ricran	RIicran	Jauja	Junin
+ 12825	Tapo	Tapo	Tarma	Junin
+ 12826	Tapo	Tapo	Tarma	Junin
+ 12830	Palca	Palca	Tarma	Junin
+ 12831	Palca	Palca	Tarma	Junin
+ 12835	Huasahuasi	Huasahuasi	Tarma	Junin
+ 12836	Huasahuasi	Huasahuasi	Tarma	Junin
+ 12840	San Ramon	San Ramon	Chanchamayo	Junin
+ 12841	San Ramon	San Ramon	Chanchamayo	Junin
+ 12845	Pucara	Vitoc	Chanchamayo	Junin
+ 12850	Monobamba	Monobamba	Jauja	Junin
+ 12855	La Merced	Chanchamayo	Chanchamayo	Junin
+ 12856	La Merced	Chanchamayo	Chanchamayo	Junin
+ 12860	San Luis de Shuaro	San Luis de Shuaro	Chanchamayo	Junin
+ 12861	San Luis de Shuaro	San Luis de Shuaro	Chanchamayo	Junin
+ 12865	Bajo Pichanaqui, Perene	Pichanaqui, Perene	Chanchamayo	Junin
+ 12866	Bajo Pichanaqui	Pichanaqui	Chanchamayo	Junin
+ 12867	Perene	Perene	Chanchamayo	Junin
+ 12875	Rio Negro	Rio Negro	Satipo	Junin
+ 12876	Rio Negro	Rio Negro	Satipo	Junin
+ 13000	Huanchaco	Huanchaco	Trujillo	La Libertad
+ 13001	Trujillo	Trujillo	Trujillo	La Libertad
+ 13002	El Porvenir, Florencia de Mora, La Esperanza	El Porvenir, Florencia de Mora, La Esperanza	Trujillo	La Libertad
+ 13003	El Porvenir, Florencia de Mora	El Porvenir, Florencia de Mora	Trujillo	La Libertad
+ 13004	El Porvenir	El Porvenir	Trujillo	La Libertad
+ 13006	Trujillo	Trujillo	Trujillo	La Libertad
+ 13007	Trujillo	Trujillo	Trujillo	La Libertad
+ 13008	Buenos Aires, Trujillo	Victor Larco Herrera, Trujillo	Trujillo	La Libertad
+ 13009	Buenos Aires	Victor Larco Herrera	Trujillo	La Libertad
+ 13011	Huanchaco, Trujillo	Huanchaco, Trujillo	Trujillo	La Libertad
+ 13012	La Esperanza	La Esperanza	Trujillo	La Libertad
+ 13013	La Esperanza	La Esperanza	Trujillo	La Libertad
+ 13014	La Esperanza, Huanchaco	La Esperanza, Huanchaco	Trujillo	La Libertad
+ 13100	Laredo	Laredo	Trujillo	La Libertad
+ 13101	Laredo	Laredo	Trujillo	La Libertad
+ 13105	Simbal	Simbal	Trujillo	La Libertad
+ 13110	Sinsicap	Sinsicap	Otuzco	La Libertad
+ 13111	Sinsicap	Sinsicap	Otuzco	La Libertad
+ 13115	Paranday	Paranday	Otuzco	La Libertad
+ 13120	La Cuesta	La Cuesta	Otuzco	La Libertad
+ 13125	Poroto	Poroto	Trujillo	La Libertad
+ 13130	Salpo	Salpo	Otuzco	La Libertad
+ 13131	Salpo	Salpo	Otuzco	La Libertad
+ 13135	Agallpampa	Agallpampa	Otuzco	La Libertad
+ 13136	Agallpampa	Agallpampa	Otuzco	La Libertad
+ 13140	Quiruvilca	Quiruvilca	Santiago de Chucho	La Libertad
+ 13141	Quiruvilca	Quiruvilca	Santiago de Chucho	La Libertad
+ 13145	Santiago de Chuco	Santiago de Chuco	Santiago de Chucho	La Libertad
+ 13146	Santiago de Chuco	Santiago de Chuco	Santiago de Chucho	La Libertad
+ 13150	Santa Cruz de Chuca	Santa Cruz de Chuca	Santiago de Chucho	La Libertad
+ 13155	Cachicadan	Cachicadan	Santiago de Chucho	La Libertad
+ 13156	Cachicadan	Cachicadan	Santiago de Chucho	La Libertad
+ 13160	Angasmarca	Angasmarca	Santiago de Chucho	La Libertad
+ 13161	Angasmarca	Angasmarca	Santiago de Chucho	La Libertad
+ 13165	Mollebamba	Mollebamba	Santiago de Chucho	La Libertad
+ 13170	Mollepata	Mollepata	Santiago de Chucho	La Libertad
+ 13175	Mache	Mache	Otuzco	La Libertad
+ 13180	Julcan	Julcan	Julcan	La Libertad
+ 13181	Julcan	Julcan	Julcan	La Libertad
+ 13185	Calamarca	Calamarca	Julcan	La Libertad
+ 13186	Calamarca	Calamarca	Julcan	La Libertad
+ 13190	Huaso	Huaso	Julcan	La Libertad
+ 13191	Huaso	Huaso	Julcan	La Libertad
+ 13195	Carabamba	Carabamba	Julcan	La Libertad
+ 13196	Carabamba	Carabamba	Julcan	La Libertad
+ 13200	Otuzco	Otuzco	Otuzco	La Libertad
+ 13201	Otuzco	Otuzco	Otuzco	La Libertad
+ 13210	Charat	Charat	Otuzco	La Libertad
+ 13220	Usquil	Usquil	Otuzco	La Libertad
+ 13221	Usquil	Usquil	Otuzco	La Libertad
+ 13230	Huaranchal	Huaranchal	Otuzco	La Libertad
+ 13231	Huaranchal	Huaranchal	Otuzco	La Libertad
+ 13240	Lucma	Lucma	Gran Chimu	La Libertad
+ 13241	Lucma	Lucma	Gran Chimu	La Libertad
+ 13250	Sayapullo	Sayapullo	Gran Chimu	La Libertad
+ 13251	Sayapullo	Sayapullo	Gran Chimu	La Libertad
+ 13260	Compin	Marmot	Gran Chimu	La Libertad
+ 13300	Huamachuco	Huamachuco	Sanchez Carrion	La Libertad
+ 13301	Huamachuco	Huamachuco	Sanchez Carrion	La Libertad
+ 13310	Sanagoran	Sanagoran	Sanchez Carrion	La Libertad
+ 13311	Sanagoran	Sanagoran	Sanchez Carrion	La Libertad
+ 13320	Marcabal	Marcabal	Sanchez Carrion	La Libertad
+ 13321	Marcabal	Marcabal	Sanchez Carrion	La Libertad
+ 13330	Chugay	Chugay	Sanchez Carrion	La Libertad
+ 13331	Chugay	Chugay	Sanchez Carrion	La Libertad
+ 13340	Aricapampa	Cochorco	Sanchez Carrion	La Libertad
+ 13341	Aricapampa	Cochorco	Sanchez Carrion	La Libertad
+ 13350	Sartimbamba	Sartimbamba	Sanchez Carrion	La Libertad
+ 13351	Sartimbamba	Sartimbamba	Sanchez Carrion	La Libertad
+ 13360	Curgos	Curgos	Sanchez Carrion	La Libertad
+ 13361	Curgos	Curgos	Sanchez Carrion	La Libertad
+ 13370	Sarin	Sarin	Sanchez Carrion	La Libertad
+ 13371	Sarin	Sarin	Sanchez Carrion	La Libertad
+ 13380	Sitabamba	Sitabamba	Santiago de Chucho	La Libertad
+ 13400	Bambamarca	Bambamarca	Bolivar	La Libertad
+ 13410	Nuevo Condormarca	Condormarca	Bolivar	La Libertad
+ 13420	Bolivar	Bolivar	Bolivar	La Libertad
+ 13430	Ucuncha	Ucuncha	Bolivar	La Libertad
+ 13440	Longotea	Longotea	Bolivar	La Libertad
+ 13450	Uchucmarca	Uchumarca	Bolivar	La Libertad
+ 13500	Pataz	Pataz	Pataz	La Libertad
+ 13501	Pataz	Pataz	Pataz	La Libertad
+ 13505	Pias	Pias	Pataz	La Libertad
+ 13510	Parcoy	Parcoy	Pataz	La Libertad
+ 13511	Parcoy	Parcoy	Pataz	La Libertad
+ 13515	Buldibuyo	Buldibuyo	Pataz	La Libertad
+ 13520	Huaylillas	Huaylillas	Pataz	La Libertad
+ 13525	Tayabamba	Tayabamba	Pataz	La Libertad
+ 13526	Tayabamba	Tayabamba	Pataz	La Libertad
+ 13530	Huancaspata	Huancaspata	Pataz	La Libertad
+ 13531	Huancaspata	Huancaspata	Pataz	La Libertad
+ 13535	Challas	Santiago de Challas	Pataz	La Libertad
+ 13540	Urpay	Urpay	Pataz	La Libertad
+ 13545	Taurija	Taurija	Pataz	La Libertad
+ 13550	Chillia	Chillia	Pataz	La Libertad
+ 13551	Chillia	Chillia	Pataz	La Libertad
+ 13555	Huayo	Huayo	Pataz	La Libertad
+ 13560	Ongon	Ongon	Pataz	La Libertad
+ 13600	Moche	Moche	Trujillo	La Libertad
+ 13601	Moche	Moche	Trujillo	La Libertad
+ 13610	Salaverry	Salaverry	Trujillo	La Libertad
+ 13611	Salaverry	Salaverry	Trujillo	La Libertad
+ 13620	Viru	Viru	Viru	La Libertad
+ 13621	Viru	Viru	Viru	La Libertad
+ 13630	Chao	Chao	Viru	La Libertad
+ 13631	Chao	Chao	Viru	La Libertad
+ 13640	Guadalupito	Guadalupito	Viru	La Libertad
+ 13641	Guadalupito	Guadalupito	Viru	La Libertad
+ 13700	Chicama	Chicama	Ascope	La Libertad
+ 13701	Chicama	Chicama	Ascope	La Libertad
+ 13710	Chocope	Chocope	Ascope	La Libertad
+ 13711	Chocope	Chocope	Ascope	La Libertad
+ 13720	Paijan	Paijan	Ascope	La Libertad
+ 13721	Paijan	Paijan	Ascope	La Libertad
+ 13730	Puerto de Malabrigo	Razuri	Ascope	La Libertad
+ 13731	Puerto de Malabrigo	Razuri	Ascope	La Libertad
+ 13740	Santiago de Cao	Santiago de Cao	Ascope	La Libertad
+ 13741	Santiago de Cao	Santiago de Cao	Ascope	La Libertad
+ 13750	Magdalena de Cao	Magdalena de Cao	Ascope	La Libertad
+ 13760	Casa Grande	Casa Grande	Ascope	La Libertad
+ 13761	Casa Grande	Casa Grande	Ascope	La Libertad
+ 13770	Ascope	Ascope	Ascope	La Libertad
+ 13771	Ascope	Ascope	Ascope	La Libertad
+ 13780	Cascas	Cascas	Gran Chimu	La Libertad
+ 13781	Cascas	Cascas	Gran Chimu	La Libertad
+ 13800	San Pedro de Lloc	San Pedro de Lloc	Pacasmayo	La Libertad
+ 13801	San Pedro de Lloc	San Pedro de Lloc	Pacasmayo	La Libertad
+ 13810	Pacasmayo	Pacasmayo	Pacasmayo	La Libertad
+ 13811	Pacasmayo	Pacasmayo	Pacasmayo	La Libertad
+ 13820	Jequetepeque	Jequetepeque	Pacasmayo	La Libertad
+ 13830	San Jose	San Jose	Pacasmayo	La Libertad
+ 13831	San Jose	San Jose	Pacasmayo	La Libertad
+ 13840	Guadalupe	Guadalupe	Pacasmayo	La Libertad
+ 13841	Guadalupe	Guadalupe	Pacasmayo	La Libertad
+ 13850	Pueblo Nuevo	Pueblo Nuevo	Chepen	La Libertad
+ 13851	Pueblo Nuevo	Pueblo Nuevo	Chepen	La Libertad
+ 13860	Pacanga	Pacanga	Chepen	La Libertad
+ 13861	Pacanga	Pacanga	Chepen	La Libertad
+ 13870	Chepen	Chepen	Chepen	La Libertad
+ 13871	Chepen	Chepen	Chepen	La Libertad
+ 14000	Pimentel, Jose Leonardo Ortiz, La Victoria, Lambayeque, Pomalca, San Jose	Pimentel, Jose Leonardo Ortiz, La Victoria, Lambayeque, Pomalca, San Jose	Chiclayo, Lambayeque	Lambayeque
+ 14001	Chiclayo	Chiclayo	Chiclayo	Lambayeque
+ 14002	Chiclayo, Jose Leonardo Ortiz	Chiclayo, Jose Leonardo Ortiz	Chiclayo	Lambayeque
+ 14003	Jose Leonardo Ortiz	Jose Leonardo Ortiz	Chiclayo	Lambayeque
+ 14004	Jose Leonardo Ortiz, Chiclayo	Jose Leonardo Ortiz, Chiclayo	Chiclayo	Lambayeque
+ 14006	Pomalca, Chiclayo	Pomalca, Chiclayo	Chiclayo	Lambayeque
+ 14007	La Victoria	La Victoria	Chiclayo	Lambayeque
+ 14008	Chiclayo, La Victoria	Chiclayo, La Victoria	Chiclayo	Lambayeque
+ 14009	Chiclayo	Chiclayo	Chiclayo	Lambayeque
+ 14011	Chiclayo	Chiclayo	Chiclayo	Lambayeque
+ 14012	Chiclayo, Pimentel	Chiclayo, Pimentel	Chiclayo	Lambayeque
+ 14013	Jose Leonardo Ortiz, Lambayeque	Jose Leonardo Ortiz, Lambayeque	Chiclayo, Lambayeque	Lambayeque
+ 14051	San Jose	San Jose	Lambayeque	Lambayeque
+ 14110	Mochumi	Mochumi	Lambayeque	Lambayeque
+ 14111	Mochumi	Mochumi	Lambayeque	Lambayeque
+ 14120	Tucume	Tucume	Lambayeque	Lambayeque
+ 14121	Tucume	Tucume	Lambayeque	Lambayeque
+ 14130	Illimo	Illimo	Lambayeque	Lambayeque
+ 14131	Illimo	Illimo	Lambayeque	Lambayeque
+ 14140	Pacora	Pacora	Lambayeque	Lambayeque
+ 14141	Pacora	Pacora	Lambayeque	Lambayeque
+ 14150	Jayanca	Jayanca	Lambayeque	Lambayeque
+ 14151	Jayanca	Jayanca	Lambayeque	Lambayeque
+ 14160	Morrope	Morrope	Lambayeque	Lambayeque
+ 14161	Morrope	Morrope	Lambayeque	Lambayeque
+ 14200	Motupe	Motupe	Lambayeque	Lambayeque
+ 14201	Motupe	Motupe	Lambayeque	Lambayeque
+ 14210	Olmos	Olmos	Lambayeque	Lambayeque
+ 14211	Olmos	Olmos	Lambayeque	Lambayeque
+ 14220	Chochope	Chochope	Lambayeque	Lambayeque
+ 14230	Salas	Salas	Lambayeque	Lambayeque
+ 14231	Salas	Salas	Lambayeque	Lambayeque
+ 14300	Picsi	Picsi	Chiclayo	Lambayeque
+ 14301	Picsi	Picsi	Chiclayo	Lambayeque
+ 14310	Pueblo Nuevo, Ferreñafe	Pueblo Nuevo, Ferreñafe	Ferreñafe	Lambayeque
+ 14311	Ferreñafe, Pueblo Nuevo	Ferreñafe, Pueblo Nuevo	Ferreñafe	Lambayeque
+ 14330	Manuel Antonio Mesones Muro	Manuel Antonio Mesones Muro	Ferreñafe	Lambayeque
+ 14340	Pitipo	Pitipo	Ferreñafe	Lambayeque
+ 14341	Pitipo	Pitipo	Ferreñafe	Lambayeque
+ 14400	Incahuasi	Incahuasi	Ferreñafe	Lambayeque
+ 14401	Incahuasi	Incahuasi	Ferreñafe	Lambayeque
+ 14500	Cañaris	Cañaris	Ferreñafe	Lambayeque
+ 14501	Cañaris	Cañaris	Ferreñafe	Lambayeque
+ 14600	Tuman	Tuman	Chiclayo	Lambayeque
+ 14601	Tuman	Tuman	Chiclayo	Lambayeque
+ 14610	Patapo	Patapo	Chiclayo	Lambayeque
+ 14611	Patapo	Patapo	Chiclayo	Lambayeque
+ 14620	Chongoyape	Chongoyape	Chiclayo	Lambayeque
+ 14621	Chongoyape	Chongoyape	Chiclayo	Lambayeque
+ 14630	Pucala	Pucala	Chiclayo	Lambayeque
+ 14631	Pucala	Pucala	Chiclayo	Lambayeque
+ 14700	Mocupe	Lagunas	Chiclayo	Lambayeque
+ 14701	Mocupe	Lagunas	Chiclayo	Lambayeque
+ 14710	Saña	Saña	Chiclayo	Lambayeque
+ 14711	Saña	Saña	Chiclayo	Lambayeque
+ 14720	Cayalti	Cayalti	Chiclayo	Lambayeque
+ 14721	Cayalti	Cayalti	Chiclayo	Lambayeque
+ 14730	Nueva Arica	Nueva Arica	Chiclayo	Lambayeque
+ 14740	Oyotun	Oyotun	Chiclayo	Lambayeque
+ 14741	Oyotun	Oyotun	Chiclayo	Lambayeque
+ 14800	Reque	Reque	Chiclayo	Lambayeque
+ 14801	Reque	Reque	Chiclayo	Lambayeque
+ 14810	Eten Puerto	Eten Puerto	Chiclayo	Lambayeque
+ 14820	Eten	Eten	Chiclayo	Lambayeque
+ 14821	Eten	Eten	Chiclayo	Lambayeque
+ 14830	Monsefu	Monsefu	Chiclayo	Lambayeque
+ 14831	Monsefu	Monsefu	Chiclayo	Lambayeque
+ 14840	Santa Rosa	Santa Rosa	Chiclayo	Lambayeque
+ 14841	Santa Rosa	Santa Rosa	Chiclayo	Lambayeque
+ 15001	Lima	Lima	Lima	Lima
+ 15003	El Agustino, Lima	El Agustino, Lima	Lima	Lima
+ 15004	Vitarte, San Luis, Lima, El Agustino	Ate, San Luis, Lima, El Agustino	Lima	Lima
+ 15006	Lima, El Agustino	Lima, El Agustino	Lima	Lima
+ 15007	El Agustino, Santa Anita - los Ficus	El Agustino, Santa Anita	Lima	Lima
+ 15008	El Agustino, Santa Anita - los Ficus	El Agustino, Santa Anita	Lima	Lima
+ 15009	El Agustino, Santa Anita - los Ficus	El Agustino, Santa Anita	Lima	Lima
+ 15011	El Agustino, Vitarte, Santa Anita - los Ficus	El Agustino, Ate, Santa Anita	Lima	Lima
+ 15012	Vitarte, La Molina	Ate, La Molina	Lima	Lima
+ 15018	El Agustino, La Victoria, Lima	El Agustino, La Victoria, Lima	Lima	Lima
+ 15019	Vitarte, Lima, La Victoria, San Luis	Ate, Lima, La Victoria, San Luis	Lima	Lima
+ 15021	San Francisco de Borja, San Luis	San Borja, San Luis	Lima	Lima
+ 15022	Vitarte, El Agustino, San Luis	Ate, El Agustino, San Luis	Lima	Lima
+ 15023	La Molina, Vitarte, Santiago de Surco	La Molina, Ate, Santiago de Surco	Lima	Lima
+ 15024	La Molina, Santiago de Surco	La Molina, Santiago de Surco	Lima	Lima
+ 15026	Vitarte, La Molina	Ate, La Molina	Lima	Lima
+ 15033	La Victoria	La Victoria	Lima	Lima
+ 15034	San Francisco de Borja, La Victoria	San Borja, La Victoria	Lima	Lima
+ 15036	San Francisco de Borja, San Isidro, Surquillo	San Borja, San Isidro, Surquillo	Lima	Lima
+ 15037	Santiago de Surco, San Francisco de Borja, Surquillo	Santiago de Surco, San Borja, Surquillo	Lima	Lima
+ 15038	Surquillo, Santiago de Surco	Surquillo, Santiago de Surco	Lima	Lima
+ 15039	Santiago de Surco	Santiago de Surco	Lima	Lima
+ 15046	Jesus Maria, San Isidro, Lima, Lince, Miraflores	Jesus Maria, San Isidro, Lima, Lince, Miraflores	Lima	Lima
+ 15047	Barranco, Surquillo, Miraflores, San Isidro, Santiago de Surco	Barranco, Surquillo, Miraflores, San Isidro, Santiago de Surco	Lima	Lima
+ 15048	Surquillo, Miraflores, Santiago de Surco	Surquillo, Miraflores, Santiago de Surco	Lima	Lima
+ 15049	Barranco, Santiago de Surco	Barranco, Santiago de Surco	Lima	Lima
+ 15054	Chorrillos, Santiago de Surco	Chorrillos, Santiago de Surco	Lima	Lima
+ 15056	Chorrillos, Ciudad de Dios, Santiago de Surco	Chorrillos, San Juan de Miraflores, Santiago de Surco	Lima	Lima
+ 15057	Chorrillos	Chorrillos	Lima	Lima
+ 15058	Chorrillos, Ciudad de Dios	Chorrillos, San Juan de Miraflores	Lima	Lima
+ 15063	Santiago de Surco, Chorrillos, Barranco	Santiago de Surco, Chorrillos, Barranco	Lima	Lima
+ 15064	Chorrillos, Santiago de Surco	Chorrillos, Santiago de Surco	Lima	Lima
+ 15066	Chorrillos	Chorrillos	Lima	Lima
+ 15067	Chorrillos	Chorrillos	Lima	Lima
+ 15072	Lince, Jesus Maria, Lima, San Isidro	Lince, Jesus Maria, Lima, San Isidro	Lima	Lima
+ 15073	Jesus Maria, Lince, San Isidro, Miraflores	Jesus Maria, Lince, San Isidro, Miraflores	Lima	Lima
+ 15074	Miraflores, San Isidro	Miraflores, San Isidro	Lima	Lima
+ 15076	Magdalena del Mar, Lince, Jesus Maria, Miraflores, San Isidro	Magdalena del Mar, Lince, Jesus Maria, Miraflores, San Isidro	Lima	Lima
+ 15079	Lima	Lima	Lima	Lima
+ 15081	Lima	Lima	Lima	Lima
+ 15082	Breña, Lima	Breña, Lima	Lima	Lima
+ 15083	Pueblo Libre, Jesus Maria, Lima, Breña	Magdalena Vieja, Jesus Maria, Lima, Breña	Lima	Lima
+ 15084	San Miguel, Pueblo Libre, Jesus Maria	San Miguel, Magdalena Vieja, Jesus Maria	Lima	Lima
+ 15086	Magdalena del Mar, San Miguel, Pueblo Libre	Magdalena del Mar, San Miguel, Magdalena Vieja	Lima	Lima
+ 15087	San Miguel	San Miguel	Lima	Lima
+ 15088	Pueblo Libre, San Miguel, Lima	Magdalena Vieja, San Miguel, Lima	Lima	Lima
+ 15093	Rimac	Rimac	Lima	Lima
+ 15094	Rimac	Rimac	Lima	Lima
+ 15096	Rimac	Rimac	Lima	Lima
+ 15101	Barrio Obrero Industrial	San Martin de Porres	Lima	Lima
+ 15102	Barrio Obrero Industrial	San Martin de Porres	Lima	Lima
+ 15103	Barrio Obrero Industrial	San Martin de Porres	Lima	Lima
+ 15106	Barrio Obrero Industrial	San Martin de Porres	Lima	Lima
+ 15107	Barrio Obrero Industrial	San Martin de Porres	Lima	Lima
+ 15108	Barrio Obrero Industrial	San Martin de Porres	Lima	Lima
+ 15109	Barrio Obrero Industrial	San Martin de Porres	Lima	Lima
+ 15112	Barrio Obrero Industrial	San Martin de Porres	Lima	Lima
+ 15113	Las Palmeras, Puente Piedra, Barrio Obrero Industrial	Los Olivos, Puente Piedra, San Martin de Porres	Lima	Lima
+ 15116	Puente Piedra	Puente Piedra	Lima	Lima
+ 15117	Puente Piedra	Puente Piedra	Lima	Lima
+ 15118	Puente Piedra	Puente Piedra	Lima	Lima
+ 15121	Puente Piedra, Carabayllo	Puente Piedra, Carabayllo	Lima	Lima
+ 15122	Puente Piedra, Carabayllo	Puente Piedra, Carabayllo	Lima	Lima
+ 15123	Ancon, Santa Rosa	Ancon, Santa Rosa	Lima	Lima
+ 15125	Aucallama	Aucallama	Huaral	Lima
+ 15126	Aucallama	Aucallama	Huaral	Lima
+ 15130	Chancay	Chancay	Huaral	Lima
+ 15131	Chancay	Chancay	Huaral	Lima
+ 15135	Cruz Blanca, Huacho, Huaura	Santa Maria, Huacho, Huaura	Huaura	Lima
+ 15136	Huacho	Huacho	Huaura	Lima
+ 15137	Hualmay, Cruz Blanca, Huacho	Hualmay, Santa Maria, Huacho	Huaura	Lima
+ 15138	Caleta de Carquin, Huacho, Hualmay, Huaura, Cruz Blanca	Caleta de Carquin, Huacho, Hualmay, Huaura, Santa Maria	Huaura	Lima
+ 15157	Vegueta	Vegueta	Huaura	Lima
+ 15160	Vegueta	Vegueta	Huaura	Lima
+ 15161	Supe Puerto, Supe	Supe Puerto, Supe	Barranca	Lima
+ 15162	Supe, Supe Puerto	Supe, Supe Puerto	Barranca	Lima
+ 15169	Barranca	Barranca	Barranca	Lima
+ 15170	Barranca	Barranca	Barranca	Lima
+ 15174	Pativilca	Pativilca	Barranca	Lima
+ 15175	Pativilca	Pativilca	Barranca	Lima
+ 15178	Paramonga	Paramonga	Barranca	Lima
+ 15180	Paramonga	Paramonga	Barranca	Lima
+ 15182	Ambar	Ambar	Huaura	Lima
+ 15185	Manas	Manas	Cajatambo	Lima
+ 15190	Gorgor	Gorgor	Cajatambo	Lima
+ 15191	Huancapon	Huancapon	Cajatambo	Lima
+ 15195	Cajatambo	Cajatambo	Cajatambo	Lima
+ 15197	Copa	Copa	Cajatambo	Lima
+ 15200	Huaral	Huaral	Huaral	Lima
+ 15201	Huaral	Huaral	Huaral	Lima
+ 15202	Huaral	Huaral	Huaral	Lima
+ 15205	San Agustin de Huayopampa	Atavillos Bajo	Huaral	Lima
+ 15210	Sumbilca	Sumbilca	Huaral	Lima
+ 15215	Acos	San Miguel de Acos	Huaral	Lima
+ 15220	Lampian	Lampian	Huaral	Lima
+ 15221	Carac	Veintisiete de Noviembre	Huaral	Lima
+ 15225	Pirca	Atavillos Alto	Huaral	Lima
+ 15230	Pacaraos	Pacaraos	Huaral	Lima
+ 15235	Santa Cruz de Andamarca	Santa Cruz de Andamarca	Huaral	Lima
+ 15237	Sayan	Sayan	Huaura	Lima
+ 15240	Sayan	Sayan	Huaura	Lima
+ 15245	Ihuari	Ihuari	Huaral	Lima
+ 15246	Santa Cruz	Leoncio Prado	Huaura	Lima
+ 15250	Cochamarca	Cochamarca	Oyon	Lima
+ 15255	Paccho	Paccho	Huaura	Lima
+ 15260	Navan	Navan	Oyon	Lima
+ 15265	Caujul	Caujul	Oyon	Lima
+ 15266	Andajes	Andajes	Oyon	Lima
+ 15270	Churin	Pachangara	Oyon	Lima
+ 15274	Oyon	Oyon	Oyon	Lima
+ 15275	Oyon	Oyon	Oyon	Lima
+ 15280	Maray	Checras	Huaura	Lima
+ 15285	Jucul	Santa Leonor	Huaura	Lima
+ 15301	Las Palmeras	Los Olivos	Lima	Lima
+ 15302	Las Palmeras	Los Olivos	Lima	Lima
+ 15304	Las Palmeras	Los Olivos	Lima	Lima
+ 15306	Las Palmeras	Los Olivos	Lima	Lima
+ 15307	Las Palmeras	Los Olivos	Lima	Lima
+ 15311	Las Palmeras, Independencia, La Libertad	Los Olivos, Independencia, Comas	Lima	Lima
+ 15312	La Libertad	Comas	Lima	Lima
+ 15313	Carabayllo, La Libertad	Carabayllo, Comas	Lima	Lima
+ 15314	Las Palmeras, La Libertad	Los Olivos, Comas	Lima	Lima
+ 15316	La Libertad, Carabayllo	Comas, Carabayllo	Lima	Lima
+ 15318	Carabayllo	Carabayllo	Lima	Lima
+ 15319	Carabayllo	Carabayllo	Lima	Lima
+ 15320	Carabayllo	Carabayllo	Lima	Lima
+ 15321	Carabayllo	Carabayllo	Lima	Lima
+ 15324	Carabayllo, La Libertad	Carabayllo, Comas	Lima	Lima
+ 15326	La Libertad	Comas	Lima	Lima
+ 15327	La Libertad	Comas	Lima	Lima
+ 15328	Independencia, La Libertad	Independencia, Comas	Lima	Lima
+ 15331	Independencia	Independencia	Lima	Lima
+ 15332	La Libertad, Independencia	Comas, Independencia	Lima	Lima
+ 15333	Independencia, Rimac	Independencia, Rimac	Lima	Lima
+ 15335	Yangas	Santa Rosa de Quives	Canta	Lima
+ 15336	Yangas	Santa Rosa de Quives	Canta	Lima
+ 15340	Arahuay	Arahuay	Canta	Lima
+ 15345	Lachaqui	Lachaqui	Canta	Lima
+ 15350	San Buenaventura	San Buenaventura	Canta	Lima
+ 15355	Huamantanga	Huamantanga	Canta	Lima
+ 15360	Canta	Canta	Canta	Lima
+ 15365	Huaros	Huaros	Canta	Lima
+ 15401	San Juan de Lurigancho	San Juan de Lurigancho	Lima	Lima
+ 15404	San Juan de Lurigancho	San Juan de Lurigancho	Lima	Lima
+ 15408	San Juan de Lurigancho	San Juan de Lurigancho	Lima	Lima
+ 15412	San Juan de Lurigancho	San Juan de Lurigancho	Lima	Lima
+ 15416	San Juan de Lurigancho	San Juan de Lurigancho	Lima	Lima
+ 15419	San Juan de Lurigancho	San Juan de Lurigancho	Lima	Lima
+ 15423	San Juan de Lurigancho	San Juan de Lurigancho	Lima	Lima
+ 15427	San Juan de Lurigancho	San Juan de Lurigancho	Lima	Lima
+ 15431	San Juan de Lurigancho	San Juan de Lurigancho	Lima	Lima
+ 15434	San Juan de Lurigancho	San Juan de Lurigancho	Lima	Lima
+ 15438	San Juan de Lurigancho	San Juan de Lurigancho	Lima	Lima
+ 15442	San Juan de Lurigancho	San Juan de Lurigancho	Lima	Lima
+ 15446	San Juan de Lurigancho	San Juan de Lurigancho	Lima	Lima
+ 15449	San Juan de Lurigancho	San Juan de Lurigancho	Lima	Lima
+ 15453	San Juan de Lurigancho	San Juan de Lurigancho	Lima	Lima
+ 15457	Chosica, San Juan de Lurigancho	Lurigancho, San Juan de Lurigancho	Lima	Lima
+ 15461	Chosica	Lurigancho	Lima	Lima
+ 15464	Chosica	Lurigancho	Lima	Lima
+ 15468	Chosica	Lurigancho	Lima	Lima
+ 15472	Chosica, Chaclacayo	Lurigancho, Chaclacayo	Lima	Lima
+ 15476	Vitarte, Chaclacayo	Ate, Chaclacayo	Lima	Lima
+ 15479	Vitarte	Ate	Lima	Lima
+ 15483	Vitarte	Ate	Lima	Lima
+ 15487	Vitarte	Ate	Lima	Lima
+ 15491	Vitarte	Ate	Lima	Lima
+ 15494	Vitarte	Ate	Lima	Lima
+ 15498	Santa Anita - los Ficus, Vitarte	Santa Anita, Ate	Lima	Lima
+ 15500	Santa Eulalia	Santa Eulalia	Huarochiri	Lima
+ 15501	Santa Eulalia	Santa Eulalia	Huarochiri	Lima
+ 15505	Callahuanca	Callahuanca	Huarochiri	Lima
+ 15510	Chaclla	San Antonio	Huarochiri	Lima
+ 15515	San Pedro de Casta	San Pedro de Casta	Huarochiri	Lima
+ 15516	San Lorenzo de Huachupampa	Huachupampa	Huarochiri	Lima
+ 15520	San Juan de Iris	San Juan de Iris	Huarochiri	Lima
+ 15525	Carampoma	Carampoma	Huarochiri	Lima
+ 15530	Laraos	Laraos	Huarochiri	Lima
+ 15535	Huanza	Huanza	Huarochiri	Lima
+ 15536	Ricardo Palma	Ricardo Palma	Huarochiri	Lima
+ 15537	Ricardo Palma	Ricardo Palma	Huarochiri	Lima
+ 15540	San Juan de Lanca	San Mateo de Otao	Huarochiri	Lima
+ 15545	Cocachacra	Santa Cruz de Cocachacra	Huarochiri	Lima
+ 15550	San Bartolome	San Bartolome	Huarochiri	Lima
+ 15555	Surco	Surco	Huarochiri	Lima
+ 15556	Matucana	Matucana	Huarochiri	Lima
+ 15560	San Mateo	San Mateo	Huarochiri	Lima
+ 15561	San Mateo	San Mateo	Huarochiri	Lima
+ 15564	Chicla	Chicla	Huarochiri	Lima
+ 15565	Chicla	Chicla	Huarochiri	Lima
+ 15570	Santiago de Tuna	Santiago de Tuna	Huarochiri	Lima
+ 15571	San Andres de Tupicocha	San Andres de Tupicocha	Huarochiri	Lima
+ 15575	San Damian	San Damian	Huarochiri	Lima
+ 15577	Lahuaytambo	Lahuaytambo	Huarochiri	Lima
+ 15580	Langa	Langa	Huarochiri	Lima
+ 15585	San Jose de los Chorrillos	Cuenca	Huarochiri	Lima
+ 15586	Antioquia	Antioquia	Huarochiri	Lima
+ 15590	Santo Domingo de los Olleros	Santo Domingo de los Olleros	Huarochiri	Lima
+ 15593	Pachacamac, Cieneguilla	Pachacamac, Cieneguilla	Lima	Lima
+ 15594	Pachacamac, Cieneguilla	Pachacamac, Cieneguilla	Lima	Lima
+ 15600	San Antonio	San Antonio	Cañete	Lima
+ 15605	Santa Cruz de Flores	Santa Cruz de Flores	Cañete	Lima
+ 15608	Mala	Mala	Cañete	Lima
+ 15610	Mala	Mala	Cañete	Lima
+ 15615	Calango	Calango	Cañete	Lima
+ 15620	Quinocay	Quinocay	Yauyos	Lima
+ 15621	Cochas	Cochas	Yauyos	Lima
+ 15625	Sangallaya	Sangallaya	Huarochiri	Lima
+ 15630	Mariatana	Mariatana	Huarochiri	Lima
+ 15635	Huarochiri	Huarochiri	Huarochiri	Lima
+ 15640	San Lorenzo de Quinti	San Lorenzo de Quinti	Huarochiri	Lima
+ 15641	San Pedro	San Pedro de Huancayre	Huarochiri	Lima
+ 15645	Santiago de Anchucaya	Santiago de Anchucaya	Huarochiri	Lima
+ 15650	San Juan de Tantaranche	San Juan de Tantaranche	Huarochiri	Lima
+ 15655	San Joaquin	San Joaquin	Yauyos	Lima
+ 15660	Tanta	Tanta	Yauyos	Lima
+ 15661	Huañec	Huañec	Yauyos	Lima
+ 15665	Quinches	Quinches	Yauyos	Lima
+ 15670	Huampara	Huampara	Yauyos	Lima
+ 15675	Ayaviri	Ayaviri	Yauyos	Lima
+ 15680	San Pedro de Pilas	San Pedro de Pilas	Yauyos	Lima
+ 15681	Omas	Omas	Yauyos	Lima
+ 15685	Coayllo	Coayllo	Cañete	Lima
+ 15689	Asia	Asia	Cañete	Lima
+ 15690	Asia	Asia	Cañete	Lima
+ 15700	Imperial, San Vicente de Cañete	Imperial, San Vicente de Cañete	Cañete	Lima
+ 15701	San Vicente de Cañete, Imperial	San Vicente de Cañete, Imperial	Cañete	Lima
+ 15712	Quilmana	Quilmana	Cañete	Lima
+ 15715	Quilmana	Quilmana	Cañete	Lima
+ 15716	Cerro Azul	Cerro Azul	Cañete	Lima
+ 15717	Cerro Azul	Cerro Azul	Cañete	Lima
+ 15719	San Luis	San Luis	Cañete	Lima
+ 15720	San Luis	San Luis	Cañete	Lima
+ 15723	Nuevo Imperial	Nuevo Imperial	Cañete	Lima
+ 15725	Nuevo Imperial	Nuevo Imperial	Cañete	Lima
+ 15727	Lunahuana	Lunahuana	Cañete	Lima
+ 15730	Pacaran	Pacaran	Cañete	Lima
+ 15735	Zuñiga	Zuñiga	Cañete	Lima
+ 15736	Chocos	Chocos	Yauyos	Lima
+ 15740	Azangaro	Azangaro	Yauyos	Lima
+ 15742	Madean	Madean	Yauyos	Lima
+ 15745	Viñac	Viñac	Yauyos	Lima
+ 15748	Huangascar	Huangascar	Yauyos	Lima
+ 15750	Cacra	Cacra	Yauyos	Lima
+ 15753	Hongos	Hongos	Yauyos	Lima
+ 15755	Lincha	Lincha	Yauyos	Lima
+ 15760	Catahuasi	Catahuasi	Yauyos	Lima
+ 15761	Tupe	Tupe	Yauyos	Lima
+ 15763	San Lorenzo de Putinza	Putinza	Yauyos	Lima
+ 15765	Ayauca	Ayauca	Yauyos	Lima
+ 15768	Tauripampa	Tauripampa	Yauyos	Lima
+ 15770	Colonia	Colonia	Yauyos	Lima
+ 15775	Yauyos	Yauyos	Yauyos	Lima
+ 15780	Huantan	Huantan	Yauyos	Lima
+ 15781	Carania	Carania	Yauyos	Lima
+ 15785	Laraos	Laraos	Yauyos	Lima
+ 15786	Alis	Alis	Yauyos	Lima
+ 15790	Tomas	Tomas	Yauyos	Lima
+ 15792	Miraflores	Miraflores	Yauyos	Lima
+ 15795	Vitis	Vitis	Yauyos	Lima
+ 15796	Huancaya	Huancaya	Yauyos	Lima
+ 15801	Ciudad de Dios	San Juan de Miraflores	Lima	Lima
+ 15803	Villa Maria del Triunfo, Santiago de Surco, Ciudad de Dios	Villa Maria del Triunfo, Santiago de Surco, San Juan de Miraflores	Lima	Lima
+ 15804	Villa Maria del Triunfo, Ciudad de Dios	Villa Maria del Triunfo, San Juan de Miraflores	Lima	Lima
+ 15806	Ciudad de Dios	San Juan de Miraflores	Lima	Lima
+ 15809	Ciudad de Dios, Villa Maria del Triunfo	San Juan de Miraflores, Villa Maria del Triunfo	Lima	Lima
+ 15811	Villa Maria del Triunfo	Villa Maria del Triunfo	Lima	Lima
+ 15812	Villa Maria del Triunfo	Villa Maria del Triunfo	Lima	Lima
+ 15816	Villa el Salvador, Villa Maria del Triunfo	Villa el Salvador, Villa Maria del Triunfo	Lima	Lima
+ 15817	Villa Maria del Triunfo	Villa Maria del Triunfo	Lima	Lima
+ 15818	Villa Maria del Triunfo	Villa Maria del Triunfo	Lima	Lima
+ 15822	Lurin, Villa Maria del Triunfo	Lurin, Villa Maria del Triunfo	Lima	Lima
+ 15823	Pachacamac, Lurin	Pachacamac, Lurin	Lima	Lima
+ 15824	Ciudad de Dios, Villa Maria del Triunfo	San Juan de Miraflores, Villa Maria del Triunfo	Lima	Lima
+ 15828	Ciudad de Dios, Villa Maria del Triunfo, Villa el Salvador	San Juan de Miraflores, Villa Maria del Triunfo, Villa el Salvador	Lima	Lima
+ 15829	Ciudad de Dios, Villa el Salvador	San Juan de Miraflores, Villa el Salvador	Lima	Lima
+ 15831	Villa el Salvador	Villa el Salvador	Lima	Lima
+ 15834	Villa el Salvador	Villa el Salvador	Lima	Lima
+ 15836	Villa el Salvador	Villa el Salvador	Lima	Lima
+ 15837	Villa el Salvador	Villa el Salvador	Lima	Lima
+ 15841	Lurin, Villa el Salvador	Lurin, Villa el Salvador	Lima	Lima
+ 15842	Lurin, Ciudad de Dios, Villa el Salvador	Lurin, San Juan de Miraflores, Villa el Salvador	Lima	Lima
+ 15845	Punta Hermosa	Punta Hermosa	Lima	Lima
+ 15846	Punta Hermosa, Lurin	Punta Hermosa, Lurin	Lima	Lima
+ 15850	Punta Negra	Punta Negra	Lima	Lima
+ 15851	Punta Negra	Punta Negra	Lima	Lima
+ 15855	San Bartolo	San Bartolo	Lima	Lima
+ 15856	San Bartolo	San Bartolo	Lima	Lima
+ 15861	Santa Maria del Mar	Santa Maria del Mar	Lima	Lima
+ 15865	Pucusana	Pucusana	Lima	Lima
+ 15866	Pucusana	Pucusana	Lima	Lima
+ 15870	Chilca	Chilca	Cañete	Lima
+ 15871	Chilca	Chilca	Cañete	Lima
+ 16000	Punchana, San Juan, Belen, Iquitos	Punchana, San Juan Bautista, Belen, Iquitos	Maynas	Loreto
+ 16001	Belen, Iquitos	Belen, Iquitos	Maynas	Loreto
+ 16002	Iquitos	Iquitos	Maynas	Loreto
+ 16003	Punchana, Iquitos	Punchana, Iquitos	Maynas	Loreto
+ 16004	Punchana, Iquitos	Punchana, Iquitos	Maynas	Loreto
+ 16006	Belen, Iquitos	Belen, Iquitos	Maynas	Loreto
+ 16007	San Juan, Iquitos	San Juan Bautista, Iquitos	Maynas	Loreto
+ 16008	Belen, San Juan	Belen, San Juan Bautista	Maynas	Loreto
+ 16100	Mazan	Mazan	Maynas	Loreto
+ 16101	Mazan	Mazan	Maynas	Loreto
+ 16110	San Antonio del Estrecho	Putumayo	Maynas	Loreto
+ 16111	San Antonio del Estrecho	Putumayo	Maynas	Loreto
+ 16120	Santa Clotilde	Napo	Maynas	Loreto
+ 16121	Santa Clotilde	Napo	Maynas	Loreto
+ 16130	Pantoja	Torres Causana	Maynas	Loreto
+ 16140	Soplin Vargas	Teniente Manuel Clavero	Maynas	Loreto
+ 16200	Indiana	Indiana	Maynas	Loreto
+ 16201	Indiana	Indiana	Maynas	Loreto
+ 16210	Francisco de Orellana	Las Amazonas	Maynas	Loreto
+ 16211	Francisco de Orellana	Las Amazonas	Maynas	Loreto
+ 16220	Pebas	Pebas	Mariscal Ramon Castilla	Loreto
+ 16221	Pebas	Pebas	Mariscal Ramon Castilla	Loreto
+ 16230	San Pablo de Loreto	San Pablo	Mariscal Ramon Castilla	Loreto
+ 16231	San Pablo de Loreto	San Pablo	Mariscal Ramon Castilla	Loreto
+ 16240	Caballococha	Ramon Castilla	Mariscal Ramon Castilla	Loreto
+ 16241	Caballococha	Ramon Castilla	Mariscal Ramon Castilla	Loreto
+ 16250	Islandia	Yavari	Mariscal Ramon Castilla	Loreto
+ 16251	Islandia	Yavari	Mariscal Ramon Castilla	Loreto
+ 16300	Nauta	Nauta	Loreto	Loreto
+ 16301	Nauta	Nauta	Loreto	Loreto
+ 16310	Tamshiyacu	Fernado Lores	Maynas	Loreto
+ 16311	Tamshiyacu	Fernado Lores	Maynas	Loreto
+ 16320	Bagazan	Saquena	Requena	Loreto
+ 16330	Jenaro Herrera	Jenaro Herrera	Requena	Loreto
+ 16331	Jenaro Herrera	Jenaro Herrera	Requena	Loreto
+ 16340	Requena	Requena	Requena	Loreto
+ 16341	Requena	Requena	Requena	Loreto
+ 16350	Angamos	Yaquerana	Requena	Loreto
+ 16360	Nueva Alejandria (Curinga)	Soplin	Requena	Loreto
+ 16370	Iberia	Tapiche	Requena	Loreto
+ 16380	Santa Elena	Alto Tapiche	Requena	Loreto
+ 16400	Flor de Punga	Capelo	Requena	Loreto
+ 16410	Bretaña	Puinahua	Requena	Loreto
+ 16411	Bretaña	Puinahua	Requena	Loreto
+ 16420	Tamanco	Emilio San Martin	Requena	Loreto
+ 16421	Tamanco	Emilio San Martin	Requena	Loreto
+ 16430	Santa Isabel	Maquia	Requena	Loreto
+ 16431	Santa Isabel	Maquia	Requena	Loreto
+ 16440	Dos de Mayo	Sarayacu	Ucayali	Loreto
+ 16441	Dos de Mayo	Sarayacu	Ucayali	Loreto
+ 16450	Orellana	Vargas Guerra	Ucayali	Loreto
+ 16451	Orellana	Vargas Guerra	Ucayali	Loreto
+ 16460	Inahuaya	Inahuaya	Ucayali	Loreto
+ 16470	Pampa Hermosa	Pampa Hermosa	Ucayali	Loreto
+ 16471	Pampa Hermosa	Pampa Hermosa	Ucayali	Loreto
+ 16480	Contamana	Contamana	Ucayali	Loreto
+ 16481	Contamana	Contamana	Ucayali	Loreto
+ 16490	Tiruntan	Padre Marquez	Ucayali	Loreto
+ 16491	Tiruntan	Padre Marquez	Ucayali	Loreto
+ 16500	Yurimaguas	Yurimaguas	Alto Amazonas	Loreto
+ 16501	Yurimaguas	Yurimaguas	Alto Amazonas	Loreto
+ 16510	Balsapuerto	Balsapuerto	Alto Amazonas	Loreto
+ 16511	Balsapuerto	Balsapuerto	Alto Amazonas	Loreto
+ 16520	Jeberos	Jeberos	Alto Amazonas	Loreto
+ 16530	Shucushuyacu	Teniente Cesar Lopez Rojas	Alto Amazonas	Loreto
+ 16531	Shucushuyacu	Teniente Cesar Lopez Rojas	Alto Amazonas	Loreto
+ 16540	Santa Cruz	Santa Cruz	Alto Amazonas	Loreto
+ 16550	Lagunas	Lagunas	Alto Amazonas	Loreto
+ 16551	Lagunas	Lagunas	Alto Amazonas	Loreto
+ 16560	Concordia	Urarinas	Loreto	Loreto
+ 16561	Concordia	Urarinas	Loreto	Loreto
+ 16570	Parinari	Parinari	Loreto	Loreto
+ 16571	Parinari	Parinari	Loreto	Loreto
+ 16600	San Lorenzo	Barranca	Datem del Marañon	Loreto
+ 16601	San Lorenzo	Barranca	Datem del Marañon	Loreto
+ 16610	Santa Maria de Cahuapanas	Cahuapanas	Datem del Marañon	Loreto
+ 16611	Santa Maria de Cahuapanas	Cahuapanas	Datem del Marañon	Loreto
+ 16620	Saramiriza	Manseriche	Datem del Marañon	Loreto
+ 16621	Saramiriza	Manseriche	Datem del Marañon	Loreto
+ 16630	Puerto Alegria	Morona	Datem del Marañon	Loreto
+ 16631	Puerto Alegria	Morona	Datem del Marañon	Loreto
+ 16700	Ullpayacu	Pastaza	Datem del Marañon	Loreto
+ 16701	Ullpayacu	Pastaza	Datem del Marañon	Loreto
+ 16750	Alianza Cristiana	Andoas	Datem del Marañon	Loreto
+ 16751	Alianza Cristiana	Andoas	Datem del Marañon	Loreto
+ 16800	Santa Maria de Nanay	Alto Nanay	Maynas	Loreto
+ 16810	Intuto	Tigre	Loreto	Loreto
+ 16811	Intuto	Tigre	Loreto	Loreto
+ 16820	Villa Trompeteros	Trompeteros	Loreto	Loreto
+ 16821	Villa Trompeteros	Trompeteros	Loreto	Loreto
+ 17000	Puerto Maldonado	Tambopata	Tambopata	Madre de Dios
+ 17001	Puerto Maldonado	Tambopata	Tambopata	Madre de Dios
+ 17100	Las Piedras (Planchon)	Las Piedras	Tambopata	Madre de Dios
+ 17101	Las Piedras (Planchon)	Las Piedras	Tambopata	Madre de Dios
+ 17200	San Lorenzo	Tahuamanu	Tahuamanu	Madre de Dios
+ 17250	Iberia	Iberia	Tahuamanu	Madre de Dios
+ 17251	Iberia	Iberia	Tahuamanu	Madre de Dios
+ 17300	Iñapari	Iñapari	Tahuamanu	Madre de Dios
+ 17400	Puerto Rosario de Laberinto	Laberinto	Tambopata	Madre de Dios
+ 17500	Mazuko	Inambari	Tambopata	Madre de Dios
+ 17501	Mazuko	Inambari	Tambopata	Madre de Dios
+ 17550	Huepetuhe	Huepetuhe	Manu	Madre de Dios
+ 17551	Huepetuhe	Huepetuhe	Manu	Madre de Dios
+ 17600	Boca Colorado	Madre de Dios	Manu	Madre de Dios
+ 17601	Boca Colorado	Madre de Dios	Manu	Madre de Dios
+ 17700	Salvacion	Manu	Manu	Madre de Dios
+ 17800	Boca Manu	Fitzcarrald	Manu	Madre de Dios
+ 18000	Moquegua, Samegua	Moquegua, Samegua	Mariscal Nieto	Moquegua
+ 18001	Samegua, Moquegua	Samegua, Moquegua	Mariscal Nieto	Moquegua
+ 18100	Torata	Torata	Mariscal Nieto	Moquegua
+ 18101	Torata	Torata	Mariscal Nieto	Moquegua
+ 18200	Omate	Omate	General Sanchez Cerro	Moquegua
+ 18210	Coalaque	Coalaque	General Sanchez Cerro	Moquegua
+ 18220	Puquina	Puquina	General Sanchez Cerro	Moquegua
+ 18230	La Capilla	La Capilla	General Sanchez Cerro	Moquegua
+ 18300	Quinistaquillas	Quinistaquillas	General Sanchez Cerro	Moquegua
+ 18310	Matalaque	Matalaque	General Sanchez Cerro	Moquegua
+ 18320	Ubinas	Ubinas	General Sanchez Cerro	Moquegua
+ 18400	Carumas	Curumas	Mariscal Nieto	Moquegua
+ 18410	Cuchumbaya	Cuchumbaya	Mariscal Nieto	Moquegua
+ 18420	Calacoa	San Cristobal	Mariscal Nieto	Moquegua
+ 18500	Chojata	Chojata	General Sanchez Cerro	Moquegua
+ 18510	Lloque	Lloque	General Sanchez Cerro	Moquegua
+ 18520	Yunga	Yunga	General Sanchez Cerro	Moquegua
+ 18530	Ichuña	Ichuña	General Sanchez Cerro	Moquegua
+ 18600	Ilo	Ilo	Ilo	Moquegua
+ 18601	Ilo	Ilo	Ilo	Moquegua
+ 18610	Pueblo Nuevo	Pacocha	Ilo	Moquegua
+ 18611	Pueblo Nuevo	Pacocha	Ilo	Moquegua
+ 18620	El Algarrobal	El Algarrobal	Ilo	Moquegua
+ 19000	Yanacancha, Cerro de Pasco, San Antonio de Rancas	Yanacancha, Chaupimarca, Simon Bolivar	Pasco	Pasco
+ 19001	San Antonio de Rancas, Yanacancha, Cerro de Pasco	Simon Bolivar, Yanacancha, Chaupimarca	Pasco	Pasco
+ 19031	San Antonio de Rancas	Simon Bolivar	Pasco	Pasco
+ 19100	Yarusyacan	San Francisco de Asis de Yarusyacan	Pasco	Pasco
+ 19101	Yarusyacan	San Francisco de Asis de Yarusyacan	Pasco	Pasco
+ 19110	Pallanchacra	Pallanchacra	Pasco	Pasco
+ 19120	Huariaca	Huariaca	Pasco	Pasco
+ 19121	Huariaca	Huariaca	Pasco	Pasco
+ 19130	Ticlacayan	Ticlacayan	Pasco	Pasco
+ 19131	Ticlacayan	Ticlacayan	Pasco	Pasco
+ 19200	Paucartambo	Paucartambo	Pasco	Pasco
+ 19201	Paucartambo	Paucartambo	Pasco	Pasco
+ 19210	Chontabamba	Chontabamba	Oxapampa	Pasco
+ 19220	Huachon	Huachon	Pasco	Pasco
+ 19230	Oxapampa	Oxapampa	Oxapampa	Pasco
+ 19231	Oxapampa	Oxapampa	Oxapampa	Pasco
+ 19240	Huancabamba	Huancabamba	Oxapampa	Pasco
+ 19241	Huancabamba	Huancabamba	Oxapampa	Pasco
+ 19250	Pozuzo	Pozuzo	Oxapampa	Pasco
+ 19251	Pozuzo	Pozuzo	Oxapampa	Pasco
+ 19300	Villa Rica	Villa Rica	Oxapampa	Pasco
+ 19301	Villa Rica	Villa Rica	Oxapampa	Pasco
+ 19310	Puerto Bermudez	Puerto Bermudez	Oxapampa	Pasco
+ 19311	Puerto Bermudez	Puerto Bermudez	Oxapampa	Pasco
+ 19320	Iscozacin	Palcazu	Oxapampa	Pasco
+ 19321	Iscozacin	Palcazu	Oxapampa	Pasco
+ 19400	Tinyahuarco (Smelter)	Tinyahuarco	Pasco	Pasco
+ 19401	Tinyahuarco (Smelter)	Tinyahuarco	Pasco	Pasco
+ 19410	Vicco	Vicco	Pasco	Pasco
+ 19420	Ninacaca	Ninacaca	Pasco	Pasco
+ 19500	Huayllay	Huayllay	Pasco	Pasco
+ 19501	Huayllay	Huayllay	Pasco	Pasco
+ 19600	Yanahuanca	Yanahuanca	Daniel Alcides Carrion	Pasco
+ 19601	Yanahuanca	Yanahuanca	Daniel Alcides Carrion	Pasco
+ 19650	San Pedro de Pillao	San Pedro de Pillao	Daniel Alcides Carrion	Pasco
+ 19700	Santa Ana de Tusi	Santa Ana de Tusi	Daniel Alcides Carrion	Pasco
+ 19701	Santa Ana de Tusi	Santa Ana de Tusi	Daniel Alcides Carrion	Pasco
+ 19710	Goyllarisquizga	Goyllarisquizga	Daniel Alcides Carrion	Pasco
+ 19720	Chacayan	Chacayan	Daniel Alcides Carrion	Pasco
+ 19730	Vilcabamba	Vilcabamba	Daniel Alcides Carrion	Pasco
+ 19740	Tapuc	Tapuc	Daniel Alcides Carrion	Pasco
+ 19750	Paucar	Paucar	Daniel Alcides Carrion	Pasco
+ 20000	Piura, Catacaos, Castilla	Piura, Catacaos, Castilla	Piura	Piura
+ 20001	Piura	Piura	Piura	Piura
+ 20002	Castilla	Castilla	Piura	Piura
+ 20003	Castilla	Castilla	Piura	Piura
+ 20004	Piura, Catacaos	Piura, Catacaos	Piura	Piura
+ 20006	Catacaos	Catacaos	Piura	Piura
+ 20007	Piura	Piura	Piura	Piura
+ 20008	Piura	Piura	Piura	Piura
+ 20009	Piura	Piura	Piura	Piura
+ 20100	Sullana	Sullana	Sullana	Piura
+ 20101	Sullana, Bellavista	Sullana, Bellavista	Sullana	Piura
+ 20102	Bellavista, Sullana	Bellavista, Sullana	Sullana	Piura
+ 20103	Sullana	Sullana	Sullana	Piura
+ 20120	Marcavelica	Marcavelica	Sullana	Piura
+ 20121	Marcavelica	Marcavelica	Sullana	Piura
+ 20130	Salitral	Salitral	Sullana	Piura
+ 20131	Salitral	Salitral	Sullana	Piura
+ 20140	Querecotillo	Querecotillo	Sullana	Piura
+ 20141	Querecotillo	Querecotillo	Sullana	Piura
+ 20150	Lancones	Lancones	Sullana	Piura
+ 20151	Lancones	Lancones	Sullana	Piura
+ 20200	Tambo Grande	Tambo Grande	Piura	Piura
+ 20201	Tambo Grande	Tambo Grande	Piura	Piura
+ 20210	Las Lomas	Las Lomas	Piura	Piura
+ 20211	Las Lomas	Las Lomas	Piura	Piura
+ 20220	Suyo	Suyo	Ayabaca	Piura
+ 20221	Suyo	Suyo	Ayabaca	Piura
+ 20230	Sapillica	Sapillica	Ayabaca	Piura
+ 20231	Sapillica	Sapillica	Ayabaca	Piura
+ 20300	Chulucanas	Chulucanas	Morropon	Piura
+ 20301	Chulucanas	Chulucanas	Morropon	Piura
+ 20310	Morropon	Morropon	Morropon	Piura
+ 20311	Morropon	Morropon	Morropon	Piura
+ 20320	Paltashaco	Santa Catalina de Mossa	Morropon	Piura
+ 20330	Santo Domingo	Santo Domingo	Morropon	Piura
+ 20331	Santo Domingo	Santo Domingo	Morropon	Piura
+ 20340	Frias	Frias	Ayabaca	Piura
+ 20341	Frias	Frias	Ayabaca	Piura
+ 20350	Chalaco	Chalaco	Morropon	Piura
+ 20351	Chalaco	Chalaco	Morropon	Piura
+ 20360	Yamango	Yamango	Morropon	Piura
+ 20361	Yamango	Yamango	Morropon	Piura
+ 20370	La Matanza	La Matanza	Morropon	Piura
+ 20371	La Matanza	La Matanza	Morropon	Piura
+ 20380	Buenos Aires	Buenos Aires	Morropon	Piura
+ 20381	Buenos Aires	Buenos Aires	Morropon	Piura
+ 20400	Salitral	Salitral	Morropon	Piura
+ 20401	Salitral	Salitral	Morropon	Piura
+ 20410	Bigote	San Juan de Bigote	Morropon	Piura
+ 20411	Bigote	San Juan de Bigote	Morropon	Piura
+ 20420	Tunal	Lalaquiz	Huancabamba	Piura
+ 20421	Tunal	Lalaquiz	Huancabamba	Piura
+ 20430	Canchaque	Canchaque	Huancabamba	Piura
+ 20431	Canchaque	Canchaque	Huancabamba	Piura
+ 20440	Huancabamba	Huancabamba	Huancabamba	Piura
+ 20441	Huancabamba	Huancabamba	Huancabamba	Piura
+ 20450	Sapalache	El Carmen de la Frontera	Huancabamba	Piura
+ 20451	Sapalache	El Carmen de la Frontera	Huancabamba	Piura
+ 20460	San Miguel del Faique	San Miguel de el Faique	Huancabamba	Piura
+ 20461	San Miguel del Faique	San Miguel de el Faique	Huancabamba	Piura
+ 20470	Huarmaca	Huarmaca	Huancabamba	Piura
+ 20471	Huarmaca	Huarmaca	Huancabamba	Piura
+ 20480	Sondor	Sondor	Huancabamba	Piura
+ 20481	Sondor	Sondor	Huancabamba	Piura
+ 20490	Sondorillo	Sondorillo	Huancabamba	Piura
+ 20491	Sondorillo	Sondorillo	Huancabamba	Piura
+ 20500	Paimas	Paimas	Ayabaca	Piura
+ 20501	Paimas	Paimas	Ayabaca	Piura
+ 20510	Montero	Montero	Ayabaca	Piura
+ 20511	Montero	Montero	Ayabaca	Piura
+ 20520	Jilili	Jilili	Ayabaca	Piura
+ 20530	Sicchez	Sicchez	Ayabaca	Piura
+ 20540	Ayabaca	Ayabaca	Ayabaca	Piura
+ 20541	Ayabaca	Ayabaca	Ayabaca	Piura
+ 20550	Lagunas	Lagunas	Ayabaca	Piura
+ 20551	Lagunas	Lagunas	Ayabaca	Piura
+ 20560	Pacaipampa	Pacaipampa	Ayabaca	Piura
+ 20561	Pacaipampa	Pacaipampa	Ayabaca	Piura
+ 20600	Cucungara	Cura Mori	Piura	Piura
+ 20601	Cucungara	Cura Mori	Piura	Piura
+ 20620	La Arena, La Union	La Arena, La Union	Piura	Piura
+ 20621	La Union, La Arena	La Union, La Arena	Piura	Piura
+ 20630	Sinchao	El Tallan	Piura	Piura
+ 20640	Vice	Vice	Sechura	Piura
+ 20641	Vice	Vice	Sechura	Piura
+ 20650	Bellavista	Bellavista de la Union	Sechura	Piura
+ 20660	Dos Pueblos	Rinconada Llicuar	Sechura	Piura
+ 20670	Bernal	Bernal	Sechura	Piura
+ 20671	Bernal	Bernal	Sechura	Piura
+ 20680	San Cristo	Cristo Nos Valga	Sechura	Piura
+ 20690	Sechura	Sechura	Sechura	Piura
+ 20691	Sechura	Sechura	Sechura	Piura
+ 20700	Paita	Paita	Paita	Piura
+ 20701	Paita	Paita	Paita	Piura
+ 20710	San Lucas (Pueblo Nuevo de Colan)	Colan	Paita	Piura
+ 20711	San Lucas (Pueblo Nuevo de Colan)	Colan	Paita	Piura
+ 20720	El Arenal	Arenal	Paita	Piura
+ 20730	Amotape	Amotape	Paita	Piura
+ 20740	San Felipe de Vichayal	Vichayal	Paita	Piura
+ 20741	San Felipe de Vichayal	Vichayal	Paita	Piura
+ 20750	Tamarindo	Tamarindo	Paita	Piura
+ 20760	San Jacinto	Ignacio Escudero	Sullana	Piura
+ 20761	San Jacinto	Ignacio Escudero	Sullana	Piura
+ 20770	Sojo	Miguel Checa	Sullana	Piura
+ 20771	Sojo	Miguel Checa	Sullana	Piura
+ 20780	La Huaca	La Huaca	Paita	Piura
+ 20781	La Huaca	La Huaca	Paita	Piura
+ 20800	Negritos	La Brea	Talara	Piura
+ 20801	Negritos	La Brea	Talara	Piura
+ 20810	Talara	Pariñas	Talara	Piura
+ 20811	Talara	Pariñas	Talara	Piura
+ 20820	Lobitos	Lobitos	Talara	Piura
+ 20830	El Alto	El Alto	Talara	Piura
+ 20831	El Alto	El Alto	Talara	Piura
+ 20840	Los Organos	Los Organos	Talara	Piura
+ 20841	Los Organos	Los Organos	Talara	Piura
+ 20850	Mancora	Mancora	Talara	Piura
+ 20851	Mancora	Mancora	Talara	Piura
+ 21000	Puno	Puno	Puno	Puno
+ 21001	Puno	Puno	Puno	Puno
+ 21002	Puno	Puno	Puno	Puno
+ 21100	Juliaca	Juliaca	San Roman	Puno
+ 21101	Juliaca	Juliaca	San Roman	Puno
+ 21102	Juliaca	Juliaca	San Roman	Puno
+ 21103	Juliaca	Juliaca	San Roman	Puno
+ 21104	Juliaca	Juliaca	San Roman	Puno
+ 21107	Caracoto	Caracoto	San Roman	Puno
+ 21108	Caracoto	Caracoto	San Roman	Puno
+ 21110	Paucarcolla	Paucarcolla	Puno	Puno
+ 21113	Atuncolla	Atuncolla	Puno	Puno
+ 21115	Atuncolla	Atuncolla	Puno	Puno
+ 21116	Huata	Huata	Puno	Puno
+ 21117	Huata	Huata	Puno	Puno
+ 21119	Coata	Coata	Puno	Puno
+ 21120	Coata	Coata	Puno	Puno
+ 21123	Capachica	Capachica	Puno	Puno
+ 21125	Capachica	Capachica	Puno	Puno
+ 21127	Amantani	Amantani	Puno	Puno
+ 21130	Calapuja	Calapuja	Lampa	Puno
+ 21135	Nicasio	Nicasio	Lampa	Puno
+ 21136	Pucara	Pucara	Lampa	Puno
+ 21137	Pucara	Pucara	Lampa	Puno
+ 21139	Estacion de Pucara	Jose Domingo Choquehuanca	Azangaro	Puno
+ 21140	Estacion de Pucara	Jose Domingo Choquehuanca	Azangaro	Puno
+ 21143	Santiago de Pupuja	Santiago de Pupuja	Azangaro	Puno
+ 21145	Santiago de Pupuja	Santiago de Pupuja	Azangaro	Puno
+ 21146	Tirapata	Tirapata	Azangaro	Puno
+ 21149	Asillo	Asillo	Azangaro	Puno
+ 21150	Asillo	Asillo	Azangaro	Puno
+ 21153	Orurillo	Orurillo	Melgar	Puno
+ 21155	Orurillo	Orurillo	Melgar	Puno
+ 21157	Azangaro	Azangaro	Azangaro	Puno
+ 21160	Azangaro	Azangaro	Azangaro	Puno
+ 21162	San Jose	San Jose	Azangaro	Puno
+ 21165	San Jose	San Jose	Azangaro	Puno
+ 21166	San Juan de Salinas	San Juan de Salinas	Azangaro	Puno
+ 21169	Arapa	Arapa	Azangaro	Puno
+ 21170	Arapa	Arapa	Azangaro	Puno
+ 21175	Caminaca	Caminaca	Azangaro	Puno
+ 21180	Achaya	Achaya	Azangaro	Puno
+ 21200	San Anton	San Anton	Azangaro	Puno
+ 21201	San Anton	San Anton	Azangaro	Puno
+ 21205	Antauta	Antauta	Melgar	Puno
+ 21210	Potoni	Potoni	Azangaro	Puno
+ 21211	Potoni	Potoni	Azangaro	Puno
+ 21215	Crucero	Crucero	Carabaya	Puno
+ 21216	Crucero	Crucero	Carabaya	Puno
+ 21220	Patambuco	Patambuco	Sandia	Puno
+ 21225	Limbani	Limbani	Sandia	Puno
+ 21230	Phara	Phara	Sandia	Puno
+ 21235	Usicayos	Usicayos	Carabaya	Puno
+ 21236	Usicayos	Usicayos	Carabaya	Puno
+ 21240	Ajoyani	Ajoyani	Carabaya	Puno
+ 21245	Coasa	Coasa	Carabaya	Puno
+ 21246	Coasa	Coasa	Carabaya	Puno
+ 21250	Macusani	Macusani	Carabaya	Puno
+ 21251	Macusani	Macusani	Carabaya	Puno
+ 21255	Tambillo	Ituata	Carabaya	Puno
+ 21256	Tambillo	Ituata	Carabaya	Puno
+ 21260	Ayapata	Ayapata	Carabaya	Puno
+ 21261	Ayapata	Ayapata	Carabaya	Puno
+ 21265	Corani	Corani	Carabaya	Puno
+ 21270	Ollachea	Ollachea	Carabaya	Puno
+ 21275	Lanlacuni Bajo	San Gaban	Carabaya	Puno
+ 21300	Saman	Saman	Azangaro	Puno
+ 21301	Saman	Saman	Azangaro	Puno
+ 21305	Taraco	Taraco	Huancane	Puno
+ 21306	Taraco	Taraco	Huancane	Puno
+ 21310	Pusi	Pusi	Huancane	Puno
+ 21311	Pusi	Pusi	Huancane	Puno
+ 21315	Huancane	Huancane	Huancane	Puno
+ 21316	Huancane	Huancane	Huancane	Puno
+ 21320	Chupa	Chupa	Azangaro	Puno
+ 21321	Chupa	Chupa	Azangaro	Puno
+ 21325	Huatasani	Huatasani	Huancane	Puno
+ 21330	Inchupalla	Inchupalla	Huancane	Puno
+ 21335	Ayrampuni	Pedro Vilca Apaza	San Antonio de Putina	Puno
+ 21340	Putina	Putina	San Antonio de Putina	Puno
+ 21341	Putina	Putina	San Antonio de Putina	Puno
+ 21345	Muñani	Muñani	Azangaro	Puno
+ 21346	Muñani	Muñani	Azangaro	Puno
+ 21350	Quilcapuncu	Quilcapuncu	San Antonio de Putina	Puno
+ 21351	Quilcapuncu	Quilcapuncu	San Antonio de Putina	Puno
+ 21355	Ananea	Ananea	San Antonio de Putina	Puno
+ 21356	Ananea	Ananea	San Antonio de Putina	Puno
+ 21360	Cuyocuyo	Cuyocuyo	Sandia	Puno
+ 21361	Cuyocuyo	Cuyocuyo	Sandia	Puno
+ 21365	Sandia	Sandia	Sandia	Puno
+ 21366	Sandia	Sandia	Sandia	Puno
+ 21370	Massiapo	Alto Inambari	Sandia	Puno
+ 21371	Massiapo	Alto Inambari	Sandia	Puno
+ 21375	San Juan del Oro	San Juan del Oro	Sandia	Puno
+ 21376	San Juan del Oro	San Juan del Oro	Sandia	Puno
+ 21380	Putina Punco	San Pedro de Putina Punco	Sandia	Puno
+ 21381	Putina Punco	San Pedro de Putina Punco	Sandia	Puno
+ 21385	Yanahuaya	Yanahuaya	Sandia	Puno
+ 21390	Quiaca	Quiaca	Sandia	Puno
+ 21395	Sina	Sina	San Antonio de Putina	Puno
+ 21400	Vilque Chico	Vilque Chico	Huancane	Puno
+ 21401	Vilque Chico	Vilque Chico	Huancane	Puno
+ 21410	Cojata	Cojata	Huancane	Puno
+ 21420	Rosaspata	Rasaspata	Huancane	Puno
+ 21421	Rosaspata	Rasaspata	Huancane	Puno
+ 21430	Moho	Moho	Moho	Puno
+ 21431	Moho	Moho	Moho	Puno
+ 21440	Huayrapata	Huayrapata	Moho	Puno
+ 21450	Conima	Conima	Moho	Puno
+ 21460	Tilali	Tilali	Moho	Puno
+ 21500	Ilave	Ilave	El Collao	Puno
+ 21501	Ilave	Ilave	El Collao	Puno
+ 21510	Acora	Acora	Puno	Puno
+ 21511	Acora	Acora	Puno	Puno
+ 21515	Plateria	Plateria	Puno	Puno
+ 21516	Plateria	Plateria	Puno	Puno
+ 21520	Chucuito	Chucuito	Puno	Puno
+ 21521	Chucuito	Chucuito	Puno	Puno
+ 21525	Pilcuyo	Pilcuyo	El Collao	Puno
+ 21526	Pilcuyo	Pilcuyo	El Collao	Puno
+ 21530	Juli	Juli	Chucuito	Puno
+ 21531	Juli	Juli	Chucuito	Puno
+ 21535	Pomata	Pomata	Chucuito	Puno
+ 21536	Pomata	Pomata	Chucuito	Puno
+ 21540	San Juan de Cuturapi	Cuturapi	Yunguyo	Puno
+ 21545	Yunguyo	Yunguyo	Yunguyo	Puno
+ 21546	Yunguyo	Yunguyo	Yunguyo	Puno
+ 21550	San Miguel de Ollaraya	Ollaraya	Yunguyo	Puno
+ 21555	Marcaja	Unicachi	Yunguyo	Puno
+ 21560	Tinicachi	Tinicachi	Yunguyo	Puno
+ 21565	Anapia	Anapia	Yunguyo	Puno
+ 21570	Copani	Copani	Yunguyo	Puno
+ 21571	Copani	Copani	Yunguyo	Puno
+ 21575	Laraqueri	Pichacani	Puno	Puno
+ 21576	Laraqueri	Pichacani	Puno	Puno
+ 21600	Zepita	Zepita	Chucuito	Puno
+ 21601	Zepita	Zepita	Chucuito	Puno
+ 21610	Desaguadero	Desaguadero	Chucuito	Puno
+ 21611	Desaguadero	Desaguadero	Chucuito	Puno
+ 21620	Huacullani	Huacullani	Chucuito	Puno
+ 21621	Huacullani	Huacullani	Chucuito	Puno
+ 21630	Kelluyo	Kelluyo	Chucuito	Puno
+ 21631	Kelluyo	Kelluyo	Chucuito	Puno
+ 21640	Pisacoma	Pisacoma	Chucuito	Puno
+ 21641	Pisacoma	Pisacoma	Chucuito	Puno
+ 21650	Capazo	Capazo	El Collao	Puno
+ 21660	Mazo Cruz	Santa Rosa	El Collao	Puno
+ 21661	Mazo Cruz	Santa Rosa	El Collao	Puno
+ 21670	Conduriri	Conduriri	El Collao	Puno
+ 21700	Cabana	Cabana	San Roman	Puno
+ 21710	Cabanilla	Cabanilla	Lampa	Puno
+ 21711	Cabanilla	Cabanilla	Lampa	Puno
+ 21720	Deustua	Cabanillas	San Roman	Puno
+ 21721	Deustua	Cabanillas	San Roman	Puno
+ 21730	Mañazo	Mañozo	Puno	Puno
+ 21731	Mañazo	Mañozo	Puno	Puno
+ 21740	Vilque	Vilque	Puno	Puno
+ 21750	Tiquillaca	Tiquillaca	Puno	Puno
+ 21760	Juncal	San Antonio	Puno	Puno
+ 21770	Santa Lucia	Santa Lucia	Lampa	Puno
+ 21771	Santa Lucia	Santa Lucia	Lampa	Puno
+ 21780	Paratia	Paratia	Lampa	Puno
+ 21781	Paratia	Paratia	Lampa	Puno
+ 21800	Lampa	Lampa	Lampa	Puno
+ 21801	Lampa	Lampa	Lampa	Puno
+ 21805	Palca	Palca	Lampa	Puno
+ 21815	Vilavila	Vilavila	Lampa	Puno
+ 21825	Ocuviri	Ocuviri	Lampa	Puno
+ 21835	Llalli	Llalli	Melgar	Puno
+ 21845	Cupi	Cupi	Melgar	Puno
+ 21855	Umachiri	Umachiri	Melgar	Puno
+ 21865	Ayaviri	Ayavari	Melgar	Puno
+ 21866	Ayaviri	Ayavari	Melgar	Puno
+ 21875	Macari	Macari	Melgar	Puno
+ 21876	Macari	Macari	Melgar	Puno
+ 21885	Santa Rosa	Santa Rosa	Melgar	Puno
+ 21886	Santa Rosa	Santa Rosa	Melgar	Puno
+ 21895	Nuñoa	Nuñoa	Melgar	Puno
+ 21896	Nuñoa	Nuñoa	Melgar	Puno
+ 22000	Moyobamba, Yantalo	Moyobamba, Yantalo	Moyobamba	San Martin
+ 22001	Moyobamba	Moyobamba	Moyobamba	San Martin
+ 22051	Yantalo	Yantalo	Moyobamba	San Martin
+ 22100	Jepelacio	Jepelacio	Moyobamba	San Martin
+ 22101	Jepelacio	Jepelacio	Moyobamba	San Martin
+ 22110	Roque	Alonso de Alvarado	Lamas	San Martin
+ 22111	Roque	Alonso de Alvarado	Lamas	San Martin
+ 22120	Tabalosos	Tabalosos	Lamas	San Martin
+ 22121	Tabalosos	Tabalosos	Lamas	San Martin
+ 22130	Shanao	Shanao	Lamas	San Martin
+ 22140	Pinto Recodo	Pinto Recodo	Lamas	San Martin
+ 22141	Pinto Recodo	Pinto Recodo	Lamas	San Martin
+ 22150	Lamas	Lamas	Lamas	San Martin
+ 22151	Lamas	Lamas	Lamas	San Martin
+ 22160	Cacatachi	Cacatachi	San Martin	San Martin
+ 22170	Rumisapa	Rumisapa	Lamas	San Martin
+ 22180	Cuñumbuqui	Cuñumbuqui	Lamas	San Martin
+ 22190	Zapatero	Zapatero	Lamas	San Martin
+ 22200	La Banda, Morales, Tarapoto	La Banda de Shilcayo, Morales, Tarapoto	San Martin	San Martin
+ 22201	Tarapoto, Morales, La Banda	Tarapoto, Morales, La Banda de Shilcayo	San Martin	San Martin
+ 22202	Morales, Tarapoto, La Banda	Morales, Tarapoto, La Banda de Shilcayo	San Martin	San Martin
+ 22215	San Antonio	San Antonio	San Martin	San Martin
+ 22220	San Roque de Cumbaza	San Roque de Cumbaza	Lamas	San Martin
+ 22235	Pongo de Caynarachi	Caynarachi	Lamas	San Martin
+ 22236	Pongo de Caynarachi	Caynarachi	Lamas	San Martin
+ 22240	Barranquita	Barranquita	Lamas	San Martin
+ 22241	Barranquita	Barranquita	Lamas	San Martin
+ 22245	Pelejo	El Porvenir	San Martin	San Martin
+ 22250	Papaplaya	Papaplaya	San Martin	San Martin
+ 22255	Navarro	Chipurana	San Martin	San Martin
+ 22260	Huimbayoc	Huimbayoc	San Martin	San Martin
+ 22300	Shapaja	Shapaja	San Martin	San Martin
+ 22310	Chazuta	Chazuta	San Martin	San Martin
+ 22311	Chazuta	Chazuta	San Martin	San Martin
+ 22320	Utcurarca	Alberto Leveau	San Martin	San Martin
+ 22330	Sauce	Sauce	San Martin	San Martin
+ 22331	Sauce	Sauce	San Martin	San Martin
+ 22340	Tres Unidos	Tres Unidos	PIcota	San Martin
+ 22350	Pilluana	Pilluana	PIcota	San Martin
+ 22360	Tingo de Ponasa	Tingo de Ponasa	PIcota	San Martin
+ 22370	Shamboyacu	Shamboyacu	PIcota	San Martin
+ 22371	Shamboyacu	Shamboyacu	PIcota	San Martin
+ 22400	Juan Guerra	Juan Guerra	San Martin	San Martin
+ 22410	Buenos Aires	Buenos Aires	PIcota	San Martin
+ 22420	Pucacaca	Pucacaca	PIcota	San Martin
+ 22430	Picota	Picota	PIcota	San Martin
+ 22431	Picota	Picota	PIcota	San Martin
+ 22440	Caspisapa	Caspisapa	PIcota	San Martin
+ 22450	Puerto Rico	San Cristobal	PIcota	San Martin
+ 22460	San Cristobal de Sisa	San Hilarion	PIcota	San Martin
+ 22470	San Rafael	San Rafael	Bellavista	San Martin
+ 22471	San Rafael	San Rafael	Bellavista	San Martin
+ 22480	Nuevo Lima	Bajo Biavo	Bellavista	San Martin
+ 22481	Nuevo Lima	Bajo Biavo	Bellavista	San Martin
+ 22490	Cuzco	Alto Biavo	Bellavista	San Martin
+ 22491	Cuzco	Alto Biavo	Bellavista	San Martin
+ 22500	Pajarillo	Pajarillo	Mariscal Caceres	San Martin
+ 22501	Pajarillo	Pajarillo	Mariscal Caceres	San Martin
+ 22510	Ledoy	Huallaga	Bellavista	San Martin
+ 22520	Campanilla	Canpanilla	Mariscal Caceres	San Martin
+ 22521	Campanilla	Canpanilla	Mariscal Caceres	San Martin
+ 22530	Polvora	Polvora	Tocache	San Martin
+ 22531	Polvora	Polvora	Tocache	San Martin
+ 22540	Tocache	Tocache	Tocache	San Martin
+ 22541	Tocache	Tocache	Tocache	San Martin
+ 22550	Nuevo Progreso	Nuevo Progreso	Tocache	San Martin
+ 22551	Nuevo Progreso	Nuevo Progreso	Tocache	San Martin
+ 22560	Uchiza	Uchiza	Tocache	San Martin
+ 22561	Uchiza	Uchiza	Tocache	San Martin
+ 22570	Monte Cristo	Shunte	Tocache	San Martin
+ 22600	Juanjui	Juanjui	Mariscal Caceres	San Martin
+ 22601	Juanjui	Juanjui	Mariscal Caceres	San Martin
+ 22610	Pachiza	Pachiza	Mariscal Caceres	San Martin
+ 22620	Huicungo	Huicungo	Mariscal Caceres	San Martin
+ 22621	Huicungo	Huicungo	Mariscal Caceres	San Martin
+ 22630	Sacanche	Sacanche	Huallaga	San Martin
+ 22640	El Eslabon	El Eslabon	Huallaga	San Martin
+ 22650	Piscoyacu	Piscoyacu	Huallaga	San Martin
+ 22660	Saposoa	Saposoa	Huallaga	San Martin
+ 22661	Saposoa	Saposoa	Huallaga	San Martin
+ 22670	Pasarraya	Alto Saposoa	Huallaga	San Martin
+ 22700	San Jose de Sisa	San Jose de Sisa	El Dorado	San Martin
+ 22701	San Jose de Sisa	San Jose de Sisa	El Dorado	San Martin
+ 22710	Agua Blanca	Agua Blanca	El Dorado	San Martin
+ 22720	Santa Rosa	Santa Rosa	El Dorado	San Martin
+ 22721	Santa Rosa	Santa Rosa	El Dorado	San Martin
+ 22730	San Pablo	San Pablo	Bellavista	San Martin
+ 22731	San Pablo	San Pablo	Bellavista	San Martin
+ 22740	Bellavista	Bellavista	Bellavista	San Martin
+ 22741	Bellavista	Bellavista	Bellavista	San Martin
+ 22750	Tingo de Saposoa	TIingo de Saposoa	Huallaga	San Martin
+ 22760	Shatoja	Shatoja	El Dorado	San Martin
+ 22770	San Martin	San Martin	El Dorado	San Martin
+ 22771	San Martin	San Martin	El Dorado	San Martin
+ 22800	Calzada	Calzada	Moyobamba	San Martin
+ 22805	Habana	Habana	Moyobamba	San Martin
+ 22810	Soritor	Soritor	Moyobamba	San Martin
+ 22811	Soritor	Soritor	Moyobamba	San Martin
+ 22820	Yorongos	Yorongos	Rioja	San Martin
+ 22825	Rioja	Rioja	Rioja	San Martin
+ 22826	Rioja	Rioja	Rioja	San Martin
+ 22835	Posic	Posic	Rioja	San Martin
+ 22840	Segunda Jerusalen- Azunguillo	Elias SoplinVargas	Rioja	San Martin
+ 22841	Segunda Jerusalen- Azunguillo	Elias SoplinVargas	Rioja	San Martin
+ 22845	Nueva Cajamarca	Nueva Cajamarca	Rioja	San Martin
+ 22846	Nueva Cajamarca	Nueva Cajamarca	Rioja	San Martin
+ 22850	Yuracyacu	Yuracyacu	Rioja	San Martin
+ 22855	San Fernando	San Fernando	Rioja	San Martin
+ 22860	Bajo Naranjillo	Awajun	Rioja	San Martin
+ 22861	Bajo Naranjillo	Awajun	Rioja	San Martin
+ 22865	Naranjos	Pardo Miguel	Rioja	San Martin
+ 22866	Naranjos	Pardo Miguel	Rioja	San Martin
+ 23000	Pocollay, Ciudad Nueva, La Esperanza, Alfonso Ugarte, Tacna, Calana	Pocollay, Ciudad Nueva, Alto de la Alianza, Coronel Gregorio Albarracin Lanchipa, Tacna, Calana	Tacna	Tacna
+ 23001	Pocollay, La Esperanza, Tacna	Pocollay, Alto de la Alianza, Tacna	Tacna	Tacna
+ 23002	Ciudad Nueva, Pocollay, La Esperanza	Ciudad Nueva, Pocollay, Alto de la Alianza	Tacna	Tacna
+ 23003	Alfonso Ugarte, Pocollay, Tacna	Coronel Gregorio Albarracin Lanchipa, Pocollay, Tacna	Tacna	Tacna
+ 23004	Tacna, Alfonso Ugarte	Tacna, Coronel Gregorio Albarracin Lanchipa	Tacna	Tacna
+ 23006	Tacna, La Esperanza, Alfonso Ugarte	Tacna, Alto de la Alianza, Coronel Gregorio Albarracin Lanchipa	Tacna	Tacna
+ 23041	Calana	Calana	Tacna	Tacna
+ 23100	Estique Pampa	Estique Pampa	Tarata	Tacna
+ 23120	Estique	Estique	Tarata	Tacna
+ 23140	Tarucachi	Tarucachi	Tarata	Tacna
+ 23200	Tarata	Tarata	Tarata	Tacna
+ 23220	Ticaco	Ticaco	Tarata	Tacna
+ 23240	Chucatamani	Heroes Albarracin	Tarata	Tacna
+ 23300	Sitajara	Sitajara	Tarata	Tacna
+ 23350	Susapaya	Susapaya	Tarata	Tacna
+ 23400	Quilahuani	Quilahuani	Candarave	Tacna
+ 23420	Candarave	Candarave	Candarave	Tacna
+ 23440	Cairani	Cairani	Candarave	Tacna
+ 23460	Huanuara	Huanaura	Candarave	Tacna
+ 23480	Curibaya	Curibaya	Candarave	Tacna
+ 23500	Pachia	Pachia	Tacna	Tacna
+ 23550	Palca	Palca	Tacna	Tacna
+ 23600	Sama Grande	Inclan	Tacna	Tacna
+ 23650	Las Yaras	Sama	Tacna	Tacna
+ 23700	Ite	Ite	Jorge Basadre	Tacna
+ 23750	Locumba	Locumba	Jorge Basadre	Tacna
+ 23800	Ilabaya	Ilabaya	Jorge Basadre	Tacna
+ 23850	Camilaca	Camilaca	Candarave	Tacna
+ 24000	Tumbes	Tumbes	Tumbes	Tumbes
+ 24001	Tumbes	Tumbes	Tumbes	Tumbes
+ 24002	Tumbes	Tumbes	Tumbes	Tumbes
+ 24100	Aguas Verdes	Aguas Verdes	Zarumilla	Tumbes
+ 24101	Aguas Verdes	Aguas Verdes	Zarumilla	Tumbes
+ 24150	Zarumilla	Zarumilla	Zarumilla	Tumbes
+ 24151	Zarumilla	Zarumilla	Zarumilla	Tumbes
+ 24200	Papayal	Papayal	Zarumilla	Tumbes
+ 24250	Matapalo	Matapalo	Zarumilla	Tumbes
+ 24300	San Juan de la Virgen	San Juan de la Virgen	Tumbes	Tumbes
+ 24350	Pampas de Hospital	Pampas de Hospital	Tumbes	Tumbes
+ 24351	Pampas de Hospital	Pampas de Hospital	Tumbes	Tumbes
+ 24400	San Jacinto	San Jacinto	Tumbes	Tumbes
+ 24401	San Jacinto	San Jacinto	Tumbes	Tumbes
+ 24450	Cañaveral	Casitas	Contralmirante Villar	Tumbes
+ 24500	San Pedro de los Incas	Corrales	Tumbes	Tumbes
+ 24501	San Pedro de los Incas	Corrales	Tumbes	Tumbes
+ 24520	Caleta Cruz	La Cruz	Tumbes	Tumbes
+ 24521	Caleta Cruz	La Cruz	Tumbes	Tumbes
+ 24540	Zorritos	Zorritos	Contralmirante Villar	Tumbes
+ 24541	Zorritos	Zorritos	Contralmirante Villar	Tumbes
+ 24560	Cancas	Canoas de Punta Sal	Contralmirante Villar	Tumbes
+ 25000	Puerto Callao, San Fernando, Pucallpa	Yarinacocha, Manantay, Calleria	Coronel Portillo	Ucayali
+ 25001	Pucallpa, San Fernando	Calleria, Manantay	Coronel Portillo	Ucayali
+ 25002	Pucallpa, San Fernando	Calleria, Manantay	Coronel Portillo	Ucayali
+ 25003	Pucallpa, Puerto Callao	Calleria, Yarinacocha	Coronel Portillo	Ucayali
+ 25004	Puerto Callao, Pucallpa	Yarinacocha, Calleria	Coronel Portillo	Ucayali
+ 25006	Puerto Callao, Pucallpa	Yarinacocha, Calleria	Coronel Portillo	Ucayali
+ 25100	Masisea	Masisea	Coronel Portillo	Ucayali
+ 25101	Masisea	Masisea	Coronel Portillo	Ucayali
+ 25200	Atalaya	Raymondi	Atalaya	Ucayali
+ 25201	Atalaya	Raymondi	Atalaya	Ucayali
+ 25210	Sepahua	Sepahua	Atalaya	Ucayali
+ 25211	Sepahua	Sepahua	Atalaya	Ucayali
+ 25220	Bolognesi	Tahuania	Atalaya	Ucayali
+ 25221	Bolognesi	Tahuania	Atalaya	Ucayali
+ 25230	Iparia	Iparia	Coronel Portillo	Ucayali
+ 25231	Iparia	Iparia	Coronel Portillo	Ucayali
+ 25300	Breu	Yurua	Atalaya	Ucayali
+ 25400	Esperanza	Purus	Purus	Ucayali
+ 25500	Campo Verde	Campoverde	Coronel Portillo	Ucayali
+ 25501	Campo Verde	Campoverde	Coronel Portillo	Ucayali
+ 25530	San Alejandro	Irazola	Padre Abad	Ucayali
+ 25531	San Alejandro	Irazola	Padre Abad	Ucayali
+ 25550	Aguaytia	Padre Abad	Padre Abad	Ucayali
+ 25551	Aguaytia	Padre Abad	Padre Abad	Ucayali
+ 25600	Curimana	Curimana	Padre Abad	Ucayali
+ 25601	Curimana	Curimana	Padre Abad	Ucayali
+ 25700	Nueva Requena	Nueva Requena	Coronel Portillo	Ucayali
+ 25701	Nueva Requena	Nueva Requena	Coronel Portillo	Ucayali

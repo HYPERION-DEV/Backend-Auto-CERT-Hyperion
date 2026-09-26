@@ -18,22 +18,21 @@ export async function registerClientInBiocamer(data: BiocamerClientData) {
   }
 
   const browser = await puppeteer.launch({
-  headless: true, // 👈 Se ejecuta de forma 100% invisible en segundo plano
-  slowMo: 30,      // 👈 Quita los retrasos artificiales de inspección para acelerar el proceso
-  args: [
+    headless: true,
+    slowMo: 30,
+    args: [
       '--no-sandbox',
       '--disable-setuid-sandbox',
       '--start-maximized',
       '--window-size=1366,768',
       '--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
     ],
-});
+  });
 
   try {
     const page = await browser.newPage();
     await page.setViewport({ width: 1366, height: 768 });
 
-    // 1. INICIAR SESIÓN
     console.log(`[BioCamer] Navegando a ${biocamerUrl}...`);
     await page.goto(biocamerUrl, { waitUntil: 'networkidle2' });
 
@@ -43,9 +42,8 @@ export async function registerClientInBiocamer(data: BiocamerClientData) {
     await page.waitForSelector(userSelector, { timeout: 10000 });
     await page.waitForSelector(passSelector, { timeout: 10000 });
 
-    await page.click(userSelector, { count: 3 });
-    await page.keyboard.press('Backspace');
-    await page.type(userSelector, biocamerUser, { delay: 40 });
+    await page.focus(userSelector);
+    await page.type(userSelector, biocamerUser, { delay: 30 });
 
     await page.evaluate((selector, passwordValue) => {
       const passInput = document.querySelector(selector) as HTMLInputElement;
@@ -76,11 +74,9 @@ export async function registerClientInBiocamer(data: BiocamerClientData) {
       page.keyboard.press('Enter'),
     ]);
 
-    // 2. NAVEGAR A VALIDACIONES
     console.log('[BioCamer] Accediendo a validaciones...');
     await page.goto('https://biocamer.com/my/validaciones', { waitUntil: 'networkidle2' });
 
-    // 3. ABRIR EL MODAL DE REGISTRAR CLIENTE
     console.log('[BioCamer] Abriendo modal de registro...');
     await page.waitForFunction(() => {
       const elements = Array.from(document.querySelectorAll('a, button'));
@@ -93,10 +89,7 @@ export async function registerClientInBiocamer(data: BiocamerClientData) {
       if (btn) (btn as HTMLElement).click();
     });
 
-    // 4. ESPERAR A QUE EL MODAL ESTÉ VISIBLE Y NAVEGAR AL INPUT
-    console.log('[BioCamer] Esperando visibilidad del campo de texto en el modal...');
-    
-    // Espera explícita del input con el placeholder '12345678' visible dentro del modal
+    console.log('[BioCamer] Esperando visibilidad del campo de texto...');
     const dniInputSelector = 'input[placeholder*="12345678"], .modal input[type="text"], .modal input[name*="vat"]';
     
     const dniInput = await page.waitForSelector(dniInputSelector, { 
@@ -107,14 +100,12 @@ export async function registerClientInBiocamer(data: BiocamerClientData) {
     if (dniInput) {
       console.log(`[BioCamer] Escribiendo DNI ${data.docNumber}...`);
       await dniInput.focus();
-      await dniInput.click({ count: 3 });
       await page.keyboard.press('Backspace');
       await page.keyboard.type(data.docNumber, { delay: 90 });
     } else {
       throw new Error('No se encontró el campo de texto del DNI dentro del modal.');
     }
 
-    // 5. HACER CLIC EN "REGISTRAR CLIENTE"
     console.log('[BioCamer] Guardando datos...');
     await new Promise(resolve => setTimeout(resolve, 500));
 
@@ -131,11 +122,9 @@ export async function registerClientInBiocamer(data: BiocamerClientData) {
     });
 
     if (!submitSuccess) {
-      // Fallback enviando la tecla Enter
       await page.keyboard.press('Enter');
     }
 
-    // Esperar a que el modal se cierre o redirija
     await new Promise(resolve => setTimeout(resolve, 3000));
 
     console.log(`✓ [BioCamer Sync] Cliente DNI ${data.docNumber} registrado con éxito.`);
@@ -147,10 +136,7 @@ export async function registerClientInBiocamer(data: BiocamerClientData) {
   } finally {
     await browser.close();
   }
-  
 }
-
-// backend-hyperion/src/service/biocamer.service.ts
 
 export async function checkClientValidationStatus(docNumber: string): Promise<'APPROVED' | 'REGISTERED' | 'PENDING'> {
   const biocamerUrl = process.env.BIOCAMER_URL || 'https://biocamer.com/web/login';
@@ -180,7 +166,6 @@ export async function checkClientValidationStatus(docNumber: string): Promise<'A
     const page = await browser.newPage();
     await page.setViewport({ width: 1366, height: 768 });
 
-    // Login
     await page.goto(biocamerUrl, { waitUntil: 'networkidle2' });
     const userSelector = 'input[name="login"], input[type="email"], #login';
     const passSelector = 'input[name="password"], input[type="password"], #password';
@@ -188,8 +173,7 @@ export async function checkClientValidationStatus(docNumber: string): Promise<'A
     await page.waitForSelector(userSelector, { timeout: 10000 });
     await page.waitForSelector(passSelector, { timeout: 10000 });
 
-    await page.click(userSelector, { count: 3 });
-    await page.keyboard.press('Backspace');
+    await page.focus(userSelector);
     await page.type(userSelector, biocamerUser, { delay: 30 });
 
     await page.evaluate((selector, passwordValue) => {
@@ -217,47 +201,44 @@ export async function checkClientValidationStatus(docNumber: string): Promise<'A
       page.keyboard.press('Enter'),
     ]);
 
-    // Ir a validaciones
     await page.goto('https://biocamer.com/my/validaciones', { waitUntil: 'networkidle2' });
 
-    // Buscar el enlace específico del cliente con ese DNI y hacerle clic
-    const clicked = await page.evaluate((targetDni) => {
-      const links = Array.from(document.querySelectorAll('a[href*="/my/validaciones/cliente/"]'));
-      const targetLink = links.find(a => {
-        const card = a.closest('.card') || a.parentElement;
-        return card?.textContent?.includes(targetDni);
-      });
+    const detectedStatus = await page.evaluate((targetDni) => {
+      const cardNodes = Array.from(document.querySelectorAll('.col-lg-6.col-md-12, div[class*="col-lg-6"]'));
+      const targetCard = cardNodes.find(card => (card.textContent || '').includes(targetDni));
 
-      if (targetLink) {
-        (targetLink as HTMLElement).click();
-        return true;
+      if (!targetCard) {
+        return 'NOT_FOUND';
       }
-      return false;
-    }, docNumber);
 
-    if (!clicked) {
-      return 'PENDING';
-    }
+      const cardText = targetCard.textContent || '';
 
-    await page.waitForNavigation({ waitUntil: 'networkidle2', timeout: 15000 }).catch(() => {});
-
-    // Evaluar si en la vista del cliente existe la palabra "Exitosa" o "Validado"
-    const statusResult = await page.evaluate(() => {
-      const bodyText = document.body.textContent || '';
-      if (bodyText.includes('No hay validaciones registradas para este cliente')) {
-        return 'REGISTERED';
-      }
-      if (bodyText.includes('Exitosa') || bodyText.includes('Validado')) {
+      if (/\bValidado\b|\bAPPROVED\b/i.test(cardText)) {
         return 'APPROVED';
       }
-      return 'REGISTERED';
-    });
 
-    return statusResult;
+      if (/\bPendiente\b|\bPENDING\b/i.test(cardText)) {
+        return 'REGISTERED';
+      }
+
+      return 'REGISTERED';
+    }, docNumber);
+
+    console.log(`[BioCamer Check Exact Log] DNI ${docNumber} -> Resultado: ${detectedStatus}`);
+
+    if (detectedStatus === 'APPROVED') {
+      return 'APPROVED';
+    }
+
+    if (detectedStatus === 'REGISTERED') {
+      return 'REGISTERED';
+    }
+
+    return 'PENDING';
 
   } catch (error: any) {
     console.error('✕ [BioCamer Check Error]:', error.message || error);
-    return 'REGISTERED';
+    return 'PENDING';
   } finally {
     await browser.close();
   }

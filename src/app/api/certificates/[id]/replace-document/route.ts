@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { writeFile, mkdir } from 'fs/promises';
-import path from 'path';
 import { GoogleGenAI, Type, Schema } from '@google/genai';
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient, DocumentCategory } from '@prisma/client';
 import { CertificateValidator } from '@/validators/certificate.validator';
+import { uploadToSupabase } from '@/lib/supabase';
+import { LocationService } from '@/lib/ubigeo-service';
 
 const prisma = new PrismaClient();
 const apiKey = process.env.GEMINI_API_KEY || '';
@@ -12,26 +12,60 @@ const dniResponseSchema: Schema = {
   type: Type.OBJECT,
   properties: {
     documentoDetectado: { type: Type.BOOLEAN },
-    cuiDni: { type: Type.STRING, description: 'Número de DNI de 8 dígitos' },
+    cuiDni: { type: Type.STRING },
     nombres: { type: Type.STRING },
     primerApellido: { type: Type.STRING },
     segundoApellido: { type: Type.STRING },
     fechaNacimiento: { type: Type.STRING },
     nacionalidad: { type: Type.STRING },
+    departamento: { type: Type.STRING },
+    provincia: { type: Type.STRING },
+    distrito: { type: Type.STRING },
+    direccion: { type: Type.STRING },
   },
   required: ['documentoDetectado', 'cuiDni', 'nombres', 'primerApellido', 'segundoApellido'],
 };
 
-export async function PUT(
+async function processDniWithAi(ai: GoogleGenAI, base64Pdf: string) {
+  const models = ['gemini-1.5-flash', 'gemini-1.5-pro'];
+  for (const model of models) {
+    try {
+      const response = await ai.models.generateContent({
+        model,
+        contents: [
+          { inlineData: { mimeType: 'application/pdf', data: base64Pdf } },
+          { text: 'Extrae con precisión los datos del DNI: CUI/DNI, nombres, primer apellido, segundo apellido, fecha nacimiento, nacionalidad, departamento, provincia, distrito y dirección completa.' },
+        ],
+        config: {
+          responseMimeType: 'application/json',
+          responseSchema: dniResponseSchema,
+          temperature: 0.0,
+        },
+      });
+      if (response && response.text) return response;
+    } catch (e) {
+      continue;
+    }
+  }
+  throw new Error('Error al procesar el OCR con la IA.');
+}
+
+export async function POST(
   request: NextRequest,
-  context: { params: Promise<{ id: string }> }
+  { params }: { params: { id: string } }
 ) {
   try {
-    const { id } = await context.params;
+    const { id: requestId } = params;
+    const formData = await request.formData();
+    const newFile = formData.get('file') as File;
 
-    // 1. Obtener solicitud actual
-    const certRequest = await prisma.certificateRequest.findFirst({
-      where: { OR: [{ id }, { code: id }] },
+    if (!newFile) {
+      return NextResponse.json({ error: 'No se adjuntó ningún archivo nuevo.' }, { status: 400 });
+    }
+
+    // 1. Obtener la solicitud actual
+    const certRequest = await prisma.certificateRequest.findUnique({
+      where: { id: requestId },
       include: { documents: true },
     });
 
@@ -39,103 +73,100 @@ export async function PUT(
       return NextResponse.json({ error: 'Solicitud no encontrada.' }, { status: 404 });
     }
 
-    const formData = await request.formData();
-    const file = formData.get('file') as File;
+    // 2. Subir nuevo archivo a Supabase
+    const savedFile = await uploadToSupabase(newFile, `verifications/dni/${certRequest.applicantDocNum}/replaced_${Date.now()}`);
 
-    if (!file) {
-      return NextResponse.json({ error: 'Debe adjuntar el archivo PDF de reemplazo.' }, { status: 400 });
-    }
-
-    const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
-
-    // 2. Guardar el nuevo PDF localmente
-    const uploadDir = path.join(process.cwd(), 'public', 'uploads');
-    await mkdir(uploadDir, { recursive: true });
-    const filename = `${Date.now()}-${file.name.replace(/\s+/g, '_')}`;
-    const filePath = path.join(uploadDir, filename);
-    await writeFile(filePath, buffer);
-    const fileUrl = `/uploads/${filename}`;
-
-    // 3. Re-procesar OCR con Gemini
+    // 3. Re-ejecutar OCR con Gemini
     const ai = new GoogleGenAI({ apiKey });
-    const base64Pdf = buffer.toString('base64');
-
-    const response = await ai.models.generateContent({
-      model: 'gemini-3.6-flash',
-      contents: [
-        { inlineData: { mimeType: 'application/pdf', data: base64Pdf } },
-        { text: 'Extrae con precisión los datos visibles en el DNI: número de 8 dígitos, nombres, primer apellido, segundo apellido, fecha de nacimiento y nacionalidad.' },
-      ],
-      config: {
-        responseMimeType: 'application/json',
-        responseSchema: dniResponseSchema,
-        temperature: 0.0,
-      },
-    });
-
-    const extractedData = JSON.parse(response.text || '{}');
+    const aiResponse = await processDniWithAi(ai, savedFile.buffer.toString('base64'));
+    const extractedData = JSON.parse(aiResponse.text || '{}');
     const detectedDni = (extractedData.cuiDni || '').replace(/\D/g, '');
 
-    // 4. Evaluar con el Validador Aislado
+    // 4. Evaluar coincidencia del número de DNI
     const validation = CertificateValidator.evaluateDniVerification({
       inputDni: certRequest.applicantDocNum,
       extractedDni: detectedDni,
-      fileSizeBytes: buffer.length,
-      mimeType: file.type || 'application/pdf',
+      fileSizeBytes: savedFile.buffer.length,
+      mimeType: newFile.type || 'application/pdf',
     });
 
-    // 5. Actualizar registro del documento y OCR en base de datos
-    const existingDoc = certRequest.documents[0];
+    // 5. Resolver Ubicación y Código Postal corregidos
+    const location = await LocationService.resolveLocationAndZip(
+      extractedData.departamento || 'ICA',
+      extractedData.provincia || 'ICA',
+      extractedData.distrito || 'PARCONA'
+    );
 
-    if (existingDoc) {
-      await prisma.requestDocument.update({
-        where: { id: existingDoc.id },
-        data: {
-          fileName: file.name,
-          fileUrl,
-          fileSizeBytes: buffer.length,
-          verificationResult: {
-            upsert: {
-              create: {
-                isMatch: validation.isMatch,
-                inputDocumentNum: certRequest.applicantDocNum,
-                detectedDocumentNum: detectedDni,
-                extractedNames: extractedData.nombres,
-                extractedSurname1: extractedData.primerApellido,
-                extractedSurname2: extractedData.segundoApellido,
-                extractedBirthDate: extractedData.fechaNacimiento,
-                extractedNationality: extractedData.nacionalidad,
-                rawAiJsonResponse: extractedData,
-              },
-              update: {
-                isMatch: validation.isMatch,
-                detectedDocumentNum: detectedDni,
-                extractedNames: extractedData.nombres,
-                extractedSurname1: extractedData.primerApellido,
-                extractedSurname2: extractedData.segundoApellido,
-                extractedBirthDate: extractedData.fechaNacimiento,
-                extractedNationality: extractedData.nacionalidad,
-                rawAiJsonResponse: extractedData,
-              },
-            },
+    // 6. Actualizar el documento en la base de datos
+    const targetDoc = certRequest.documents.find(d => d.category === DocumentCategory.DNI_FRONT_BACK);
+
+    if (targetDoc) {
+      // Usamos el cliente de Prisma adaptado para evitar conflictos de tipo si la relación se llama diferente
+      const prismaClient = prisma as any;
+
+      // Actualizar la tabla de documentos (evaluando alias 'document' o 'certificateDocument')
+      const docModel = prismaClient.document || prismaClient.certificateDocument;
+
+      if (docModel) {
+        await docModel.update({
+          where: { id: targetDoc.id },
+          data: {
+            fileName: newFile.name,
+            fileUrl: savedFile.fileUrl,
+            storagePath: savedFile.storagePath,
+            fileSizeBytes: savedFile.buffer.length,
+            mimeType: newFile.type || 'application/pdf',
           },
+        });
+      }
+
+      // Actualizar o Crear el resultado de verificación
+      await prisma.verificationResult.upsert({
+        where: { documentId: targetDoc.id },
+        create: {
+          documentId: targetDoc.id,
+          isMatch: validation.isMatch,
+          inputDocumentNum: certRequest.applicantDocNum,
+          detectedDocumentNum: detectedDni,
+          extractedNames: extractedData.nombres,
+          extractedSurname1: extractedData.primerApellido,
+          extractedSurname2: extractedData.segundoApellido,
+          extractedDepartment: location.department,
+          extractedProvince: location.province,
+          extractedDistrict: location.district,
+          extractedAddress: extractedData.direccion,
+          rawAiJsonResponse: extractedData,
+        },
+        update: {
+          isMatch: validation.isMatch,
+          detectedDocumentNum: detectedDni,
+          extractedNames: extractedData.nombres,
+          extractedSurname1: extractedData.primerApellido,
+          extractedSurname2: extractedData.segundoApellido,
+          extractedDepartment: location.department,
+          extractedProvince: location.province,
+          extractedDistrict: location.district,
+          extractedAddress: extractedData.direccion,
+          rawAiJsonResponse: extractedData,
+          verifiedAt: new Date(),
         },
       });
     }
 
-    // 6. ACTUALIZAR ESTADO Y NOMBRES DEL TITULAR SI EL REEMPLAZO FUE EXITOSO
-    const updatedCert = await prisma.certificateRequest.update({
-      where: { id: certRequest.id },
+    // 7. Actualizar la Solicitud Principal con los nuevos datos del Titular
+    const updatedRequest = await prisma.certificateRequest.update({
+      where: { id: requestId },
       data: {
         status: validation.status,
         progress: validation.progress,
-        // Solo sobrescribir los nombres del titular con el OCR si el nuevo documento SÍ COINCIDE
-        ...(validation.isMatch && {
-          applicantNames: extractedData.nombres || 'NO DETECTADO',
-          applicantSurname1: extractedData.primerApellido || '',
-          applicantSurname2: extractedData.segundoApellido || '',
-        }),
+        applicantNames: validation.isMatch ? extractedData.nombres : 'DOCUMENTO NO COINCIDE',
+        applicantSurname1: validation.isMatch ? extractedData.primerApellido : 'PENDIENTE DE REEMPLAZO',
+        applicantSurname2: validation.isMatch ? (extractedData.segundoApellido || '') : '',
+        department: location.department,
+        province: location.province,
+        district: location.district,
+        address: extractedData.direccion || certRequest.address,
+        postalCode: location.postalCode,
       },
       include: {
         documents: { include: { verificationResult: true } },
@@ -144,15 +175,12 @@ export async function PUT(
 
     return NextResponse.json({
       success: true,
-      validation,
-      data: updatedCert,
+      message: 'Documento reemplazado y extraído correctamente.',
+      data: updatedRequest,
     });
 
   } catch (error: any) {
     console.error('Error al reemplazar el documento:', error);
-    return NextResponse.json(
-      { error: error?.message || 'Error en el servidor al revalidar el documento.' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: error?.message || 'Error interno al procesar el archivo.' }, { status: 500 });
   }
 }

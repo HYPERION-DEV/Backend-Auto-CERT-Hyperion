@@ -1,79 +1,58 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { PrismaClient } from '@prisma/client';
-import path from 'path';
-import fs from 'fs';
-import axios from 'axios';
+import { PrismaClient, DocumentCategory } from '@prisma/client';
 import { sendToCamerfirma } from '@/service/camerfirma.service';
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient() as any;
 
 export async function POST(
   request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: Promise<{ id: string }> | { id: string } }
 ) {
   try {
-    const { id } = await params;
+    const resolvedParams = await params;
+    const requestId = resolvedParams.id;
 
-    const certRequest = await prisma.certificateRequest.findUnique({
-      where: { id },
-      include: { documents: true },
+    if (!requestId) {
+      return NextResponse.json({ error: 'ID de solicitud no proporcionado.' }, { status: 400 });
+    }
+
+    const certModel = prisma.certificateRequest || prisma.CertificateRequest;
+
+    // 1. Obtener la solicitud incluyendo los documentos cargados
+    const certRequest = await certModel.findUnique({
+      where: { id: requestId },
+      include: {
+        documents: true,
+      },
     });
 
     if (!certRequest) {
-      return NextResponse.json({ error: 'Certificado no encontrado' }, { status: 404 });
+      return NextResponse.json({ error: 'Solicitud no encontrada.' }, { status: 404 });
     }
 
-    // 1. Extraer el registro del documento PDF
-    const dniDocument = certRequest.documents?.find(
-      (doc: any) => doc.category === 'DNI_FRONT_BACK'
-    ) || certRequest.documents?.[0];
+    // 2. Extraer la URL del PDF del DNI para que Puppeteer lo suba automáticamente
+    const dniDoc = certRequest.documents?.find((d: any) => d.category === DocumentCategory.DNI_FRONT_BACK);
+    const fileUrl = dniDoc?.fileUrl;
 
-    let absoluteFilePath: string | undefined = undefined;
+    // 3. 🎯 EJECUTAR PUPPETEER (Abre la ventana visible de Chrome y rellena Camerfirma)
+    await sendToCamerfirma(certRequest, fileUrl);
 
-    if (dniDocument && dniDocument.fileUrl) {
-      const fileName = path.basename(dniDocument.fileUrl);
-      const localPath = path.join(process.cwd(), 'uploads', fileName);
-
-      if (fs.existsSync(localPath)) {
-        absoluteFilePath = localPath;
-        console.log(`✓ [PDF Local Encontrado]: ${absoluteFilePath}`);
-      } else if (dniDocument.fileUrl.startsWith('http')) {
-        // Si la URL es remota, se descarga directamente en el servidor Node.js
-        console.log(`[PDF Remoto] Descargando desde servidor a disco: ${dniDocument.fileUrl}`);
-        const tempPath = path.join(process.cwd(), 'uploads', `temp_${certRequest.applicantDocNum}.pdf`);
-        const writer = fs.createWriteStream(tempPath);
-
-        const response = await axios({
-          url: dniDocument.fileUrl,
-          method: 'GET',
-          responseType: 'stream',
-        });
-
-        response.data.pipe(writer);
-
-        await new Promise<void>((resolve, reject) => {
-          writer.on('finish', () => resolve());
-          writer.on('error', (err) => reject(err));
-        });
-
-        absoluteFilePath = tempPath;
-        console.log(`✓ [PDF Temporal Creado]: ${absoluteFilePath}`);
-      }
-    }
-
-    // 2. Invocar Puppeteer pasando la ruta física absoluta del archivo
-    await sendToCamerfirma(certRequest, absoluteFilePath);
+    // 4. Actualizar estado/auditoría
+    const updatedCert = await certModel.update({
+      where: { id: requestId },
+      data: {
+        updatedAt: new Date(),
+      },
+    });
 
     return NextResponse.json({
       success: true,
-      message: 'Formulario de Camerfirma autocompletado y PDF adjuntado exitosamente.',
+      message: '✓ Formulario autocompletado y documento cargado exitosamente en Camerfirma.',
+      data: updatedCert,
     });
 
   } catch (error: any) {
-    console.error('✕ [Autofill API Error]:', error);
-    return NextResponse.json(
-      { error: error.message || 'Error en autocompletado' },
-      { status: 500 }
-    );
+    console.error('Error en autofill-camerfirma:', error);
+    return NextResponse.json({ error: error?.message || 'Error al ejecutar Puppeteer en el servidor.' }, { status: 500 });
   }
 }

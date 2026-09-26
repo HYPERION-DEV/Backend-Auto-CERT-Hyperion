@@ -1,15 +1,12 @@
-// backend-hyperion/src/app/api/verify/company/route.ts
-
 import { NextRequest, NextResponse } from 'next/server';
-import { writeFile, mkdir } from 'fs/promises';
-import path from 'path';
 import { GoogleGenAI, Type, Schema } from '@google/genai';
 import { PrismaClient, EntityType, DocType, DocumentCategory, RequestStatus } from '@prisma/client';
-
+import { uploadToSupabase } from '@/lib/supabase';
+import { LocationService } from '@/lib/ubigeo-service';
 const prisma = new PrismaClient();
 const apiKey = process.env.GEMINI_API_KEY || '';
 
-// Schemas
+// Schemas Gemini
 const dniSchema: Schema = {
   type: Type.OBJECT,
   properties: {
@@ -17,7 +14,10 @@ const dniSchema: Schema = {
     nombres: { type: Type.STRING },
     primerApellido: { type: Type.STRING },
     segundoApellido: { type: Type.STRING },
-    fechaCaducidad: { type: Type.STRING },
+    departamento: { type: Type.STRING },
+    provincia: { type: Type.STRING },
+    distrito: { type: Type.STRING },
+    direccion: { type: Type.STRING }
   },
   required: ['cuiDni', 'nombres', 'primerApellido'],
 };
@@ -27,8 +27,10 @@ const fichaRucSchema: Schema = {
   properties: {
     ruc: { type: Type.STRING },
     razonSocial: { type: Type.STRING },
-    estadoContribuyente: { type: Type.STRING },
-    condicionContribuyente: { type: Type.STRING },
+    departamentoEmpresa: { type: Type.STRING },
+    provinciaEmpresa: { type: Type.STRING },
+    distritoEmpresa: { type: Type.STRING },
+    direccionEmpresa: { type: Type.STRING },
     representantesLegalesDni: {
       type: Type.ARRAY,
       items: { type: Type.STRING },
@@ -41,39 +43,19 @@ const vigenciaPoderSchema: Schema = {
   type: Type.OBJECT,
   properties: {
     razonSocial: { type: Type.STRING },
+    cargo: { type: Type.STRING },
     apoderadosDni: {
       type: Type.ARRAY,
       items: { type: Type.STRING },
     },
-    fechaEmision: { type: Type.STRING },
   },
   required: ['razonSocial'],
 };
 
-const clean = (str: string) =>
-  (str || '')
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-zA-Z0-9]/g, '')
-    .toUpperCase()
-    .trim();
-
-// Guardado de buffer a disco local sin re-consumir streams
-async function saveBufferToDisk(buffer: Buffer, originalName: string): Promise<string> {
-  const uploadDir = path.join(process.cwd(), 'public', 'uploads');
-  await mkdir(uploadDir, { recursive: true });
-
-  const fileName = `${Date.now()}-${originalName.replace(/\s+/g, '_')}`;
-  const filePath = path.join(uploadDir, fileName);
-  await writeFile(filePath, buffer);
-
-  return `/uploads/${fileName}`;
-}
-
 export async function POST(request: NextRequest) {
   try {
     if (!apiKey) {
-      return NextResponse.json({ error: 'GEMINI_API_KEY no configurada en el servidor.' }, { status: 500 });
+      return NextResponse.json({ error: 'GEMINI_API_KEY no configurada.' }, { status: 500 });
     }
 
     const formData = await request.formData();
@@ -89,13 +71,9 @@ export async function POST(request: NextRequest) {
     const planType = ((formData.get('planType') as string) || 'ANNUAL').trim();
 
     if (!fileDni || !fileRuc || !fileVigencia) {
-      return NextResponse.json(
-        { error: 'Se requieren obligatoriamente los 3 documentos (DNI, Ficha RUC, Vigencia de Poder).' },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: 'Faltan documentos requeridos.' }, { status: 400 });
     }
 
-    // Convertir a Buffers una única vez
     const [bufDni, bufRuc, bufVigencia] = await Promise.all([
       fileDni.arrayBuffer().then(b => Buffer.from(b)),
       fileRuc.arrayBuffer().then(b => Buffer.from(b)),
@@ -106,7 +84,6 @@ export async function POST(request: NextRequest) {
 
     const analyzeDoc = async (buffer: Buffer, schema: Schema, prompt: string) => {
       const base64Pdf = buffer.toString('base64');
-      // Nombres de modelos totalmente soportados
       const models = ['gemini-2.5-flash', 'gemini-1.5-flash'];
 
       for (const model of models) {
@@ -124,74 +101,76 @@ export async function POST(request: NextRequest) {
             },
           });
 
-          return JSON.parse(response.text || '{}');
+          if (response && response.text) {
+            return JSON.parse(response.text || '{}');
+          }
         } catch (err: any) {
-          console.warn(`[Gemini OCR Fallback] Falló con modelo ${model}:`, err?.message);
+          console.warn(`[Gemini OCR Fallback] Error con ${model}:`, err?.message);
         }
       }
       return {};
     };
 
-    // 1. Escaneo OCR en Paralelo
+    // 1. Escaneo OCR
     const [dniData, rucData, vigenciaData] = await Promise.all([
-      analyzeDoc(bufDni, dniSchema, 'Extrae el DNI de 8 dígitos y la fecha de caducidad.'),
-      analyzeDoc(bufRuc, fichaRucSchema, 'Extrae RUC, Razón Social, Estado, Condición y lista de DNI de representantes legales.'),
-      analyzeDoc(bufVigencia, vigenciaPoderSchema, 'Extrae la Razón Social, la fecha de emisión y lista de DNI de apoderados.'),
+      analyzeDoc(bufDni, dniSchema, 'Extrae el CUI/DNI, nombres, apellidos, departamento, provincia, distrito y dirección del DNI.'),
+      analyzeDoc(bufRuc, fichaRucSchema, 'Extrae RUC, Razón Social, Domicilio Fiscal (Departamento, Provincia, Distrito, Dirección) y representantes de la Ficha RUC.'),
+      analyzeDoc(bufVigencia, vigenciaPoderSchema, 'Extrae Razón Social, Cargo y apoderados de la Vigencia de Poder.'),
     ]);
 
-    // 2. Matriz de Validación Cruzada
-    const cleanDniForm = dniRepresentante.replace(/\D/g, '');
-    const cleanDniDetected = (dniData.cuiDni || '').replace(/\D/g, '');
-    const cleanRucForm = rucIngresado.replace(/\D/g, '');
-    const cleanRucDetected = (rucData.ruc || '').replace(/\D/g, '');
+    // 2. Evaluaciones de Coincidencia (Estrictas)
+    const cleanInputDni = dniRepresentante.replace(/\D/g, '');
+    const cleanExtDni = (dniData.cuiDni || '').replace(/\D/g, '');
+    const cleanInputRuc = rucIngresado.replace(/\D/g, '');
+    const cleanExtRuc = (rucData.ruc || '').replace(/\D/g, '');
 
     const rucDnis = (rucData.representantesLegalesDni || []).map((d: string) => d.replace(/\D/g, ''));
     const vigenciaDnis = (vigenciaData.apoderadosDni || []).map((d: string) => d.replace(/\D/g, ''));
 
-    const rejectionReasons: string[] = [];
+    let dniReason: string | null = null;
+    let rucReason: string | null = null;
+    let vigenciaReason: string | null = null;
 
-    if (cleanDniDetected && cleanDniForm !== cleanDniDetected) {
-      rejectionReasons.push(`DNI ingresado (${cleanDniForm}) no coincide con el escaneado (${cleanDniDetected}).`);
+    // A. Validar DNI del documento vs DNI ingresado
+    if (!cleanExtDni || cleanInputDni !== cleanExtDni) {
+      dniReason = `El DNI extraído del documento (${cleanExtDni || 'NO DETECTADO'}) no coincide con el DNI ingresado (${cleanInputDni}).`;
     }
 
-    if (cleanRucDetected && cleanRucForm !== cleanRucDetected) {
-      rejectionReasons.push(`RUC ingresado (${cleanRucForm}) no coincide con la Ficha RUC (${cleanRucDetected}).`);
+    // B. Validar RUC
+    if (cleanExtRuc && cleanInputRuc !== cleanExtRuc) {
+      rucReason = `El RUC extraído (${cleanExtRuc}) no coincide con el RUC ingresado (${cleanInputRuc}).`;
     }
 
-    // Validación estricta de apoderados (solo si se leyeron representantes/apoderados)
-    if (rucDnis.length > 0 && !rucDnis.includes(cleanDniForm)) {
-      rejectionReasons.push('El DNI no figura entre los representantes legales de la Ficha RUC.');
-    }
-    if (vigenciaDnis.length > 0 && !vigenciaDnis.includes(cleanDniForm)) {
-      rejectionReasons.push('El DNI no figura como apoderado en la Vigencia de Poder.');
+    // C. Validar Apoderados
+    if (rucDnis.length > 0 && !rucDnis.includes(cleanInputDni) && vigenciaDnis.length > 0 && !vigenciaDnis.includes(cleanInputDni)) {
+      vigenciaReason = `El DNI ${cleanInputDni} no figura como representante legal en la Ficha RUC ni en la Vigencia de Poder.`;
     }
 
-    // Validación Razón Social
-    const cleanRazonRuc = clean(rucData.razonSocial || empresaIngresada);
-    const cleanRazonVigencia = clean(vigenciaData.razonSocial || empresaIngresada);
+    const isDniMatch = !dniReason;
+    const isRucMatch = !rucReason;
+    const isVigenciaMatch = !vigenciaReason;
 
-    if (cleanRazonRuc && cleanRazonVigencia && !cleanRazonRuc.includes(cleanRazonVigencia) && !cleanRazonVigencia.includes(cleanRazonRuc)) {
-      rejectionReasons.push('La Razón Social en la Ficha RUC no coincide con la Vigencia de Poder.');
-    }
+    const isGlobalValid = isDniMatch && isRucMatch && isVigenciaMatch;
+    const finalStatus: RequestStatus = isGlobalValid ? RequestStatus.EN_REVISION : RequestStatus.RECHAZADO;
 
-    const isValid = rejectionReasons.length === 0;
-    const finalStatus: RequestStatus = isValid ? RequestStatus.EN_REVISION : RequestStatus.RECHAZADO;
-
-    // 3. Persistencia de archivos en disco
-    const [urlDni, urlRuc, urlVigencia] = await Promise.all([
-      saveBufferToDisk(bufDni, fileDni.name),
-      saveBufferToDisk(bufRuc, fileRuc.name),
-      saveBufferToDisk(bufVigencia, fileVigencia.name),
+    // 3. Subida a Supabase
+    const supabaseFolder = `verifications/company/${cleanInputRuc || Date.now()}`;
+    const [dniSaved, rucSaved, vigenciaSaved] = await Promise.all([
+      uploadToSupabase(fileDni, `${supabaseFolder}/dni`),
+      uploadToSupabase(fileRuc, `${supabaseFolder}/ruc`),
+      uploadToSupabase(fileVigencia, `${supabaseFolder}/vigencia`),
     ]);
 
     const defaultUser = await prisma.user.findFirst();
     if (!defaultUser) {
-      return NextResponse.json({ error: 'No existe usuario base registrado en la base de datos.' }, { status: 500 });
+      return NextResponse.json({ error: 'No existe usuario base registrado.' }, { status: 500 });
     }
-
+    const rawDept = rucData.departamentoEmpresa || dniData.departamento || 'ICA';
+    const rawProv = rucData.provinciaEmpresa || dniData.provincia || 'ICA';
+    const rawDist = rucData.distritoEmpresa || dniData.distrito || 'PARCONA';
     const certCode = `CERT-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
-
-    // 4. Inserción Transaccional en Postgres
+    const location = await LocationService.resolveLocationAndZip(rawDept, rawProv, rawDist);
+    // 4. Creación del Certificado asignando la Ubicación Extraída para Camerfirma
     const certRequest = await prisma.certificateRequest.create({
       data: {
         code: certCode,
@@ -202,54 +181,107 @@ export async function POST(request: NextRequest) {
         progress: '3/3',
         applicantDocType: DocType.DNI,
         applicantDocNum: dniRepresentante,
-        applicantNames: dniData.nombres || empresaIngresada,
-        applicantSurname1: dniData.primerApellido || 'REPRESENTANTE',
+        applicantNames: isDniMatch ? (dniData.nombres || empresaIngresada) : (dniData.nombres || 'DNI NO COINCIDE'),
+        applicantSurname1: isDniMatch ? (dniData.primerApellido || 'REPRESENTANTE') : (dniData.primerApellido || 'OBSERVADO'),
         applicantSurname2: dniData.segundoApellido || '',
         applicantEmail: email,
         applicantPhone: phone,
+        
+        // Guardar la dirección y ubigeo fiscal extraídos de la Ficha RUC / DNI
+        department: rucData.departamentoEmpresa || dniData.departamento || null,
+        province: rucData.provinciaEmpresa || dniData.provincia || null,
+        district: rucData.distritoEmpresa || dniData.distrito || null,
+        address: rucData.direccionEmpresa || dniData.direccion || null,
+        postalCode: rucData.codigoPostal || location.postalCode, // Si Gemini no leyó CP, asigna el resuelto de la BD
         companyRuc: rucData.ruc || rucIngresado,
         companyName: rucData.razonSocial || empresaIngresada,
         rucType: (rucData.ruc || rucIngresado).startsWith('20') ? 'Persona Jurídica' : 'Persona Natural con Negocio',
+
         documents: {
           create: [
             {
               category: DocumentCategory.DNI_FRONT_BACK,
               fileName: fileDni.name,
-              fileUrl: urlDni,
+              fileUrl: dniSaved.fileUrl,
+              storagePath: dniSaved.storagePath,
               mimeType: fileDni.type || 'application/pdf',
               fileSizeBytes: bufDni.length,
+              verificationResult: {
+                create: {
+                  isMatch: isDniMatch,
+                  inputDocumentNum: dniRepresentante,
+                  detectedDocumentNum: dniData.cuiDni || null,
+                  extractedNames: dniData.nombres || null,
+                  extractedSurname1: dniData.primerApellido || null,
+                  extractedSurname2: dniData.segundoApellido || null,
+                  extractedDepartment: dniData.departamento || null,
+                  extractedProvince: dniData.provincia || null,
+                  extractedDistrict: dniData.distrito || null,
+                  extractedAddress: dniData.direccion || null,
+                  rejectionReason: dniReason,
+                  rawAiJsonResponse: dniData
+                }
+              }
             },
             {
               category: DocumentCategory.FICHA_RUC,
               fileName: fileRuc.name,
-              fileUrl: urlRuc,
+              fileUrl: rucSaved.fileUrl,
+              storagePath: rucSaved.storagePath,
               mimeType: fileRuc.type || 'application/pdf',
               fileSizeBytes: bufRuc.length,
+              verificationResult: {
+                create: {
+                  isMatch: isRucMatch,
+                  inputDocumentNum: rucIngresado,
+                  detectedDocumentNum: rucData.ruc || null,
+                  extractedRuc: rucData.ruc || null,
+                  extractedCompanyName: rucData.razonSocial || null,
+                  extractedDepartment: rucData.departamentoEmpresa || null,
+                  extractedProvince: rucData.provinciaEmpresa || null,
+                  extractedDistrict: rucData.distritoEmpresa || null,
+                  extractedAddress: rucData.direccionEmpresa || null,
+                  rejectionReason: rucReason,
+                  rawAiJsonResponse: rucData
+                }
+              }
             },
             {
               category: DocumentCategory.VIGENCIA_PODER,
               fileName: fileVigencia.name,
-              fileUrl: urlVigencia,
+              fileUrl: vigenciaSaved.fileUrl,
+              storagePath: vigenciaSaved.storagePath,
               mimeType: fileVigencia.type || 'application/pdf',
               fileSizeBytes: bufVigencia.length,
+              verificationResult: {
+                create: {
+                  isMatch: isVigenciaMatch,
+                  inputDocumentNum: dniRepresentante,
+                  detectedDocumentNum: (vigenciaData.apoderadosDni || [])[0] || null,
+                  extractedCompanyName: vigenciaData.razonSocial || null,
+                  rejectionReason: vigenciaReason,
+                  rawAiJsonResponse: vigenciaData
+                }
+              }
             },
-          ],
-        },
+          ]
+        }
       },
       include: {
-        documents: true,
-      },
+        documents: {
+          include: { verificationResult: true }
+        }
+      }
     });
 
     return NextResponse.json({
-      success: isValid,
+      success: isGlobalValid,
       status: finalStatus,
-      rejectionReasons,
-      data: certRequest,
+      data: certRequest
     });
 
   } catch (error: any) {
     console.error('Error procesando empresa:', error);
-    return NextResponse.json({ error: error?.message || 'Error en el servidor durante la validación.' }, { status: 500 });
+    return NextResponse.json({ error: error?.message || 'Error en el servidor.' }, { status: 500 });
   }
 }
