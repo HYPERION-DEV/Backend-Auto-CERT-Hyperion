@@ -1,6 +1,7 @@
 export interface VerificationValidationInput {
   inputDni: string;
   extractedDni: string;
+  extractedExpiryDate?: string; // Opcional, solo para pasarlo al tipo si se requiere
   fileSizeBytes: number;
   mimeType: string;
 }
@@ -78,5 +79,4 @@ export class CertificateValidator {
       rucType: ruc.startsWith('20') ? 'Persona Jurídica' : 'Persona Natural con Negocio',
     };
   }
-  
 }

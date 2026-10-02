@@ -1,5 +1,3 @@
-// backend-hyperion/src/lib/supabase.ts
-
 import { createClient } from '@supabase/supabase-js';
 
 const supabaseUrl = process.env.SUPABASE_URL || '';
@@ -13,30 +11,34 @@ if (!supabaseUrl || !supabaseServiceKey) {
 export const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
 /**
- * Sube un archivo a Supabase Storage y retorna su URL pública/firmada y path interno.
+ * Sube un archivo a Supabase Storage.
+ * Si se pasa un `customPath`, se usa exactamente esa ruta (ideal para reemplazos).
  */
 export async function uploadToSupabase(
   file: File, 
-  folder = 'documents'
+  folderOrCustomPath = 'documents'
 ): Promise<{ fileUrl: string; storagePath: string; buffer: Buffer }> {
   const bytes = await file.arrayBuffer();
   const buffer = Buffer.from(bytes);
 
   const cleanFileName = file.name.replace(/\s+/g, '_');
-  const storagePath = `${folder}/${Date.now()}-${cleanFileName}`;
+  
+  // Si ya viene con una ruta completa (contiene '/'), la usamos directamente
+  const storagePath = folderOrCustomPath.includes('/')
+    ? folderOrCustomPath
+    : `${folderOrCustomPath}/${Date.now()}_${cleanFileName}`;
 
   const { data, error } = await supabase.storage
     .from(BUCKET_NAME)
     .upload(storagePath, buffer, {
       contentType: file.type || 'application/pdf',
-      upsert: true,
+      upsert: true, // 👈 Forzar reemplazo
     });
 
   if (error) {
     throw new Error(`Error al subir archivo a Supabase: ${error.message}`);
   }
 
-  // Obtener la URL pública del archivo
   const { data: publicUrlData } = supabase.storage
     .from(BUCKET_NAME)
     .getPublicUrl(storagePath);
@@ -49,10 +51,9 @@ export async function uploadToSupabase(
 }
 
 /**
- * Descarga temporalmente un archivo desde Supabase a un Buffer (ideal para Puppeteer / OCR)
+ * Descarga temporalmente un archivo desde Supabase a un Buffer
  */
 export async function downloadFromSupabase(fileUrlOrPath: string): Promise<Buffer> {
-  // Limpiar Query Parameters si existen
   const cleanUrl = fileUrlOrPath.split('?')[0];
   let storagePath = cleanUrl;
 

@@ -7,23 +7,24 @@ import { LocationService } from '@/lib/ubigeo-service';
 export const sendToCamerfirma = async (certificateData: any, fileUrl?: string) => {
   const isEmpresa = certificateData.entityType === 'EMPRESA';
 
-  // 1. RESOLVER UBICACIÓN Y CÓDIGO POSTAL DESDE LA BASE DE DATOS
   const resolvedLocation = await LocationService.resolveLocationAndZip(
-    certificateData.department || 'ICA',
-    certificateData.province || 'ICA',
-    certificateData.district || 'PARCONA'
+    certificateData.department,
+    certificateData.province,
+    certificateData.district
   );
 
   const calculatedPostalCode = certificateData.postalCode || resolvedLocation.postalCode || '11003';
+  const inboundDomain = process.env.INBOUND_EMAIL_DOMAIN || 'lectordnie.com';
+  const targetEmail = certificateData.useTempEmail !== false
+    ? `${certificateData.applicantDocNum}@${inboundDomain}`
+    : certificateData.applicantEmail;
 
   const camerfirmaUrl = isEmpresa
     ? 'https://secure.camerfirma.com/solicitudes_status/solicitud_1.php?codpro=1D1AGUUN&num_perfil=13080'
     : 'https://secure.camerfirma.com/solicitudes_status/solicitud_1.php?codpro=PXBEOYHS&num_perfil=13040';
 
-  console.log(`🤖 [Camerfirma Service] Perfil: ${isEmpresa ? 'EMPRESA (13080)' : 'PERSONA NATURAL (13040)'}`);
-  console.log(`🌐 [Camerfirma Service] Navegando a ${camerfirmaUrl}...`);
+  console.log(`🤖 [Camerfirma Service] Iniciando con evasión Anti-Bot/CAPTCHA para DNI: ${certificateData.applicantDocNum}`);
 
-  // Perfil dinámico en carpeta temporal única para evitar el error "userDataDir in use"
   const tempUserDataDir = fs.mkdtempSync(path.join(os.tmpdir(), 'camerfirma-session-'));
 
   const browser = await puppeteer.launch({
@@ -35,7 +36,8 @@ export const sendToCamerfirma = async (certificateData: any, fileUrl?: string) =
       '--no-sandbox',
       '--disable-setuid-sandbox',
       '--disable-blink-features=AutomationControlled',
-      '--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+      '--disable-features=IsolateOrigins,site-per-process',
+      '--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'
     ]
   });
 
@@ -43,202 +45,247 @@ export const sendToCamerfirma = async (certificateData: any, fileUrl?: string) =
     const page = await browser.newPage();
 
     await page.evaluateOnNewDocument(() => {
-      Object.defineProperty(navigator, 'webdriver', { get: () => false });
+      Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
+      (window as any).chrome = { runtime: {} };
+      Object.defineProperty(navigator, 'languages', { get: () => ['es-ES', 'es', 'en'] });
+      Object.defineProperty(navigator, 'plugins', { get: () => [1, 2, 3, 4, 5] });
     });
 
     await page.setViewport({ width: 1366, height: 768 });
     await page.goto(camerfirmaUrl, { waitUntil: 'networkidle2' });
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    await new Promise(r => setTimeout(r, 2000));
 
-    // ==========================================
-    // FASE 1: INYECCIÓN DE CAMPOS Y COMBOS REALES
-    // ==========================================
-    await page.evaluate(async (cert, isCompany, remoteFileUrl, finalPostalCode, resolvedDept, resolvedProv, resolvedDist) => {
-      const cleanStr = (str: string) =>
-        (str || '')
-          .normalize('NFD')
-          .replace(/[\u0300-\u036f]/g, '')
-          .toUpperCase()
-          .trim();
-
+    // 1. DATOS PERSONALES
+    await page.evaluate((cert) => {
+      const cleanStr = (s: string) => (s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().trim();
       function forceInputValue(el: HTMLInputElement, val: string) {
-        if (!el || !val) return false;
-        el.disabled = false;
-        el.readOnly = false;
-        
-        const nativeInputValueSetter = Object.getOwnPropertyDescriptor(
-          window.HTMLInputElement.prototype,
-          'value'
-        )?.set;
-
-        if (nativeInputValueSetter) {
-          nativeInputValueSetter.call(el, val);
-        } else {
-          el.value = val;
-        }
-
+        if (!el || !val) return;
+        const nativeSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value')?.set;
+        if (nativeSetter) nativeSetter.call(el, val);
+        else el.value = val;
         el.dispatchEvent(new Event('input', { bubbles: true }));
         el.dispatchEvent(new Event('change', { bubbles: true }));
-        el.dispatchEvent(new Event('blur', { bubbles: true }));
-        return true;
       }
 
-      function fillInputByArray(selectors: string[], val: string) {
-        if (!val) return false;
-        for (const selector of selectors) {
-          const el = document.querySelector(selector) as HTMLInputElement;
-          if (el && forceInputValue(el, val)) return true;
+      const nameEl = document.querySelector('input[name*="nombre"], #nombre') as HTMLInputElement;
+      if (nameEl) forceInputValue(nameEl, cert.applicantNames || '');
+
+      const surname1El = document.querySelector('input[name*="primer_apellido"], input[name*="apellido1"]') as HTMLInputElement;
+      if (surname1El) forceInputValue(surname1El, cert.applicantSurname1 || '');
+
+      const surname2El = document.querySelector('input[name*="segundo_apellido"], input[name*="apellido2"]') as HTMLInputElement;
+      if (surname2El) forceInputValue(surname2El, cert.applicantSurname2 || '');
+
+      const docSelect = document.querySelector('select[name="tipodoc_id_solicitante"], select[name*="tipo_doc_sol"]') as HTMLSelectElement;
+      if (docSelect) {
+        const opt = Array.from(docSelect.options).find(o => cleanStr(o.textContent || '').includes('DNI'));
+        if (opt) {
+          docSelect.value = opt.value;
+          docSelect.dispatchEvent(new Event('change', { bubbles: true }));
         }
-        return false;
       }
+    }, certificateData);
 
-      function selectOptionSmart(selectors: string[], targetText: string) {
-        let selectEl: HTMLSelectElement | null = null;
-        for (const s of selectors) {
-          const found = document.querySelector(s) as HTMLSelectElement;
-          if (found) { selectEl = found; break; }
-        }
+    await new Promise(r => setTimeout(r, 1000));
 
+    // 2. UBIGEO EXACTO (#cmb_departamento, #cmb_provincia, #cmb_municipio)
+    await page.evaluate(async (deptText, provText, distText) => {
+      const cleanStr = (s: string) => (s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().trim();
+
+      function selectAndTrigger(selectId: string, targetValueText: string) {
+        const selectEl = document.getElementById(selectId) as HTMLSelectElement;
         if (!selectEl || !selectEl.options) return false;
 
-        const target = cleanStr(targetText);
+        const target = cleanStr(targetValueText);
         const options = Array.from(selectEl.options);
 
-        let option = options.find(opt => cleanStr(opt.textContent || '') === target);
-        if (!option) {
-          option = options.find(opt => cleanStr(opt.textContent || '').includes(target));
-        }
+        let opt = options.find(o => cleanStr(o.textContent || '') === target);
+        if (!opt) opt = options.find(o => cleanStr(o.textContent || '').includes(target));
 
-        // Si no lo encuentra por texto, selecciona el valor de opción por defecto no vacío
-        if (!option && options.length > 1) {
-          option = options.find(opt => opt.value !== '' && opt.value !== 'SELECCIONAR' && opt.value !== '0');
-        }
-
-        if (option) {
-          selectEl.value = option.value;
+        if (opt) {
+          selectEl.value = opt.value;
           selectEl.dispatchEvent(new Event('change', { bubbles: true }));
           selectEl.dispatchEvent(new Event('blur', { bubbles: true }));
           if (typeof selectEl.onchange === 'function') {
             selectEl.onchange(new Event('change'));
           }
-          return true;
+          return opt.textContent;
         }
         return false;
       }
 
-      // 1. Nombres y Apellidos
-      fillInputByArray(['input[name*="nombre"]', '#nombre'], cert.applicantNames || '');
-      fillInputByArray(['input[name*="primer_apellido"]', 'input[name*="apellido1"]'], cert.applicantSurname1 || '');
-      fillInputByArray(['input[name*="segundo_apellido"]', 'input[name*="apellido2"]'], cert.applicantSurname2 || '');
+      // Departamento
+      if (selectAndTrigger('cmb_departamento', deptText)) {
+        if (typeof (window as any).GuardarDepartamento === 'function') {
+          (window as any).GuardarDepartamento(document.getElementById('cmb_departamento'));
+        }
+        if (typeof (window as any).ActualizaProvincias === 'function') {
+          (window as any).ActualizaProvincias();
+        }
+      }
+      await new Promise(r => setTimeout(r, 1500));
 
-      // 2. 🎯 SELECCIÓN FORZADA DEL "TIPO DE DOCUMENTO IDENTIFICATIVO"
-      selectOptionSmart([
-        'select[name="tipodoc_id_solicitante"]',
-        'select[name*="tipo_doc_sol"]',
-        'select[name*="tipodoc_id"]',
-        'select[name*="tipo_doc"]'
-      ], 'DNI');
+      // Provincia
+      if (selectAndTrigger('cmb_provincia', provText)) {
+        if (typeof (window as any).GuardaCodigoProv === 'function') {
+          (window as any).GuardaCodigoProv(document.getElementById('cmb_provincia'));
+        }
+        if (typeof (window as any).ActualizaMunicipios === 'function') {
+          (window as any).ActualizaMunicipios();
+        }
+      }
+      await new Promise(r => setTimeout(r, 1500));
 
-      await new Promise(r => setTimeout(r, 600));
+      // Municipio / Distrito
+      if (selectAndTrigger('cmb_municipio', distText)) {
+        if (typeof (window as any).GuardaCodigo === 'function') {
+          (window as any).GuardaCodigo(document.getElementById('cmb_municipio'));
+        }
+      }
+    }, resolvedLocation.department, resolvedLocation.province, resolvedLocation.district);
 
-      // 3. Ubigeo Asíncrono
-      const deptSelectors = isCompany
-        ? ['select[name="dep_emp"]', 'select[name="cmb_departamento"]']
-        : ['select[name="cmb_departamento"]', 'select[name="dep_sol"]'];
+    await new Promise(r => setTimeout(r, 1500));
 
-      const provSelectors = isCompany
-        ? ['select[name="prov_emp"]', 'select[name="cmb_provincia"]']
-        : ['select[name="cmb_provincia"]', 'select[name="prov_sol"]'];
+    // 3. DIRECCIÓN Y CORREOS
+    await page.evaluate((cert, finalPostalCode, injectedEmail) => {
+      function forceInputValue(el: HTMLInputElement, val: string) {
+        if (!el || !val) return;
+        const nativeSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value')?.set;
+        if (nativeSetter) nativeSetter.call(el, val);
+        else el.value = val;
+        el.dispatchEvent(new Event('input', { bubbles: true }));
+        el.dispatchEvent(new Event('change', { bubbles: true }));
+        el.dispatchEvent(new Event('blur', { bubbles: true }));
+      }
 
-      const distSelectors = isCompany
-        ? ['select[name="dist_emp"]', 'select[name="cmb_distrito"]', 'select[name="cmb_localidad"]']
-        : ['select[name="cmb_distrito"]', 'select[name="cmb_localidad"]', 'select[name="dist_sol"]'];
+      function fillFirst(selectors: string[], val: string) {
+        for (const s of selectors) {
+          const el = document.querySelector(s) as HTMLInputElement;
+          if (el) { forceInputValue(el, val); break; }
+        }
+      }
 
-      selectOptionSmart(deptSelectors, resolvedDept);
-      await new Promise(r => setTimeout(r, 1000));
-
-      selectOptionSmart(provSelectors, resolvedProv);
-      await new Promise(r => setTimeout(r, 1000));
-
-      selectOptionSmart(distSelectors, resolvedDist);
-      await new Promise(r => setTimeout(r, 800));
-
-      // 4. Inyección NIF / DNI / Dirección / CP / Teléfono
-      fillInputByArray([
-        '#nif_solicitante',
-        'input[name="nif_solicitante"]',
-        'input[name="txt_num_doc"]',
-        'input[name="num_doc_sol"]'
-      ], cert.applicantDocNum || '');
-
-      fillInputByArray(['input[name="domicilio"]', 'input[name="direccion"]'], cert.address || '');
-      fillInputByArray(['input[name="cp_solicitante"]', 'input[name="codigo_postal"]', 'input[name="cp"]'], finalPostalCode);
-      fillInputByArray(['input[name="telefono"]'], cert.applicantPhone || '');
+      fillFirst(['#nif_solicitante', 'input[name="nif_solicitante"]', 'input[name="txt_num_doc"]', 'input[name="num_doc_sol"]'], cert.applicantDocNum || '');
+      fillFirst(['input[name="domicilio"]', 'input[name="direccion"]'], cert.address || '');
+      fillFirst(['input[name="cp_solicitante"]', 'input[name="codigo_postal"]', 'input[name="cp"]'], finalPostalCode);
+      fillFirst(['input[name="telefono"]'], cert.applicantPhone || '');
 
       const emails = document.querySelectorAll('input[type="email"], input[name*="email"]');
-      if (emails[0]) forceInputValue(emails[0] as HTMLInputElement, cert.applicantEmail || '');
-      if (emails[1]) forceInputValue(emails[1] as HTMLInputElement, cert.applicantEmail || '');
+      if (emails[0]) forceInputValue(emails[0] as HTMLInputElement, injectedEmail);
+      if (emails[1]) forceInputValue(emails[1] as HTMLInputElement, injectedEmail);
+    }, certificateData, calculatedPostalCode, targetEmail);
 
-      // 5. 🎯 SELECCIÓN FORZADA DEL "ESCOJA UN TIPO DE DOCUMENTO" (ADJUNTO)
-      const docTypeTarget = isCompany ? 'PODERES' : 'DNI-NIE-NIF';
-      selectOptionSmart([
-        'select[name="tipo_doc"]',
-        'select[name="tipo_documento_adjunto"]',
-        'select[name*="tipo_documento"]'
-      ], docTypeTarget);
-
-      await new Promise(r => setTimeout(r, 800));
-
-    }, certificateData, isEmpresa, fileUrl, calculatedPostalCode, resolvedLocation.department, resolvedLocation.province, resolvedLocation.district);
-
-    // ==========================================
-    // FASE 2: SUBIDA DEL PDF DEL DNI Y CLIC EN EL BOTÓN
-    // ==========================================
+    // 4. ADJUNTAR DOCUMENTACIÓN PDF
     if (fileUrl) {
-      console.log('📄 [Camerfirma Service] Subiendo archivo PDF...');
-      
+      await page.evaluate((isCompany) => {
+        const cleanStr = (s: string) => (s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().trim();
+        const selects = Array.from(document.querySelectorAll('select')) as HTMLSelectElement[];
+        const docTypeSelect = selects.find((s) => s.name.includes('tipo_doc') || s.id.includes('tipo_doc') || s.name.includes('documento'));
+
+        if (docTypeSelect) {
+          const targetText = isCompany ? 'PODERES' : 'DNI';
+          const opt = Array.from(docTypeSelect.options).find((o) => cleanStr(o.textContent || '').includes(targetText)) || docTypeSelect.options[1];
+          if (opt) {
+            docTypeSelect.value = opt.value;
+            docTypeSelect.dispatchEvent(new Event('change', { bubbles: true }));
+          }
+        }
+      }, isEmpresa);
+
+      await new Promise(r => setTimeout(r, 1000));
+
       const fileInputHandle = await page.$('input[type="file"]');
       if (fileInputHandle) {
         const response = await fetch(fileUrl);
         const arrayBuffer = await response.arrayBuffer();
         const buffer = Buffer.from(arrayBuffer);
-        
+
         const tempPath = path.join(os.tmpdir(), `temp_dni_${Date.now()}.pdf`);
         fs.writeFileSync(tempPath, buffer);
 
-        // Subir archivo al input file
         await fileInputHandle.uploadFile(tempPath);
         await new Promise(r => setTimeout(r, 1000));
 
-        // Pulsar el botón celeste "Haga clic aquí para cargar su documentación"
         await page.evaluate(() => {
-          const buttons = Array.from(document.querySelectorAll('button, input[type="button"], input[type="submit"], a, div'));
-          const uploadBtn = buttons.find(
-            el => /cargar su documentación|subir|adjuntar/i.test(el.textContent || (el as HTMLInputElement).value || '')
-          );
-          if (uploadBtn) {
-            (uploadBtn as HTMLElement).click();
-          }
+          const elements = Array.from(document.querySelectorAll('button, input, a, div')) as HTMLElement[];
+          const uploadBtn = elements.find((el) => /cargar su documentación|subir|adjuntar/i.test(el.textContent || (el as HTMLInputElement).value || ''));
+          if (uploadBtn) uploadBtn.click();
         });
 
         await new Promise(r => setTimeout(r, 2000));
-
         if (fs.existsSync(tempPath)) fs.unlinkSync(tempPath);
       }
     }
 
-    // ==========================================
-    // FASE 3: MARCAR TÉRMINOS Y HABILITAR BOTÓN ENVIAR
-    // ==========================================
-    await page.evaluate(() => {
-      const termsCheck = document.querySelector('input[type="checkbox"]') as HTMLInputElement;
-      if (termsCheck && !termsCheck.checked) {
-        termsCheck.click();
-        termsCheck.dispatchEvent(new Event('change', { bubbles: true }));
-      }
+    // 5. REVISAR CAPTCHA
+    const hasCaptcha = await page.evaluate(() => {
+      const captchaFrame = document.querySelector('iframe[src*="captcha"], iframe[src*="recaptcha"], div.g-recaptcha');
+      return !!captchaFrame;
     });
 
-    console.log('✓ [Camerfirma Service] Todo el formulario, combos y documento han sido completados.');
+    if (hasCaptcha) {
+      console.log('⚠️ [CAPTCHA DETECTADO] Se ha identificado una prueba anti-bot en la pantalla.');
+      await new Promise(r => setTimeout(r, 5000));
+    }
+
+    // 🎯 6. MARCAR CHECKBOX Y ENVIAR CON EL BOTÓN EXACTO <a id="btnEnviar">
+    const termsCheckHandle = await page.$('input[type="checkbox"]');
+    if (termsCheckHandle) {
+      await termsCheckHandle.click();
+      await new Promise(r => setTimeout(r, 1000));
+    }
+
+    console.log('🚀 Presionando el botón "Enviar" (<a id="btnEnviar"> / submit_formulario)...');
+
+    await Promise.all([
+      page.waitForNavigation({ waitUntil: 'networkidle2', timeout: 35000 }).catch(() => {}),
+      page.evaluate(() => {
+        // 1. Invocar la función nativa del script de Camerfirma
+        if (typeof (window as any).submit_formulario === 'function') {
+          (window as any).submit_formulario(0);
+          return;
+        }
+
+        // 2. Hacer click directo al botón con ID btnEnviar
+        const btnEnviar = document.getElementById('btnEnviar') as HTMLElement;
+        if (btnEnviar) {
+          btnEnviar.click();
+          return;
+        }
+
+        // 3. Buscar enlace con la clase o texto Enviar
+        const links = Array.from(document.querySelectorAll('a')) as HTMLElement[];
+        const sendLink = links.find(l => l.id === 'btnEnviar' || (l.textContent || '').includes('Enviar'));
+        if (sendLink) {
+          sendLink.click();
+        }
+      })
+    ]);
+
+    await new Promise(r => setTimeout(r, 2000));
+
+    // 7. PANTALLA SECUNDARIA (CHECKBOX AY)
+    const checkboxAyHandle = await page.$('input[name="AY"]');
+    if (checkboxAyHandle) {
+      console.log('☑️ Marcando checkbox "AY" (SI)...');
+      await checkboxAyHandle.click();
+      await new Promise(r => setTimeout(r, 1200));
+
+      await Promise.all([
+        page.waitForNavigation({ waitUntil: 'networkidle2', timeout: 30000 }).catch(() => {}),
+        page.evaluate(() => {
+          const sendLink = document.querySelector('a[href*="enviar"], a.boton, input[value="Enviar"]') as HTMLElement;
+          if (sendLink) {
+            sendLink.click();
+          } else if (typeof (window as any).enviar === 'function') {
+            (window as any).enviar();
+          }
+        })
+      ]);
+
+      console.log('🎉 Presolicitud enviada y confirmada en Camerfirma.');
+    }
+
     return { success: true };
 
   } catch (error: any) {

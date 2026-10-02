@@ -203,28 +203,39 @@ export async function checkClientValidationStatus(docNumber: string): Promise<'A
 
     await page.goto('https://biocamer.com/my/validaciones', { waitUntil: 'networkidle2' });
 
+    // 🎯 LÓGICA DE DETECCIÓN REVISADA
     const detectedStatus = await page.evaluate((targetDni) => {
+      // 1. Obtener TODAS las tarjetas en la vista
       const cardNodes = Array.from(document.querySelectorAll('.col-lg-6.col-md-12, div[class*="col-lg-6"]'));
-      const targetCard = cardNodes.find(card => (card.textContent || '').includes(targetDni));
+      
+      // 2. Filtrar solo las tarjetas que contienen el DNI ingresado
+      const matchingCards = cardNodes.filter(card => (card.textContent || '').includes(targetDni));
 
-      if (!targetCard) {
+      if (matchingCards.length === 0) {
         return 'NOT_FOUND';
       }
 
-      const cardText = targetCard.textContent || '';
+      // 3. Evaluar si existe alguna tarjeta PENDIENTE para este DNI (Prioridad a la validación actual)
+      const hasPendingValidation = matchingCards.some(card => 
+        /\bPendiente\b|\bPENDING\b/i.test(card.textContent || '')
+      );
 
-      if (/\bValidado\b|\bAPPROVED\b/i.test(cardText)) {
-        return 'APPROVED';
+      // Si hay al menos un proceso pendiente registrado, retornamos REGISTERED para obligar al nuevo escaneo
+      if (hasPendingValidation) {
+        return 'REGISTERED';
       }
 
-      if (/\bPendiente\b|\bPENDING\b/i.test(cardText)) {
-        return 'REGISTERED';
+      // 4. Si no hay pendientes, tomar la tarjeta más reciente (la primera en el listado de BioCamer)
+      const latestCardText = matchingCards[0].textContent || '';
+
+      if (/\bValidado\b|\bAPPROVED\b/i.test(latestCardText)) {
+        return 'APPROVED';
       }
 
       return 'REGISTERED';
     }, docNumber);
 
-    console.log(`[BioCamer Check Exact Log] DNI ${docNumber} -> Resultado: ${detectedStatus}`);
+    console.log(`[BioCamer Check Exact Log] DNI ${docNumber} -> Resultado Revaluado: ${detectedStatus}`);
 
     if (detectedStatus === 'APPROVED') {
       return 'APPROVED';

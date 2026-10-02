@@ -68,14 +68,17 @@ model User {
 }
 
 model CertificateRequest {
-  id             String        @id @default(uuid())
-  code           String        @unique
-  userId         String
-  user           User          @relation(fields: [userId], references: [id])
-  entityType     EntityType    @default(PERSONA_NATURAL)
-  planType       String        @default("ONE_SHOT")
-  status         RequestStatus @default(EN_REVISION)
-  progress       String        @default("0/1")
+  id        String        @id @default(uuid())
+  code      String        @unique
+  userId    String
+  user      User          @relation(fields: [userId], references: [id])
+  entityType EntityType   @default(PERSONA_NATURAL)
+  planType  String        @default("ONE_SHOT")
+  status    RequestStatus @default(EN_REVISION)
+  progress  String        @default("0/1")
+
+  // 🎯 AUTORIZACIÓN PARA ALIAS DE GESTIÓN Y AUTO-ACEPTACIÓN
+  useTempEmail Boolean    @default(true)
 
   identityStatus   IdentityStatus @default(PENDING)
   identityVerified Boolean        @default(false)
@@ -101,8 +104,12 @@ model CertificateRequest {
   rucType     String?
 
   documents RequestDocument[]
-  createdAt DateTime          @default(now())
-  updatedAt DateTime          @updatedAt
+
+  // 🎯 RELACIÓN CORRECTA CON LOS LOGS DE CORREOS TEMPORALES / CAMERFIRMA
+  emailLogs CamerfirmaEmailLog[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@map("certificate_requests")
 }
@@ -127,9 +134,9 @@ model RequestDocument {
 }
 
 model VerificationResult {
-  id          String          @id @default(uuid())
-  documentId  String          @unique
-  document    RequestDocument @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  id         String          @id @default(uuid())
+  documentId String          @unique
+  document   RequestDocument @relation(fields: [documentId], references: [id], onDelete: Cascade)
 
   isMatch             Boolean
   inputDocumentNum    String
@@ -153,7 +160,7 @@ model VerificationResult {
   extractedRucCond     String?
   extractedIssueDate   String?
 
-  rejectionReason  String?
+  rejectionReason   String?
   rawAiJsonResponse Json?
 
   verifiedAt DateTime @default(now())
@@ -193,6 +200,25 @@ model VerificationRequest {
   @@map("verification_requests")
 }
 
+// 🎯 MODELO DE AUDITORÍA Y CONTROL DE CORREOS
+model CamerfirmaEmailLog {
+  id                   String             @id @default(uuid())
+  certificateRequestId String
+  certificateRequest   CertificateRequest @relation(fields: [certificateRequestId], references: [id], onDelete: Cascade)
+
+  fromEmail           String
+  toEmail             String
+  subject             String
+  bodyHtml            String?            @db.Text
+  bodyText            String?            @db.Text
+  emailSequenceNumber Int
+  isFinalForwarded    Boolean            @default(false)
+
+  createdAt DateTime @default(now())
+
+  @@map("camerfirma_email_logs")
+}
+
 model AuditLog {
   id        String   @id @default(uuid())
   userId    String?
@@ -206,13 +232,13 @@ model AuditLog {
 }
 
 model PostalCode {
-  code        String   @db.VarChar(5) // Ej: "11003"
-  districts   String   // Ej: "La Tinguiña, Parcona"
-  province    String   // Ej: "Ica"
-  department  String   // Ej: "Ica"
+  code       String   @db.VarChar(5) // Ej: "11003"
+  districts  String   // Ej: "La Tinguiña, Parcona"
+  province   String   // Ej: "Ica"
+  department String   // Ej: "Ica"
 
-  id          String   @id @default(uuid())
-  createdAt   DateTime @default(now())
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
 
   @@index([department, province])
   @@map("postal_codes")

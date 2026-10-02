@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { GoogleGenAI, Type, Schema } from '@google/genai';
-import { PrismaClient, DocumentCategory } from '@prisma/client';
+import { PrismaClient, DocumentCategory, RequestStatus } from '@prisma/client';
 import { CertificateValidator } from '@/validators/certificate.validator';
-import { uploadToSupabase } from '@/lib/supabase';
+import { uploadToSupabase, deleteFromSupabase } from '@/lib/supabase';
 import { LocationService } from '@/lib/ubigeo-service';
 
 const prisma = new PrismaClient();
@@ -17,6 +17,7 @@ const dniResponseSchema: Schema = {
     primerApellido: { type: Type.STRING },
     segundoApellido: { type: Type.STRING },
     fechaNacimiento: { type: Type.STRING },
+    fechaCaducidad: { type: Type.STRING, description: 'Fecha de caducidad en formato YYYY-MM-DD o DD/MM/YYYY' },
     nacionalidad: { type: Type.STRING },
     departamento: { type: Type.STRING },
     provincia: { type: Type.STRING },
@@ -26,44 +27,81 @@ const dniResponseSchema: Schema = {
   required: ['documentoDetectado', 'cuiDni', 'nombres', 'primerApellido', 'segundoApellido'],
 };
 
+function checkDniExpiration(fechaCaducidadStr?: string): { isExpired: boolean; dateFormatted?: string } {
+  if (!fechaCaducidadStr) return { isExpired: false };
+  try {
+    let expDate: Date;
+    if (fechaCaducidadStr.includes('-')) {
+      const parts = fechaCaducidadStr.split('-');
+      expDate = parts[0].length === 4 
+        ? new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]))
+        : new Date(parseInt(parts[2]), parseInt(parts[1]) - 1, parseInt(parts[0]));
+    } else if (fechaCaducidadStr.includes('/')) {
+      const parts = fechaCaducidadStr.split('/');
+      expDate = parts[2].length === 4
+        ? new Date(parseInt(parts[2]), parseInt(parts[1]) - 1, parseInt(parts[0]))
+        : new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+    } else {
+      return { isExpired: false };
+    }
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return {
+      isExpired: expDate < today,
+      dateFormatted: expDate.toLocaleDateString('es-PE', { day: '2-digit', month: '2-digit', year: 'numeric' })
+    };
+  } catch {
+    return { isExpired: false };
+  }
+}
+
 async function processDniWithAi(ai: GoogleGenAI, base64Pdf: string) {
-  const models = ['gemini-1.5-flash', 'gemini-1.5-pro'];
+  const models = ['gemini-3.6-flash', 'gemini-3.5-flash'];
+  let lastError: any = null;
+
   for (const model of models) {
     try {
       const response = await ai.models.generateContent({
         model,
         contents: [
           { inlineData: { mimeType: 'application/pdf', data: base64Pdf } },
-          { text: 'Extrae con precisión los datos del DNI: CUI/DNI, nombres, primer apellido, segundo apellido, fecha nacimiento, nacionalidad, departamento, provincia, distrito y dirección completa.' },
+          { text: 'Extrae con precisión los datos del DNI en formato JSON: CUI/DNI, nombres, primer apellido, segundo apellido, fecha nacimiento, fecha caducidad, nacionalidad, departamento, provincia, distrito y dirección completa.' },
         ],
         config: {
           responseMimeType: 'application/json',
           responseSchema: dniResponseSchema,
           temperature: 0.0,
+          maxOutputTokens: 2048,
         },
       });
       if (response && response.text) return response;
-    } catch (e) {
+    } catch (e: any) {
+      lastError = e;
       continue;
     }
   }
-  throw new Error('Error al procesar el OCR con la IA.');
+  throw new Error(`Fallo en el servicio OCR: ${lastError?.message || 'Error al leer PDF'}`);
 }
 
 export async function POST(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> | { id: string } }
 ) {
   try {
-    const { id: requestId } = params;
+    const resolvedParams = await params;
+    const requestId = resolvedParams?.id;
+
+    if (!requestId || requestId === 'undefined') {
+      return NextResponse.json({ error: 'ID de solicitud inválido.' }, { status: 400 });
+    }
+
     const formData = await request.formData();
     const newFile = formData.get('file') as File;
 
     if (!newFile) {
-      return NextResponse.json({ error: 'No se adjuntó ningún archivo nuevo.' }, { status: 400 });
+      return NextResponse.json({ error: 'No se adjuntó ningún archivo.' }, { status: 400 });
     }
 
-    // 1. Obtener la solicitud actual
     const certRequest = await prisma.certificateRequest.findUnique({
       where: { id: requestId },
       include: { documents: true },
@@ -73,38 +111,76 @@ export async function POST(
       return NextResponse.json({ error: 'Solicitud no encontrada.' }, { status: 404 });
     }
 
-    // 2. Subir nuevo archivo a Supabase
-    const savedFile = await uploadToSupabase(newFile, `verifications/dni/${certRequest.applicantDocNum}/replaced_${Date.now()}`);
+    // 1. LEER EL PDF EN MEMORIA (SIN SUBIR A SUPABASE AÚN)
+    const arrayBuffer = await newFile.arrayBuffer();
+    const fileBuffer = Buffer.from(arrayBuffer);
+    const base64Pdf = fileBuffer.toString('base64');
 
-    // 3. Re-ejecutar OCR con Gemini
     const ai = new GoogleGenAI({ apiKey });
-    const aiResponse = await processDniWithAi(ai, savedFile.buffer.toString('base64'));
-    const extractedData = JSON.parse(aiResponse.text || '{}');
+    const aiResponse = await processDniWithAi(ai, base64Pdf);
+
+    let extractedData: any = {};
+    try {
+      extractedData = JSON.parse(aiResponse.text || '{}');
+    } catch {
+      return NextResponse.json(
+        { error: 'El archivo adjunto no pudo ser procesado por la IA. Suba un documento PDF nítido.' },
+        { status: 400 }
+      );
+    }
+
     const detectedDni = (extractedData.cuiDni || '').replace(/\D/g, '');
 
-    // 4. Evaluar coincidencia del número de DNI
-    const validation = CertificateValidator.evaluateDniVerification({
-      inputDni: certRequest.applicantDocNum,
-      extractedDni: detectedDni,
-      fileSizeBytes: savedFile.buffer.length,
-      mimeType: newFile.type || 'application/pdf',
-    });
+    // 2. BLOQUEO 1: VERIFICAR CADUCIDAD
+    const expirationCheck = checkDniExpiration(extractedData.fechaCaducidad);
+    if (expirationCheck.isExpired) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: `El DNI subido se encuentra VENCIDO desde el ${expirationCheck.dateFormatted}. Adjunte un documento vigente.`,
+          code: 'DNI_EXPIRED',
+        },
+        { status: 400 }
+      );
+    }
 
-    // 5. Resolver Ubicación y Código Postal corregidos
+    // 3. BLOQUEO 2: VERIFICAR COINCIDENCIA CON EL DNI REGISTRADO EN EL EXPEDIENTE
+    const cleanRegisteredDni = certRequest.applicantDocNum.replace(/\D/g, '');
+
+    if (!detectedDni || detectedDni !== cleanRegisteredDni) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: `Inconsistencia: El DNI detectado en el nuevo documento (${detectedDni || 'No detectado'}) no coincide con el DNI registrado en este expediente (${cleanRegisteredDni}).`,
+          code: 'DNI_MISMATCH',
+        },
+        { status: 400 }
+      );
+    }
+
+    // 🎯 4. ELIMINAR EL ARCHIVO ANTERIOR DE SUPABASE Y SUBIR EL NUEVO
+    const targetDoc = certRequest.documents.find((d: any) => d.category === DocumentCategory.DNI_FRONT_BACK);
+
+    if (targetDoc && targetDoc.storagePath) {
+      await deleteFromSupabase(targetDoc.storagePath);
+    }
+
+    const timestamp = Date.now();
+    const cleanName = newFile.name.replace(/[^a-zA-Z0-9.-]/g, '_');
+    const newStoragePath = `verifications/dni/${certRequest.applicantDocNum}/${timestamp}_${cleanName}`;
+
+    const savedFile = await uploadToSupabase(newFile, newStoragePath);
+    const antiCacheUrl = `${savedFile.fileUrl}?v=${timestamp}`;
+
     const location = await LocationService.resolveLocationAndZip(
       extractedData.departamento || 'ICA',
       extractedData.provincia || 'ICA',
       extractedData.distrito || 'PARCONA'
     );
 
-    // 6. Actualizar el documento en la base de datos
-    const targetDoc = certRequest.documents.find(d => d.category === DocumentCategory.DNI_FRONT_BACK);
-
+    // 5. Actualizar la tabla Document y VerificationResult en Prisma
     if (targetDoc) {
-      // Usamos el cliente de Prisma adaptado para evitar conflictos de tipo si la relación se llama diferente
       const prismaClient = prisma as any;
-
-      // Actualizar la tabla de documentos (evaluando alias 'document' o 'certificateDocument')
       const docModel = prismaClient.document || prismaClient.certificateDocument;
 
       if (docModel) {
@@ -112,25 +188,26 @@ export async function POST(
           where: { id: targetDoc.id },
           data: {
             fileName: newFile.name,
-            fileUrl: savedFile.fileUrl,
+            fileUrl: antiCacheUrl,
             storagePath: savedFile.storagePath,
-            fileSizeBytes: savedFile.buffer.length,
+            fileSizeBytes: fileBuffer.length,
             mimeType: newFile.type || 'application/pdf',
           },
         });
       }
 
-      // Actualizar o Crear el resultado de verificación
       await prisma.verificationResult.upsert({
         where: { documentId: targetDoc.id },
         create: {
           documentId: targetDoc.id,
-          isMatch: validation.isMatch,
+          isMatch: true,
           inputDocumentNum: certRequest.applicantDocNum,
           detectedDocumentNum: detectedDni,
           extractedNames: extractedData.nombres,
           extractedSurname1: extractedData.primerApellido,
           extractedSurname2: extractedData.segundoApellido,
+          extractedBirthDate: extractedData.fechaNacimiento,
+          extractedExpiryDate: extractedData.fechaCaducidad,
           extractedDepartment: location.department,
           extractedProvince: location.province,
           extractedDistrict: location.district,
@@ -138,11 +215,13 @@ export async function POST(
           rawAiJsonResponse: extractedData,
         },
         update: {
-          isMatch: validation.isMatch,
+          isMatch: true,
           detectedDocumentNum: detectedDni,
           extractedNames: extractedData.nombres,
           extractedSurname1: extractedData.primerApellido,
           extractedSurname2: extractedData.segundoApellido,
+          extractedBirthDate: extractedData.fechaNacimiento,
+          extractedExpiryDate: extractedData.fechaCaducidad,
           extractedDepartment: location.department,
           extractedProvince: location.province,
           extractedDistrict: location.district,
@@ -153,15 +232,16 @@ export async function POST(
       });
     }
 
-    // 7. Actualizar la Solicitud Principal con los nuevos datos del Titular
+    // 6. Actualizar la Solicitud Principal
     const updatedRequest = await prisma.certificateRequest.update({
       where: { id: requestId },
       data: {
-        status: validation.status,
-        progress: validation.progress,
-        applicantNames: validation.isMatch ? extractedData.nombres : 'DOCUMENTO NO COINCIDE',
-        applicantSurname1: validation.isMatch ? extractedData.primerApellido : 'PENDIENTE DE REEMPLAZO',
-        applicantSurname2: validation.isMatch ? (extractedData.segundoApellido || '') : '',
+        status: RequestStatus.EN_REVISION,
+        progress: '1/1',
+        applicantDocNum: detectedDni,
+        applicantNames: extractedData.nombres || certRequest.applicantNames,
+        applicantSurname1: extractedData.primerApellido || certRequest.applicantSurname1,
+        applicantSurname2: extractedData.segundoApellido || certRequest.applicantSurname2,
         department: location.department,
         province: location.province,
         district: location.district,
@@ -175,7 +255,7 @@ export async function POST(
 
     return NextResponse.json({
       success: true,
-      message: 'Documento reemplazado y extraído correctamente.',
+      message: 'Documento reemplazado y verificado correctamente.',
       data: updatedRequest,
     });
 
