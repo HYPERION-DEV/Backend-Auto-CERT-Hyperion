@@ -21,7 +21,15 @@ interface AutomationPayload {
   fileVigenciaPath?: string;
 }
 
-export async function submitCamerfirmaForm(data: AutomationPayload) {
+// 🎯 Interfaz de retorno tipada con downloadCode
+export interface CamerfirmaAutomationResult {
+  success: boolean;
+  finalUrl: string;
+  verificationUrl: string;
+  downloadCode?: string;
+}
+
+export async function submitCamerfirmaForm(data: AutomationPayload): Promise<CamerfirmaAutomationResult> {
   const url = data.entityType === 'EMPRESA'
     ? 'https://secure.camerfirma.com/solicitudes_status/solicitud_1.php?codpro=1D1AGUUN&num_perfil=13080'
     : 'https://secure.camerfirma.com/solicitudes_status/solicitud_1.php?codpro=PXBEOYHS&num_perfil=13040';
@@ -104,8 +112,8 @@ export async function submitCamerfirmaForm(data: AutomationPayload) {
     // 🎯 7. Envío de Solicitud
     console.log('🚀 [Camerfirma Playwright] Enviando formulario...');
     await Promise.all([
-      page.waitForNavigation({ waitUntil: 'networkidle', timeout: 30000 }),
-      page.click('input[type="submit"], button:has-text("Enviar")'),
+      page.waitForNavigation({ waitUntil: 'networkidle', timeout: 35000 }),
+      page.click('a#btnEnviar, input[type="submit"], button:has-text("Enviar")'),
     ]);
 
     const finalUrl = page.url();
@@ -121,8 +129,40 @@ export async function submitCamerfirmaForm(data: AutomationPayload) {
     await page.goto(verificationUrl, { waitUntil: 'networkidle' });
     console.log('🎉 [Camerfirma Playwright] ¡Verificación completada con éxito!');
 
+    // 🎯 10. Extracción del Código de Descarga de la pantalla final de verificación
+    await page.waitForTimeout(1500);
+    const downloadCode = await page.evaluate(() => {
+      const cleanStr = (s: string) => (s || '').trim();
+
+      // Intento A: Campo de texto o input con el valor
+      const inputCode = document.querySelector('input[name*="codigo"], input[name*="cod_proyecto"], #cod_proyecto') as HTMLInputElement;
+      if (inputCode && inputCode.value) return cleanStr(inputCode.value);
+
+      // Intento B: Coincidencia de Expresión Regular en el texto del HTML
+      const bodyText = document.body.innerText || '';
+      const match = bodyText.match(/C[óo]digo(?:\s+de\s+[dD]escarga|\s+[pP]royecto)?\s*[:\=]?\s*([A-Z0-9]{5,15})/i);
+      if (match && match[1]) return cleanStr(match[1]);
+
+      // Intento C: Texto resaltado en <b> o <strong> dentro de la tabla principal
+      const boldElem = document.querySelector('td.contenido b, font[size]+b, table b, strong');
+      if (boldElem && boldElem.textContent) {
+        const val = cleanStr(boldElem.textContent);
+        if (val.length >= 5 && val.length <= 15) return val;
+      }
+
+      return '';
+    });
+
+    console.log(`🔑 [Camerfirma Playwright] Código de descarga capturado: ${downloadCode || 'No detectado'}`);
+
     await browser.close();
-    return { success: true, finalUrl, verificationUrl };
+
+    return { 
+      success: true, 
+      finalUrl, 
+      verificationUrl,
+      downloadCode: downloadCode || undefined 
+    };
 
   } catch (error: any) {
     await browser.close();

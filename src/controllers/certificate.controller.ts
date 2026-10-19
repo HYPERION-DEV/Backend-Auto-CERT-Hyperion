@@ -4,7 +4,8 @@ import { Request, Response } from 'express';
 import { PrismaClient, EntityType, DocumentCategory } from '@prisma/client';
 import path from 'path';
 import { submitCamerfirmaForm } from '../service/camerfirmaAutomation';
-
+import { EmailProcessorService } from '@/service/email-processor.service';
+import { sendDownloadCodeEmail, forwardCamerfirmaEmailToUser } from '../service/email.service';
 const prisma = new PrismaClient() as any;
 
 /**
@@ -169,13 +170,12 @@ export const handleSendToCamerfirma = async (req: Request, res: Response) => {
       return path.join(process.cwd(), 'public', fileUrl);
     };
 
-    // 🎯 Determinar el correo inyectado: Si se usa modo pruebas con Gmail, toma GMAIL_USER de .env
     const injectedEmail = certRequest.useTempEmail !== false
       ? (process.env.GMAIL_USER || certRequest.applicantEmail)
       : certRequest.applicantEmail;
 
-    // 3. Ejecutar la automatización de Playwright
-    const automationResult = await submitCamerfirmaForm({
+    // 1. Ejecutar el primer paso de automatización
+    const automationResult: any = await submitCamerfirmaForm({
       entityType: isEmpresa ? 'EMPRESA' : 'PERSONA_NATURAL',
       documentNumber: certRequest.applicantDocNum,
       firstNames: certRequest.applicantNames,
@@ -183,23 +183,28 @@ export const handleSendToCamerfirma = async (req: Request, res: Response) => {
       lastName2: certRequest.applicantSurname2,
       email: injectedEmail,
       phone: certRequest.applicantPhone,
-      
       companyRuc: certRequest.companyRuc || undefined,
       companyName: certRequest.companyName || undefined,
       cargo: 'REPRESENTANTE LEGAL',
-
       fileDniPath: getAbsolutePath(dniDoc?.fileUrl),
       fileRucPath: getAbsolutePath(rucDoc?.fileUrl),
       fileVigenciaPath: getAbsolutePath(vigenciaDoc?.fileUrl),
     });
+
+    // 🎯 2. Ejecutar la confirmación de la solicitud para llegar al paso final y enviar el código por correo
+   // 🎯 2. Ejecutar la confirmación de la solicitud
+    console.log(`📡 [Controller] Iniciando confirmación de solicitud para DNI: ${certRequest.applicantDocNum}...`);
+    const emailProcessorResult = await EmailProcessorService.processIncomingEmailsForDni(certRequest.applicantDocNum);
 
     const updatedRequest = await prisma.certificateRequest.update({
       where: { id: String(id) },
       data: { status: 'APROBADO' },
     });
 
+    // 🎯 REEMPLAZAR ÚNICAMENTE LA RESPUESTA JSON FINAL:
     return res.status(200).json({
-      message: 'Expediente enviado a Camerfirma y verificado con éxito',
+      message: 'Proceso completado. Si se obtuvo el código de Camerfirma, fue notificado al correo.',
+      camerfirmaCode: (emailProcessorResult as any)?.camerfirmaCode || null, // 👈 Casteo seguro para evitar error TS2339
       result: automationResult,
       data: updatedRequest,
     });

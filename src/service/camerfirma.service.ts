@@ -28,7 +28,7 @@ export const sendToCamerfirma = async (certificateData: any, fileUrl?: string) =
   const tempUserDataDir = fs.mkdtempSync(path.join(os.tmpdir(), 'camerfirma-session-'));
 
   const browser = await puppeteer.launch({
-    headless: false,
+    headless: true,
     slowMo: 50,
     userDataDir: tempUserDataDir,
     args: [
