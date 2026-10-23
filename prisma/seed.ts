@@ -1,68 +1,39 @@
-import { PrismaClient } from '@prisma/client';
-import * as fs from 'fs';
-import * as path from 'path';
+import { PrismaClient, Role, DocType } from '@prisma/client';
+import * as bcrypt from 'bcryptjs'; // O la librería de hash que utilices en tu proyecto
 
-const prisma = new PrismaClient() as any; // Bypass temporal de caché del cliente TS
+const prisma = new PrismaClient();
 
 async function main() {
-  console.log('🌱 Poblando la tabla de Ubigeos en PostgreSQL...');
+  console.log('🌱 Iniciando la siembra de la base de datos (seeding)...');
 
-  const filePath = path.join(__dirname, 'ubigeo.txt');
-  if (!fs.existsSync(filePath)) {
-    throw new Error(`No se encontró el archivo ubigeo.txt en: ${filePath}`);
-  }
+  // Encriptar la contraseña para el Administrador Principal
+  const passwordHash = await bcrypt.hash('TuPasswordSeguro123!', 10);
 
-  const content = fs.readFileSync(filePath, 'utf-8');
-  const lines = content.split('\n');
+  // Utilizar 'upsert' para crear el usuario si no existe, o mantenerlo si ya existe
+  const adminUser = await prisma.user.upsert({
+    where: { email: 'admin@hyperion.com.pe' },
+    update: {
+      role: Role.ADMIN,
+      isActive: true,
+    },
+    create: {
+      email: 'admin@hyperion.com.pe',
+      passwordHash: passwordHash,
+      fullName: 'Administrador Principal Hyperion',
+      docType: DocType.DNI,
+      docNumber: '00000000',
+      phone: '999999999',
+      role: Role.ADMIN,
+      isActive: true,
+    },
+  });
 
-  const records: Array<{
-    code: string;
-    district: string;
-    province: string;
-    department: string;
-    population: number | null;
-    surfaceArea: number | null;
-  }> = [];
-
-  for (const line of lines) {
-    const trimmed = line.trim();
-    if (!trimmed || trimmed.startsWith('Ubigeo')) continue;
-
-    const parts = trimmed.split('\t').map((p) => p.trim());
-    if (parts.length >= 4) {
-      const code = parts[0];
-      if (code && code.length === 6) {
-        records.push({
-          code,
-          district: parts[1],
-          province: parts[2],
-          department: parts[3],
-          population: parts[4] ? parseInt(parts[4], 10) || null : null,
-          surfaceArea: parts[5] ? parseFloat(parts[5]) || null : null,
-        });
-      }
-    }
-  }
-
-  console.log(`📦 Se encontraron ${records.length} registros. Insertando en lotes...`);
-
-  await prisma.ubigeo.deleteMany();
-
-  const chunkSize = 500;
-  for (let i = 0; i < records.length; i += chunkSize) {
-    const chunk = records.slice(i, i + chunkSize);
-    await prisma.ubigeo.createMany({
-      data: chunk,
-      skipDuplicates: true,
-    });
-  }
-
-  console.log('✅ ¡Ubigeos importados correctamente en la Base de Datos!');
+  console.log(`✅ Usuario Administrador registrado/verificado: ${adminUser.email}`);
 }
 
 main()
   .catch((e) => {
-    console.error('❌ Error durante la importación:', e);
+    console.error('💥 Error durante el seeding:', e);
     process.exit(1);
   })
   .finally(async () => {

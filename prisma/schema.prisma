@@ -68,17 +68,21 @@ model User {
 }
 
 model CertificateRequest {
-  id        String        @id @default(uuid())
-  code      String        @unique
-  userId    String
-  user      User          @relation(fields: [userId], references: [id])
-  entityType EntityType   @default(PERSONA_NATURAL)
-  planType  String        @default("ONE_SHOT")
-  status    RequestStatus @default(EN_REVISION)
-  progress  String        @default("0/1")
+  id           String        @id @default(uuid())
+  code         String        @unique
+  userId       String
+  user         User          @relation(fields: [userId], references: [id])
+  entityType   EntityType    @default(PERSONA_NATURAL)
+  planType     String        @default("ONE_SHOT")
+  status       RequestStatus @default(EN_REVISION)
+  progress     String        @default("0/1")
 
   // 🎯 AUTORIZACIÓN PARA ALIAS DE GESTIÓN Y AUTO-ACEPTACIÓN
-  useTempEmail Boolean    @default(true)
+  useTempEmail Boolean     @default(true)
+
+  // 🎯 BANDERA DE CONFIRMACIÓN Y CÓDIGO ENCRIPTADO
+  isConfirmed  Boolean     @default(false)
+  downloadCode String?     // 👈 Campo para almacenar el código de descarga encriptado
 
   identityStatus   IdentityStatus @default(PENDING)
   identityVerified Boolean        @default(false)
@@ -104,8 +108,6 @@ model CertificateRequest {
   rucType     String?
 
   documents RequestDocument[]
-
-  // 🎯 RELACIÓN CORRECTA CON LOS LOGS DE CORREOS TEMPORALES / CAMERFIRMA
   emailLogs CamerfirmaEmailLog[]
 
   createdAt DateTime @default(now())

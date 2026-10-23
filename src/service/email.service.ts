@@ -6,7 +6,7 @@ const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: process.env.GMAIL_USER,
-    pass: process.env.GMAIL_APP_PASSWORD, // Contraseña de aplicación de Google
+    pass: process.env.GMAIL_APP_PASSWORD,
   },
 });
 
@@ -38,14 +38,12 @@ export async function sendDownloadCodeEmail({
     from: `"Certificados Hyperion" <${process.env.GMAIL_USER}>`,
     to: to,
     subject: `Código de Descarga de Certificado Digital - ${certCode}`,
-    
     headers: {
       'List-Unsubscribe': `<${unsubscribeUrl}>, <mailto:${process.env.GMAIL_USER}?subject=Unsubscribe>`,
       'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
       'X-Entity-Ref-ID': certCode,
       'X-Auto-Response-Suppress': 'OOF, AutoReply',
     },
-    
     html: `
       <!DOCTYPE html>
       <html lang="es">
@@ -57,7 +55,7 @@ export async function sendDownloadCodeEmail({
         <div style="max-width: 580px; margin: 0 auto; background-color: #ffffff; border-radius: 16px; border: 1px solid #e2e8f0; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
           
           <div style="background-color: #00668c; padding: 24px; text-align: center;">
-            <h1 style="color: #ffffff; margin: 0; font-size: 20px; font-weight: 700; tracking-tight: -0.025em;">
+            <h1 style="color: #ffffff; margin: 0; font-size: 20px; font-weight: 700;">
               Hyperion Certificados Digitales
             </h1>
           </div>
@@ -74,7 +72,7 @@ export async function sendDownloadCodeEmail({
               <span style="font-size: 11px; font-weight: 700; color: #166534; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 8px;">
                 Su Código de Descarga / Acceso
               </span>
-              <div style="font-family: 'Courier New', Courier, monospace; font-size: 28px; font-weight: 800; color: #15803d; letter-spacing: 4px;">
+              <div style="font-family: 'Courier New', Courier, monospace; font-size: 24px; font-weight: 800; color: #15803d; letter-spacing: 2px; word-break: break-all;">
                 ${downloadCode}
               </div>
             </div>
@@ -105,12 +103,6 @@ export async function sendDownloadCodeEmail({
   return await transporter.sendMail(mailOptions);
 }
 
-
-/**
- * 🎯 REENVÍO DEL CORREO OFICIAL DE CAMERFIRMA AL CORREO PERSONAL DEL TITULAR (LIMPIO Y DIRECTO)
- */
-// En src/service/email.service.ts
-
 export async function forwardCamerfirmaEmailToUser({
   to,
   subject,
@@ -128,7 +120,6 @@ export async function forwardCamerfirmaEmailToUser({
       'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
       'X-Entity-Ref-ID': certificateId,
     },
-    // 🎯 Reenvío del HTML tal cual lo emite Camerfirma
     html: originalHtmlBody,
   };
 

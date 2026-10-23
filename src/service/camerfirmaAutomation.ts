@@ -1,5 +1,5 @@
 import { chromium } from 'playwright';
-import { obtenerLinkCamerfirma } from '../service/email-reader.service'; // Adjust the import path as needed
+import { EmailReaderService } from './email-reader.service'; // 👈 Se mantiene solo el servicio de clase
 
 interface AutomationPayload {
   entityType: 'PERSONA_NATURAL' | 'EMPRESA';
@@ -21,7 +21,6 @@ interface AutomationPayload {
   fileVigenciaPath?: string;
 }
 
-// 🎯 Interfaz de retorno tipada con downloadCode
 export interface CamerfirmaAutomationResult {
   success: boolean;
   finalUrl: string;
@@ -34,7 +33,6 @@ export async function submitCamerfirmaForm(data: AutomationPayload): Promise<Cam
     ? 'https://secure.camerfirma.com/solicitudes_status/solicitud_1.php?codpro=1D1AGUUN&num_perfil=13080'
     : 'https://secure.camerfirma.com/solicitudes_status/solicitud_1.php?codpro=PXBEOYHS&num_perfil=13040';
 
-  // 🎯 1. Usar el correo de Gmail configurado en tu .env para las pruebas
   const targetEmail = process.env.GMAIL_USER || data.email;
 
   const browser = await chromium.launch({ 
@@ -119,31 +117,33 @@ export async function submitCamerfirmaForm(data: AutomationPayload): Promise<Cam
     const finalUrl = page.url();
     console.log('✅ Formulario enviado con éxito a Camerfirma. URL de respuesta:', finalUrl);
 
-    // 🎯 8. Esperar enlace de verificación en la bandeja de Gmail
-    console.log('⏳ [IMAP Reader] Esperando correo de verificación de Camerfirma en Gmail...');
-    const verificationUrl = await obtenerLinkCamerfirma(60000); // Espera hasta 60s
-    console.log(`🔗 [IMAP Reader] ¡Enlace encontrado!: ${verificationUrl}`);
+    // 🎯 8. Obtener enlace de verificación directamente de Gmail sin polling de 60s
+    console.log('⏳ [Email Reader] Buscando correo de verificación de Camerfirma en Gmail...');
+    const { confirmUrl: verificationUrl } = await EmailReaderService.extractConfirmationUrl(data.documentNumber);
+
+    if (!verificationUrl) {
+      throw new Error('No se encontró el correo de confirmación de Camerfirma en Gmail.');
+    }
+
+    console.log(`🔗 [Email Reader] ¡Enlace encontrado!: ${verificationUrl}`);
 
     // 🎯 9. Abrir el enlace de verificación para completar la activación
     console.log('🚀 [Camerfirma Playwright] Navegando a la URL de verificación...');
     await page.goto(verificationUrl, { waitUntil: 'networkidle' });
     console.log('🎉 [Camerfirma Playwright] ¡Verificación completada con éxito!');
 
-    // 🎯 10. Extracción del Código de Descarga de la pantalla final de verificación
+    // 🎯 10. Extracción del Código de Descarga
     await page.waitForTimeout(1500);
     const downloadCode = await page.evaluate(() => {
       const cleanStr = (s: string) => (s || '').trim();
 
-      // Intento A: Campo de texto o input con el valor
       const inputCode = document.querySelector('input[name*="codigo"], input[name*="cod_proyecto"], #cod_proyecto') as HTMLInputElement;
       if (inputCode && inputCode.value) return cleanStr(inputCode.value);
 
-      // Intento B: Coincidencia de Expresión Regular en el texto del HTML
       const bodyText = document.body.innerText || '';
       const match = bodyText.match(/C[óo]digo(?:\s+de\s+[dD]escarga|\s+[pP]royecto)?\s*[:\=]?\s*([A-Z0-9]{5,15})/i);
       if (match && match[1]) return cleanStr(match[1]);
 
-      // Intento C: Texto resaltado en <b> o <strong> dentro de la tabla principal
       const boldElem = document.querySelector('td.contenido b, font[size]+b, table b, strong');
       if (boldElem && boldElem.textContent) {
         const val = cleanStr(boldElem.textContent);

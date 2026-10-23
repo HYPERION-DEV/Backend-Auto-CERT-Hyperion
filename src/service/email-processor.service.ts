@@ -1,7 +1,7 @@
 import imaps from 'imap-simple';
 import { PrismaClient } from '@prisma/client';
 import puppeteer, { Browser } from 'puppeteer';
-import { forwardCamerfirmaEmailToUser } from './email.service';
+import { sendDownloadCodeEmail } from './email.service';
 
 const prisma = new PrismaClient() as any;
 
@@ -14,53 +14,8 @@ function cleanQuotedPrintable(rawBody: string): string {
     .replace(/&amp;/g, '&');
 }
 
-/**
- * 🎯 Extrae únicamente la parte HTML/Texto limpia del correo,
- * descartando cabeceras de red (Delivered-To, ARC-Seal, etc.).
- */
-function extractCleanHtmlBody(parts: any[]): string {
-  let htmlBody = '';
-
-  for (const part of parts) {
-    if (part.which === 'TEXT' || part.which === '1' || part.which === '1.2' || !part.which) {
-      const bodyStr = typeof part.body === 'string' ? part.body : '';
-      if (bodyStr) {
-        htmlBody += bodyStr;
-      }
-    }
-  }
-
-  let clean = cleanQuotedPrintable(htmlBody);
-
-  // 🎯 1. Eliminar delimitadores de límite Multipart si existen
-  clean = clean.replace(/--==Multipart_Boundary_[^\r\n]+/gi, '');
-  clean = clean.replace(/Content-Type:[^\r\n]+/gi, '');
-  clean = clean.replace(/Content-Transfer-Encoding:[^\r\n]+/gi, '');
-
-  // 🎯 2. Extraer desde el primer tag HTML si hay cabeceras previas
-  if (clean.includes('Delivered-To:') || clean.includes('Received:')) {
-    const htmlStartMatch = clean.match(/(<html|<div|<p|Solicitud de Certificado|Estimado)/i);
-    if (htmlStartMatch && htmlStartMatch.index !== undefined) {
-      clean = clean.substring(htmlStartMatch.index);
-    }
-  }
-
-  // 🎯 3. Si el correo viene repetido por multipart, tomar solo el primer bloque HTML completo
-  const htmlEndIndex = clean.toLowerCase().lastIndexOf('</html>');
-  const firstHtmlIndex = clean.toLowerCase().indexOf('<html');
-
-  if (firstHtmlIndex !== -1 && htmlEndIndex !== -1 && htmlEndIndex > firstHtmlIndex) {
-    clean = clean.substring(firstHtmlIndex, htmlEndIndex + 7);
-  }
-
-  return clean.trim();
-}
-
 export class EmailProcessorService {
   static async processIncomingEmailsForDni(dni: string, existingPage?: any) {
-    const domain = process.env.INBOUND_EMAIL_DOMAIN || 'lectordnie.com';
-    const targetRecipient = `${dni}@${domain}`;
-
     const imapConfig = {
       imap: {
         user: process.env.GMAIL_USER || process.env.IMAP_USER || '',
@@ -69,7 +24,7 @@ export class EmailProcessorService {
         port: Number(process.env.IMAP_PORT) || 993,
         tls: true,
         tlsOptions: { rejectUnauthorized: false },
-        authTimeout: 10000,
+        authTimeout: 15000,
       },
     };
 
@@ -86,111 +41,66 @@ export class EmailProcessorService {
         return { error: 'Expediente no encontrado' };
       }
 
-      console.log(`📡 [Email Processor] Revisando bandeja para DNI ${dni}...`);
+      console.log(`📡 [Email Processor] Filtrando correos de Camerfirma en Gmail para DNI: ${dni}...`);
       connection = await imaps.connect(imapConfig);
       await connection.openBox('INBOX');
 
+      // 🎯 OPTIMIZACIÓN: Filtrado directo en servidor por remitente 'camerfirma.com' (< 500ms)
+      const searchCriteria = [['HEADER', 'FROM', 'camerfirma.com']];
       const fetchOptions = { bodies: ['HEADER', 'TEXT', ''], markSeen: true };
-      const messages = await connection.search(['ALL'], fetchOptions);
 
-      if (messages.length === 0) {
+      let messages = await connection.search(searchCriteria, fetchOptions);
+
+      // Si no encuentra por FROM, hace búsqueda de respaldo rápida en los últimos 5 correos recibidos
+      if (!messages || messages.length === 0) {
+        const allSearch = await connection.search(['ALL'], { bodies: ['HEADER'], markSeen: false });
+        if (allSearch && allSearch.length > 0) {
+          const recentUids = allSearch.slice(-5).map((m: any) => m.attributes.uid);
+          messages = await connection.search([['UID', recentUids.join(',')]], fetchOptions);
+        }
+      }
+
+      if (!messages || messages.length === 0) {
+        console.log(`ℹ️ [Email Processor] No se hallaron correos de Camerfirma en el buzón.`);
         connection.end();
         return { processed: 0 };
       }
 
-      let step1ConfirmUrl: string | null = null;
-      let validationEmailBody: string | null = null;
-      let validationSubject: string | null = null;
+      let confirmUrl: string | null = null;
+      let capturedBodyHtml: string = '';
 
+      // Iterar desde el mensaje más reciente hacia el más antiguo
       for (let i = messages.length - 1; i >= 0; i--) {
         const item = messages[i];
-        let subject = '';
+        let fullRawContent = '';
 
-        const headerPart = item.parts.find((p: any) => p.which === 'HEADER');
-        if (headerPart && headerPart.body && headerPart.body.subject) {
-          subject = headerPart.body.subject[0] || '';
-        }
-
-        // 🎯 1. Extraer ÚNICAMENTE el HTML/Texto limpio de la parte correspondiente
-        const cleanBody = extractCleanHtmlBody(item.parts);
-
-        // A. Detectar correo de Confirmación de Validación (Correo Final)
-        if (
-          subject.toLowerCase().includes('confirmación de validación') ||
-          cleanBody.includes('HA VALIDADO SU SOLICITUD DE PETICIÓN DE CERTIFICADO')
-        ) {
-          validationEmailBody = cleanBody;
-          validationSubject = subject;
-          break;
-        }
-
-        // B. Detectar enlace del Paso 1 (Solo si aún no se ha confirmado)
-        if (!step1ConfirmUrl && (cleanBody.includes(dni) || cleanBody.includes(targetRecipient))) {
-          const match = cleanBody.match(/https?:\/\/secure\.camerfirma\.com\/solicitudes_status\/paso_a_solicitud_1[^\s"'>]+/gi);
-          if (match && match.length > 0) {
-            step1ConfirmUrl = match[0];
+        for (const part of item.parts) {
+          if (part.body) {
+            fullRawContent += typeof part.body === 'string' ? part.body : JSON.stringify(part.body);
           }
         }
-      }
 
-      const personalEmail = certRequest.applicantEmail; // m.conde@hyperion.com.pe / o.martinez@hyperion.com.pe
+        const cleanBody = cleanQuotedPrintable(fullRawContent);
+        const directMatch = cleanBody.match(/https?:\/\/secure\.camerfirma\.com\/solicitudes_status\/paso_a_solicitud_[^\s"'>]+/gi);
 
-      // 🎯 SI YA LLEGÓ EL CORREO FINAL DE VALIDACIÓN: REENVIAR LIMPIO, GUARDAR LOG Y TERMINAR
-      // 🎯 DENTRO DE src/service/email-processor.service.ts
-
-      if (validationEmailBody && personalEmail) {
-        const emailLogModel = prisma.camerfirmaEmailLog || prisma.CamerfirmaEmailLog;
-
-        // 🎯 1. Verificar si este correo de validación ya fue guardado previamente
-        const existingLog = await emailLogModel.findFirst({
-          where: {
-            certificateRequestId: certRequest.id,
-            subject: validationSubject || 'Confirmación de Validación de Solicitud de Certificado Digital',
-          },
-        });
-
-        // 🎯 2. Si NO existe en la BD, lo reenviamos y creamos el registro por única vez
-        if (!existingLog) {
-          console.log(`✉️ [Email Processor] Reenviando correo oficial limpio a ${personalEmail}...`);
-
-          await forwardCamerfirmaEmailToUser({
-            to: personalEmail,
-            subject: validationSubject || 'Confirmación de Validación de Solicitud de Certificado Digital',
-            originalHtmlBody: validationEmailBody,
-            certificateId: certRequest.id,
-          });
-
-          await emailLogModel.create({
-            data: {
-              certificateRequestId: certRequest.id,
-              fromEmail: 'certificados@camerfirma.com',
-              toEmail: targetRecipient,
-              subject: validationSubject || 'Confirmación de Validación de Solicitud de Certificado Digital',
-              bodyHtml: validationEmailBody,
-              emailSequenceNumber: 1,
-              isFinalForwarded: true,
-            },
-          });
-
-          await certModel.updateMany({
-            where: { applicantDocNum: dni },
-            data: { status: 'APROBADO' },
-          });
-        } else {
-          console.log(`ℹ️ [Email Processor] El correo de validación ya se encuentra registrado.`);
+        if (directMatch && directMatch.length > 0) {
+          confirmUrl = directMatch[0];
+          capturedBodyHtml = cleanBody;
+          break; // Tomar el enlace más reciente
         }
-
-        connection.end();
-        return { processed: existingLog ? 0 : 1, type: 'FORWARDED_VALIDATION' };
       }
 
-      // 🎯 3. SI SÓLO LLEGÓ EL LINK DEL PASO 1 Y EL CERTIFICADO AÚN NO ESTÁ CONFIRMADO: AUTOMATIZAR MARCA "SI"
-      if (step1ConfirmUrl && certRequest.status !== 'APROBADO') {
-        const cleanUrl = cleanQuotedPrintable(step1ConfirmUrl)
+      connection.end();
+
+      // =========================================================================
+      // NAVEGACIÓN Y AUTO-ACEPTACIÓN CON PUPPETEER
+      // =========================================================================
+      if (confirmUrl) {
+        confirmUrl = cleanQuotedPrintable(confirmUrl)
           .replace(/&amp;/g, '&')
           .replace(/[>"\s]+$/, '');
 
-        console.log(`🔗 [Paso 1 Automatizado] Procesando enlace interno: ${cleanUrl}`);
+        console.log(`🔗 [Email Processor] Enlace capturado exitosamente: ${confirmUrl}`);
 
         let page = existingPage;
         let browser: Browser | null = null;
@@ -204,10 +114,10 @@ export class EmailProcessorService {
           page = await browser.newPage();
         }
 
-        await page.goto(cleanUrl, { waitUntil: 'networkidle2' });
-        await new Promise((r) => setTimeout(r, 1500));
+        await page.goto(confirmUrl, { waitUntil: 'networkidle2' });
+        await new Promise((r) => setTimeout(r, 1000));
 
-        // Marcar "SI"
+        // 1. Marcar casilla "SI"
         await page.evaluate(() => {
           const inputs = Array.from(document.querySelectorAll('input')) as HTMLInputElement[];
           const siOpt = inputs.find((i) => i.value.toUpperCase() === 'SI' || i.type === 'checkbox' || i.type === 'radio');
@@ -220,8 +130,10 @@ export class EmailProcessorService {
 
         await new Promise((r) => setTimeout(r, 1000));
 
+        // 2. Ejecutar enviar()
+        console.log('🚀 [Email Processor] Confirmando solicitud en la web de Camerfirma...');
         await Promise.all([
-          page.waitForNavigation({ waitUntil: 'networkidle2', timeout: 35000 }).catch(() => { }),
+          page.waitForNavigation({ waitUntil: 'networkidle2', timeout: 35000 }).catch(() => {}),
           page.evaluate(() => {
             if (typeof (window as any).enviar === 'function') {
               (window as any).enviar();
@@ -232,15 +144,67 @@ export class EmailProcessorService {
           }),
         ]);
 
-        console.log('🎉 [Paso 1 Automatizado] Confirmación de enlace completada.');
+        await new Promise((r) => setTimeout(r, 2000));
+
+        // 3. Extraer Código de Proyecto
+        const camerfirmaCode = await page.evaluate(() => {
+          const cleanStr = (s: string) => (s || '').trim();
+
+          const projectInput = document.querySelector('input[name*="codpro"], input[name*="codigo"], input[name*="cod_proyecto"]') as HTMLInputElement;
+          if (projectInput && projectInput.value) return cleanStr(projectInput.value);
+
+          const fullText = document.body.innerText || '';
+          const match = fullText.match(/(?:C[óo]digo(?:\s+de)?\s*(?:Proyecto|Descarga|Acceso))\s*[:\=]?\s*([A-Z0-9]{5,15})/i);
+          if (match && match[1]) return cleanStr(match[1]);
+
+          return null;
+        });
+
+        console.log(`🔑 [Camerfirma Extractor] Código real obtenido: ${camerfirmaCode || 'NO ENCONTRADO'}`);
 
         if (browser) await browser.close();
 
-        connection.end();
-        return { processed: 1, type: 'STEP_1_CONFIRMED' };
+        // 4. Guardar Log en PostgreSQL
+        const emailLogModel = prisma.camerfirmaEmailLog || prisma.CamerfirmaEmailLog;
+        await emailLogModel.create({
+          data: {
+            certificateRequestId: certRequest.id,
+            fromEmail: 'certificados@camerfirma.com',
+            toEmail: `${dni}@lectordnie.com`,
+            subject: 'Confirmación de Solicitud de Certificado Digital',
+            bodyHtml: capturedBodyHtml || `<p>Enlace procesado: <a href="${confirmUrl}">${confirmUrl}</a></p>`,
+            emailSequenceNumber: 1,
+            isFinalForwarded: false,
+          },
+        });
+
+        // 5. Actualizar estado a APROBADO
+        await certModel.updateMany({
+          where: { applicantDocNum: dni },
+          data: { status: 'APROBADO' },
+        });
+
+        // 6. Enviar Correo al Usuario
+        const personalEmail = certRequest.applicantEmail;
+        if (camerfirmaCode && personalEmail) {
+          try {
+            await sendDownloadCodeEmail({
+              to: personalEmail,
+              applicantName: `${certRequest.applicantNames || ''} ${certRequest.applicantSurname1 || ''}`.trim(),
+              downloadCode: camerfirmaCode,
+              certCode: certRequest.code,
+              certificateId: certRequest.id,
+            });
+            console.log(`✉️ [Éxito] Código (${camerfirmaCode}) reenviado a ${personalEmail}`);
+          } catch (mailError) {
+            console.error(`❌ Error al enviar correo a ${personalEmail}:`, mailError);
+          }
+        }
+
+        return { processed: 1, camerfirmaCode };
       }
 
-      connection.end();
+      console.log(`ℹ️ [Email Processor] No se hallaron enlaces pendientes de confirmación en el correo.`);
       return { processed: 0 };
     } catch (error: any) {
       console.error('✕ [Email Processor Error]:', error.message || error);
